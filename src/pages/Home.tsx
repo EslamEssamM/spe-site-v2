@@ -5,12 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import HeroSection from "@/components/sections/Hero";
 import { HighBoardSectionComponent } from "@/components/sections/HighBoard";
 import { Navbar } from "@/components/Navbar";
+import { EventsSectionWithParticles } from "@/components/sections/Events";
+import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
 
 const sections = [
   { id: "awards", title: "Awards" },
-  { id: "highboard", title: "Highboard Team" },
-  { id: "events", title: "Events" },
-  { id: "magazines", title: "Magazines" },
+  // { id: "highboard", title: "Highboard Team" },
+  // { id: "events", title: "Events" },
+  // { id: "magazines", title: "Magazines" },
 ];
 
 export default function HomePage() {
@@ -52,6 +54,14 @@ export default function HomePage() {
           className="py-16 bg-gradient-to-b from-[#0d4b93] to-[#0d3b73]"
         >
           <HighBoardSectionComponent />
+        </section>
+
+        <section id="events" className="py-16 md:py-24">
+          <EventsSectionWithParticles />
+        </section>
+
+        <section id="magazines" className="py-16 md:py-24">
+          <EnhancedMagazinesSectionComponent />
         </section>
 
         {sections.map((section) => (

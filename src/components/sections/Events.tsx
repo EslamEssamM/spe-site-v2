@@ -1,0 +1,224 @@
+"use client";
+
+import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/Button";
+import { ChevronRight, Calendar, Users, MapPin } from "lucide-react";
+import Particles from "react-particles";
+import { loadFull } from "tsparticles";
+import type { Engine } from "tsparticles-engine";
+
+const events = [
+  {
+    name: "SPEak",
+    description:
+      "Annual technical conference featuring industry experts and innovative presentations.",
+    date: "October 15-17, 2025",
+    attendees: "500+",
+    location: "Suez University Campus",
+    color: "from-purple-600 to-indigo-600",
+    icon: "🎙️",
+  },
+  {
+    name: "PACE",
+    description:
+      "Petroleum Advanced Computer Experiments - Hands-on workshop on cutting-edge simulation tools.",
+    date: "November 5-7, 2025",
+    attendees: "200",
+    location: "Virtual Event",
+    color: "from-blue-600 to-cyan-600",
+    icon: "💻",
+  },
+  {
+    name: "SBSS",
+    description:
+      "Suez Branch Student Summit - Networking event connecting students with industry professionals.",
+    date: "December 1-2, 2025",
+    attendees: "300+",
+    location: "Suez Convention Center",
+    color: "from-green-600 to-teal-600",
+    icon: "🤝",
+  },
+  {
+    name: "E4ME",
+    description:
+      "Energy for Middle East - Regional conference on sustainable energy solutions.",
+    date: "January 20-22, 2026",
+    attendees: "1000+",
+    location: "Cairo International Convention Center",
+    color: "from-red-600 to-orange-600",
+    icon: "⚡",
+  },
+];
+export function EventsSectionWithParticles() {
+  const [activeEvent, setActiveEvent] = useState(events[0]);
+
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadFull(engine as any);
+  }, []);
+
+  return (
+    <section
+      id="events"
+      className="py-16 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden"
+    >
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={{
+          background: {
+            color: {
+              value: "transparent",
+            },
+          },
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              onHover: {
+                enable: true,
+                mode: "repulse",
+              },
+              resize: true,
+            },
+            modes: {
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: "#ffffff",
+            },
+            links: {
+              color: "#ffffff",
+              distance: 150,
+              enable: true,
+              opacity: 0.5,
+              width: 1,
+            },
+            collisions: {
+              enable: true,
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: {
+                default: "bounce",
+              },
+              random: false,
+              speed: 1,
+              straight: false,
+            },
+            number: {
+              density: {
+                enable: true,
+                area: 800,
+              },
+              value: 80,
+            },
+            opacity: {
+              value: 0.5,
+            },
+            shape: {
+              type: "circle",
+            },
+            size: {
+              value: { min: 1, max: 5 },
+            },
+          },
+          detectRetina: true,
+        }}
+      />
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
+          Our Flagship Events
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            {events.map((event, index) => (
+              <motion.div
+                key={event.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Button
+                  variant={
+                    activeEvent.name === event.name ? "default" : "outline"
+                  }
+                  className={`w-full justify-start text-left h-auto py-4 px-6 ${
+                    activeEvent.name === event.name
+                      ? "bg-gradient-to-r " + event.color
+                      : ""
+                  }`}
+                  onClick={() => setActiveEvent(event)}
+                >
+                  <span className="text-2xl mr-4">{event.icon}</span>
+                  <span className="flex-grow">{event.name}</span>
+                  <ChevronRight
+                    className={`ml-2 transition-transform ${
+                      activeEvent.name === event.name ? "rotate-90" : ""
+                    }`}
+                  />
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeEvent.name}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card
+                className={`bg-gradient-to-br ${activeEvent.color} text-white overflow-hidden`}
+              >
+                <CardContent className="p-6">
+                  <h3 className="text-3xl font-bold mb-4">
+                    {activeEvent.name}
+                  </h3>
+                  <p className="text-lg mb-6">{activeEvent.description}</p>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center">
+                      <Calendar className="mr-2" />
+                      <span>{activeEvent.date}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Users className="mr-2" />
+                      <span>{activeEvent.attendees} Attendees</span>
+                    </div>
+                    <div className="flex items-center col-span-2">
+                      <MapPin className="mr-2" />
+                      <span>{activeEvent.location}</span>
+                    </div>
+                  </div>
+                  <motion.div
+                    className="mt-6"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button className="w-full bg-white text-gray-900 hover:bg-gray-100">
+                      Learn More
+                    </Button>
+                  </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
+}
