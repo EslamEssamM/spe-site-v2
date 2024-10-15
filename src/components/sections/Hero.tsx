@@ -1,27 +1,41 @@
-import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-// import { Link } from "@tanstack/react-router";
+import { TypeAnimation } from "react-type-animation";
+import { useInView } from "react-intersection-observer";
 
-export default function HeroSection() {
+const texts = [
+  "Empowering the future of petroleum engineering",
+  "Connecting students with industry professionals",
+  "Fostering innovation in energy solutions",
+  "Building leaders for tomorrow's challenges",
+];
+
+export default function BestHeroSection() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 250]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const texts = [
-    "Empowering the future of petroleum engineering",
-    "Connecting students with industry professionals",
-    "Fostering innovation in energy solutions",
-    "Building leaders for tomorrow's challenges",
-  ];
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const springConfig = { stiffness: 100, damping: 5 };
+  const mouseXSpring = useSpring(mousePosition.x, springConfig);
+  const mouseYSpring = useSpring(mousePosition.y, springConfig);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    const handleMouseMove = (event: MouseEvent) => {
+      setMousePosition({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   const handleExploreClick = () => {
@@ -32,59 +46,85 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
       <motion.div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage:
-            "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Icon%20on%20Google%20-s5tnPd4skdogQMfbH1DM1EmRNmxCDH.png')",
+          backgroundImage: "url('/events/activities.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           y,
           opacity,
         }}
       />
-      <div className="absolute inset-0 bg-[#0d4b93] bg-opacity-70 z-10" />
-      <div className="relative z-20 text-white text-center px-4">
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-indigo-900/70 to-purple-900/60 z-10" />
+
+      {/* Animated particles */}
+      {[...Array(20)].map((_, index) => (
+        <motion.div
+          key={index}
+          className="absolute w-2 h-2 bg-white rounded-full"
+          style={{
+            x: mouseXSpring,
+            y: mouseYSpring,
+            opacity: 0.2,
+          }}
+          initial={{
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+          }}
+          // @ts-ignore
+          animate={{
+            x: mouseXSpring,
+            y: mouseYSpring,
+            transition: {
+              delay: index * 0.05,
+              type: "spring",
+              stiffness: 50,
+              damping: 10,
+            },
+          }}
+        />
+      ))}
+
+      <div className="relative z-20 text-white text-center px-4 max-w-4xl">
         <motion.h1
-          className="text-5xl md:text-7xl font-bold mb-4"
+          className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           SPE Suez Chapter
         </motion.h1>
+        <div className="h-24 md:h-28 mb-8">
+          <TypeAnimation
+            sequence={[
+              texts[0],
+              2000,
+              texts[1],
+              2000,
+              texts[2],
+              2000,
+              texts[3],
+              2000,
+            ]}
+            wrapper="p"
+            cursor={true}
+            repeat={Infinity}
+            className="text-2xl md:text-3xl font-light"
+          />
+        </div>
         <motion.div
-          className="h-16 md:h-20 overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {texts.map((text, index) => (
-            <motion.p
-              key={index}
-              className="text-xl md:text-2xl mb-8"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{
-                y: currentTextIndex === index ? 0 : 50,
-                opacity: currentTextIndex === index ? 1 : 0,
-              }}
-              transition={{ duration: 0.5 }}
-            >
-              {text}
-            </motion.p>
-          ))}
-        </motion.div>
-        <motion.div
-          className="mt-8"
+          ref={ref}
+          className="mt-12"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <Button
             variant="outline"
             size="lg"
-            className="bg-white text-[#0d4b93] hover:bg-[#0d4b93] hover:text-white transition-colors duration-300"
+            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg px-8 py-4 rounded-full"
             onClick={handleExploreClick}
           >
             Explore Our Chapter
@@ -102,9 +142,9 @@ export default function HeroSection() {
           repeatType: "reverse",
         }}
       >
-        <ChevronDown className="text-white" size={32} />
+        <ChevronDown className="text-white" size={40} />
       </motion.div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-30" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-900 to-transparent z-30" />
     </section>
   );
 }

@@ -5,21 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import HeroSection from "@/components/sections/Hero";
 import { HighBoardSectionComponent } from "@/components/sections/HighBoard";
 import { Navbar } from "@/components/Navbar";
-import { EventsSectionWithParticles } from "@/components/sections/Events";
+import EventsSectionWithParticles from "@/components/sections/Events";
 import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
-
+import Awards from "@/components/sections/Awards";
 const sections = [
   { id: "awards", title: "Awards" },
-  // { id: "highboard", title: "Highboard Team" },
-  // { id: "events", title: "Events" },
-  // { id: "magazines", title: "Magazines" },
+  { id: "highboard", title: "Highboard Team" },
+  { id: "events", title: "Events" },
+  { id: "magazines", title: "Magazines" },
 ];
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen  bg-gradient-to-br from-gray-900 to-gray-800">
       <Navbar />
 
       <AnimatePresence>
@@ -48,35 +48,41 @@ export default function HomePage() {
       </AnimatePresence>
 
       <main>
-        <HeroSection />
+        <section id="home">
+          <HeroSection />
+        </section>
+
+        <section id="awards" className="py-12 md:py-16">
+          <Awards />
+        </section>
         <section
           id="highboard"
-          className="py-16 bg-gradient-to-b from-[#0d4b93] to-[#0d3b73]"
+          className="py-12 md:py-16 bg-gradient-to-b from-[#0d4b93] to-[#0d3b73]"
         >
           <HighBoardSectionComponent />
         </section>
 
-        <section id="events" className="py-16 md:py-24">
+        <section id="events" className="py-12 md:py-16">
           <EventsSectionWithParticles />
         </section>
 
-        <section id="magazines" className="py-16 md:py-24">
+        <section id="magazines" className="py-12 md:py-16">
           <EnhancedMagazinesSectionComponent />
         </section>
 
-        {sections.map((section) => (
+        {/* {sections.map((section) => (
           <section key={section.id} id={section.id} className="py-16 md:py-24">
             <div className="container mx-auto px-4">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[#0d4b93]">
                 {section.title}
               </h2>
               {/* Content for each section will be added here */}
-              <p className="text-center text-gray-600">
+        {/* <p className="text-center text-gray-600">
                 Content for {section.title} section coming soon...
               </p>
             </div>
-          </section>
-        ))}
+          </section> */}
+        {/* ))} */}
       </main>
 
       <footer className="bg-[#0d4b93] text-white py-8">

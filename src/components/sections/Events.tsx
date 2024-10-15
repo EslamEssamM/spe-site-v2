@@ -1,11 +1,15 @@
-"use client";
-
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/Button";
-import { ChevronRight, Calendar, Users, MapPin } from "lucide-react";
-import Particles from "react-particles";
+import {
+  ChevronRight,
+  Calendar,
+  Users,
+  MapPin,
+  ExternalLink,
+} from "lucide-react";
+import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
 
@@ -19,6 +23,8 @@ const events = [
     location: "Suez University Campus",
     color: "from-purple-600 to-indigo-600",
     icon: "🎙️",
+    logo: "public/events/SPEak-logo.jpg",
+    pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
   },
   {
     name: "PACE",
@@ -29,6 +35,8 @@ const events = [
     location: "Virtual Event",
     color: "from-blue-600 to-cyan-600",
     icon: "💻",
+    logo: "/events/PACE-logo.png",
+    pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
   },
   {
     name: "SBSS",
@@ -39,6 +47,8 @@ const events = [
     location: "Suez Convention Center",
     color: "from-green-600 to-teal-600",
     icon: "🤝",
+    logo: "public/events/SBS-logo.jpg",
+    pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
   },
   {
     name: "E4ME",
@@ -49,9 +59,12 @@ const events = [
     location: "Cairo International Convention Center",
     color: "from-red-600 to-orange-600",
     icon: "⚡",
+    logo: "public/events/PICS-logo.jpg",
+    pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
   },
 ];
-export function EventsSectionWithParticles() {
+
+export default function EnhancedEventsSection() {
   const [activeEvent, setActiveEvent] = useState(events[0]);
 
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -61,12 +74,13 @@ export function EventsSectionWithParticles() {
   return (
     <section
       id="events"
-      className="py-16 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden"
+      className=" bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden"
     >
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
+          fullScreen: { enable: false },
           background: {
             color: {
               value: "transparent",
@@ -138,18 +152,24 @@ export function EventsSectionWithParticles() {
           },
           detectRetina: true,
         }}
+        className="absolute inset-0"
       />
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center text-white">
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold mb-12 text-center text-white"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           Our Flagship Events
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-8">
           <div className="space-y-4">
             {events.map((event, index) => (
               <motion.div
                 key={event.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <Button
@@ -163,7 +183,11 @@ export function EventsSectionWithParticles() {
                   }`}
                   onClick={() => setActiveEvent(event)}
                 >
-                  <span className="text-2xl mr-4">{event.icon}</span>
+                  <img
+                    src={event.logo}
+                    alt={`${event.name} logo`}
+                    className="w-8 h-8 mr-4"
+                  />
                   <span className="flex-grow">{event.name}</span>
                   <ChevronRight
                     className={`ml-2 transition-transform ${
@@ -177,20 +201,26 @@ export function EventsSectionWithParticles() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeEvent.name}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.3 }}
+              className="md:col-span-2"
             >
               <Card
                 className={`bg-gradient-to-br ${activeEvent.color} text-white overflow-hidden`}
               >
                 <CardContent className="p-6">
-                  <h3 className="text-3xl font-bold mb-4">
-                    {activeEvent.name}
-                  </h3>
+                  <div className="flex items-center mb-4">
+                    <img
+                      src={activeEvent.logo}
+                      alt={`${activeEvent.name} logo`}
+                      className="w-16 h-16 mr-4"
+                    />
+                    <h3 className="text-3xl font-bold">{activeEvent.name}</h3>
+                  </div>
                   <p className="text-lg mb-6">{activeEvent.description}</p>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center">
                       <Calendar className="mr-2" />
                       <span>{activeEvent.date}</span>
@@ -204,13 +234,34 @@ export function EventsSectionWithParticles() {
                       <span>{activeEvent.location}</span>
                     </div>
                   </div>
+                  <h4 className="text-xl font-semibold mb-4">
+                    Past Event Highlights
+                  </h4>
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    {activeEvent.pastImages.map((image, index) => (
+                      <motion.img
+                        key={index}
+                        src={image}
+                        alt={`${activeEvent.name} past event ${index + 1}`}
+                        className="w-full h-32 object-cover rounded-lg"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      />
+                    ))}
+                  </div>
                   <motion.div
-                    className="mt-6"
+                    className="flex justify-between"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button className="w-full bg-white text-gray-900 hover:bg-gray-100">
-                      Learn More
+                    <Button className="bg-white text-gray-900 hover:bg-gray-100">
+                      Register Now
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="text-white border-white hover:bg-white hover:text-gray-900"
+                    >
+                      Learn More <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
                   </motion.div>
                 </CardContent>

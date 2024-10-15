@@ -21,29 +21,29 @@ const magazines = [
   {
     title: "Petroleum Insights",
     issue: "Vol. 1, Issue 1",
-    cover: "/placeholder.svg?height=400&width=300",
+    cover: "/magazines/criterion.png",
     description: "Exploring the latest trends in oil and gas exploration.",
     color: "from-blue-500 to-purple-600",
   },
   {
     title: "Energy Frontiers",
     issue: "Vol. 2, Issue 3",
-    cover: "/placeholder.svg?height=400&width=300",
+    cover: "/magazines/ECHO.jpg",
     description: "Innovations in renewable energy and sustainable practices.",
     color: "from-green-500 to-teal-600",
   },
   {
     title: "Tech Horizons",
     issue: "Vol. 3, Issue 2",
-    cover: "/placeholder.svg?height=400&width=300",
+    cover: "/magazines/criterion.png",
     description: "Cutting-edge technologies shaping the future of energy.",
     color: "from-red-500 to-pink-600",
   },
   {
-    title: "Global Energy Review",
-    issue: "Vol. 4, Issue 1",
-    cover: "/placeholder.svg?height=400&width=300",
-    description: "Analyzing worldwide energy policies and market trends.",
+    title: "ECHO",
+    issue: "ECHO Vol. 4",
+    cover: "/magazines/ECHO.jpg",
+    description: "ECHO Analyzing worldwide energy policies and market trends.",
     color: "from-yellow-500 to-orange-600",
   },
 ];
@@ -76,7 +76,7 @@ export default function PerfectedMagazinesSectionWithParticles() {
   return (
     <section
       id="magazines"
-      className="py-24 bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden relative"
+      className="bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden relative"
     >
       <Particles
         id="tsparticles"

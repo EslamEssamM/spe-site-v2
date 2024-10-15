@@ -4,12 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { Button } from "@/components/ui/Button";
 import { Switch } from "@/components/ui/switch";
-import {
-  ChevronLeft,
-  ChevronRight,
-  Linkedin,
-  Facebook,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Linkedin, Facebook } from "lucide-react";
 
 const boardMembers = [
   {
@@ -86,7 +81,7 @@ export function HighBoardSectionComponent() {
   return (
     <section
       id="highboard"
-      className="py-16 bg-gradient-to-br from-[#1a237e] via-[#0d47a1] to-[#01579b]"
+      className="bg-gradient-to-br from-[#1a237e] via-[#0d47a1] to-[#01579b]"
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
