@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { ChevronDown } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "react-intersection-observer";
