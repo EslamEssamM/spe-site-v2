@@ -64,7 +64,7 @@ const teamMembers = [
   },
 ];
 
-const MemberCard = ({ member, index, isActive, onClick, position }: any) => {
+const MemberCard = ({ member, isActive, onClick, position }: any) => {
   return (
     <motion.div
       className="absolute cursor-pointer"
