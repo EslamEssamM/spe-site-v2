@@ -74,7 +74,7 @@ export default function EnhancedEventsSection() {
   return (
     <section
       id="events"
-      className=" bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden"
     >
       <Particles
         id="tsparticles"

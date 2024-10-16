@@ -76,7 +76,7 @@ export default function PerfectedMagazinesSectionWithParticles() {
   return (
     <section
       id="magazines"
-      className="bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden relative"
+      className="py-12 md:py-16  bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden relative"
     >
       <Particles
         id="tsparticles"

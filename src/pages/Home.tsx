@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HeroSection from "@/components/sections/Hero";
-import { HighBoardSectionComponent } from "@/components/sections/HighBoard";
+import HighBoardSectionComponent from "@/components/sections/HighBoard";
 import { Navbar } from "@/components/Navbar";
 import EventsSectionWithParticles from "@/components/sections/Events";
 import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
@@ -52,21 +52,18 @@ export default function HomePage() {
           <HeroSection />
         </section>
 
-        <section id="awards" className="py-12 md:py-16">
+        <section id="awards" className="">
           <Awards />
         </section>
-        <section
-          id="highboard"
-          className="py-12 md:py-16 bg-gradient-to-b from-[#0d4b93] to-[#0d3b73]"
-        >
+        <section id="highboard" className="">
           <HighBoardSectionComponent />
         </section>
 
-        <section id="events" className="py-12 md:py-16">
+        <section id="events" className="">
           <EventsSectionWithParticles />
         </section>
 
-        <section id="magazines" className="py-12 md:py-16">
+        <section id="magazines" className="">
           <EnhancedMagazinesSectionComponent />
         </section>
 
