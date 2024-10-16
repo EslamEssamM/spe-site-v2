@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   motion,
   useTransform,
@@ -49,11 +49,6 @@ const TestimonialTooltip = ({
 
     return () => window.removeEventListener("resize", handleResize);
   }, [content, active]);
-
-  const handleMouseMove = (event: any) => {
-    const halfWidth = event.target.offsetWidth / 2;
-    x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
-  };
 
   return (
     <div className="flex flex-row items-center justify-center mb-10 w-full">
