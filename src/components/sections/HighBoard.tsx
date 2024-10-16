@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { Card, CardContent } from "@/components/ui/card";
+import Tooltip from "@/components/ui/Tooltip";
 
 const teamMembers = [
   {
@@ -80,6 +81,7 @@ const MemberCard = ({ member, isActive, onClick, position }: any) => {
       transition={{ duration: 0.3 }}
       onClick={onClick}
     >
+      <Tooltip content={`${member.name}`} active={isActive} />
       <Card
         className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br ${isActive ? "from-blue-600 to-purple-600" : "from-gray-700 to-gray-800"} text-white overflow-hidden rounded-2xl`}
       >
@@ -136,7 +138,7 @@ export default function OptimizedHighboardSection() {
       if (!container) return;
 
       const { width, height } = container.getBoundingClientRect();
-      const centerX = 43;
+      const centerX = 40;
       const centerY = 50;
       let radius =
         ((Math.min(width, height) * 0.45) / Math.max(width, height)) * 100;
