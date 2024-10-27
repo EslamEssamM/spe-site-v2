@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import Tooltip from "@/components/ui/Tooltip";
+import Tooltip from "@/components/ui/tooltip";
 
 const teamMembers = [
   {
