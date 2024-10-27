@@ -8,60 +8,59 @@ const teamMembers = [
   {
     name: "Hossam Essam",
     role: "President",
-    image: "/team/Eslam.jpg",
+    image: "/team/Hossam Essam.png",
   },
   {
     name: "Ahmed Saad",
     role: "Vice President",
-    image: "/team/Eslam.jpg",
+    image: "/team/Ahmed Saad.png",
   },
 
   {
     name: "Amani Abdelbari",
     role: "Operation",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/team/Amani Abdelbari.png",
   },
   {
     name: "Ahmed Alkley",
     role: "Marketing",
-    image: "/team/Eslam.jpg",
+    image: "/team/Ahmed Alkley.png",
   },
-
   {
     name: "Mohammed Maher",
     role: "Secretary",
-    image: "/team/Eslam.jpg",
+    image: "/team/Mohammed Maher.png",
   },
   {
     name: "Saeed Mohammed",
     role: "HR",
-    image: "/team/Eslam.jpg",
+    image: "/team/Saeed Mohammed.png",
   },
   {
     name: "Mohammed Fawzy",
     role: "Treasurer",
-    image: "/team/Eslam.jpg",
+    image: "/team/Mohammed Fawzy.png",
   },
   {
     name: "Fatma Mohammed",
     role: "Development",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/team/Fatma Mohammed.png",
   },
   {
     name: "Moaz Aleraky",
     role: "Technical",
-    image: "/team/Eslam.jpg",
+    image: "/team/Moaz Aleraky.png",
   },
 
   {
     name: "Mahmoud Mohamed",
     role: "Vice Technical",
-    image: "/team/Eslam.jpg",
+    image: "/team/Mahmoud Mohamed.png",
   },
   {
     name: "Eslam Essam",
     role: "IT",
-    image: "/team/Eslam.jpg",
+    image: "/team/Eslam Essam.png",
   },
 ];
 

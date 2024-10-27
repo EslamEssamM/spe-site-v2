@@ -15,27 +15,14 @@ import {
 } from "lucide-react";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
+import { magazines, Magazine } from "@/data/magazines"; // Import magazines data
 
 // Properly initialize PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
 
-const magazines = [
-  {
-    id: 1,
-    title: "Petro Insights",
-    year: 2023,
-    cover: "/placeholder.svg?height=400&width=300",
-    pdfUrl: "/pdfs/Criterion1.pdf",
-    description:
-      "Exploring cutting-edge technologies in petroleum engineering.",
-    editor: "Dr. Jane Smith",
-    pageCount: 32,
-  },
-];
-
 export default function MagazineReader() {
-  const { id } = useParams({ from: "/magazines/$id" });
-  const [magazine, setMagazine] = useState<any>(null);
+  const { id } = useParams({ from: "/magazine/$id" });
+  const [magazine, setMagazine] = useState<Magazine | null>(null);
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [pdfError, setPdfError] = useState<string | null>(null);
@@ -235,7 +222,7 @@ export default function MagazineReader() {
           )}
 
           <div className="text-center mt-8">
-            <Link to="/">
+            <Link to="/magazines">
               <Button
                 variant="outline"
                 className="flex items-center w-full md:w-auto"

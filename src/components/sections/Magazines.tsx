@@ -10,43 +10,13 @@ import { Button } from "@/components/ui/Button";
 import {
   ChevronLeft,
   ChevronRight,
-  Download,
   ExternalLink,
 } from "lucide-react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
-
-const magazines = [
-  {
-    title: "Petroleum Insights",
-    issue: "Vol. 1, Issue 1",
-    cover: "/magazines/criterion.png",
-    description: "Exploring the latest trends in oil and gas exploration.",
-    color: "from-blue-500 to-purple-600",
-  },
-  {
-    title: "Energy Frontiers",
-    issue: "Vol. 2, Issue 3",
-    cover: "/magazines/ECHO.jpg",
-    description: "Innovations in renewable energy and sustainable practices.",
-    color: "from-green-500 to-teal-600",
-  },
-  {
-    title: "Tech Horizons",
-    issue: "Vol. 3, Issue 2",
-    cover: "/magazines/criterion.png",
-    description: "Cutting-edge technologies shaping the future of energy.",
-    color: "from-red-500 to-pink-600",
-  },
-  {
-    title: "ECHO",
-    issue: "ECHO Vol. 4",
-    cover: "/magazines/ECHO.jpg",
-    description: "ECHO Analyzing worldwide energy policies and market trends.",
-    color: "from-yellow-500 to-orange-600",
-  },
-];
+import { Link } from "@tanstack/react-router";
+import { magazines } from "@/data/magazines"; // Import the magazines data
 
 export default function PerfectedMagazinesSectionWithParticles() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -171,7 +141,7 @@ export default function PerfectedMagazinesSectionWithParticles() {
         >
           Our Publications
         </motion.h2>
-        <div className="relative h-[600px] md:h-[500px]">
+        <div className="relative h-[800px] md:h-[500px]">
           <AnimatePresence initial={false}>
             {magazines.map((magazine, index) => (
               <motion.div
@@ -196,12 +166,12 @@ export default function PerfectedMagazinesSectionWithParticles() {
                 <Card
                   className={`bg-gradient-to-br ${magazine.color} text-white overflow-hidden shadow-2xl`}
                 >
-                  <CardContent className="p-8 md:p-12 flex flex-col md:flex-row items-center">
+                  <CardContent className="p-8 md:p-12 flex flex-col md:flex-row  items-center">
                     <div className="w-full md:w-1/2 mb-8 md:mb-0 md:mr-8">
                       <img
                         src={magazine.cover}
                         alt={magazine.title}
-                        className="w-full h-auto rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+                        className="w-full md:w-2/3 h-max-content rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
                       />
                     </div>
                     <div className="w-full md:w-1/2">
@@ -213,12 +183,12 @@ export default function PerfectedMagazinesSectionWithParticles() {
                       </p>
                       <p className="text-lg mb-8">{magazine.description}</p>
                       <div className="flex space-x-4">
-                        <Button variant="secondary" className="flex-1">
-                          <Download className="mr-2 h-4 w-4" /> Download PDF
-                        </Button>
-                        <Button variant="outline" className="flex-1">
-                          <ExternalLink className="mr-2 h-4 w-4" /> Read Online
-                        </Button>
+                        <Link to={`/magazine/${magazine.id}`}>
+                          <Button variant="outline" className="flex-1">
+                            <ExternalLink className="mr-2 h-4 w-4" /> Read
+                            Online
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </CardContent>
@@ -256,6 +226,23 @@ export default function PerfectedMagazinesSectionWithParticles() {
             />
           ))}
         </div>{" "}
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <Link to="/magazines">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white hover:bg-white hover:text-gray-900"
+            >
+              <span className="mr-2">Explore Magazine Archive</span>
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
