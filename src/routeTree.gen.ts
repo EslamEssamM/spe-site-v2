@@ -16,6 +16,7 @@ import { Route as ReportImport } from './routes/report'
 import { Route as DetectionImport } from './routes/detection'
 import { Route as CarsImport } from './routes/cars'
 import { Route as IndexImport } from './routes/index'
+import { Route as MagazinesIdImport } from './routes/magazines.$id'
 
 // Create/Update Routes
 
@@ -41,6 +42,11 @@ const CarsRoute = CarsImport.update({
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MagazinesIdRoute = MagazinesIdImport.update({
+  path: '/magazines/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -83,6 +89,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WarrantyImport
       parentRoute: typeof rootRoute
     }
+    '/magazines/$id': {
+      id: '/magazines/$id'
+      path: '/magazines/$id'
+      fullPath: '/magazines/$id'
+      preLoaderRoute: typeof MagazinesIdImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -94,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/detection': typeof DetectionRoute
   '/report': typeof ReportRoute
   '/warranty': typeof WarrantyRoute
+  '/magazines/$id': typeof MagazinesIdRoute
 }
 
 export interface FileRoutesByTo {
@@ -102,6 +116,7 @@ export interface FileRoutesByTo {
   '/detection': typeof DetectionRoute
   '/report': typeof ReportRoute
   '/warranty': typeof WarrantyRoute
+  '/magazines/$id': typeof MagazinesIdRoute
 }
 
 export interface FileRoutesById {
@@ -111,14 +126,28 @@ export interface FileRoutesById {
   '/detection': typeof DetectionRoute
   '/report': typeof ReportRoute
   '/warranty': typeof WarrantyRoute
+  '/magazines/$id': typeof MagazinesIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cars' | '/detection' | '/report' | '/warranty'
+  fullPaths:
+    | '/'
+    | '/cars'
+    | '/detection'
+    | '/report'
+    | '/warranty'
+    | '/magazines/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cars' | '/detection' | '/report' | '/warranty'
-  id: '__root__' | '/' | '/cars' | '/detection' | '/report' | '/warranty'
+  to: '/' | '/cars' | '/detection' | '/report' | '/warranty' | '/magazines/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/cars'
+    | '/detection'
+    | '/report'
+    | '/warranty'
+    | '/magazines/$id'
   fileRoutesById: FileRoutesById
 }
 
@@ -128,6 +157,7 @@ export interface RootRouteChildren {
   DetectionRoute: typeof DetectionRoute
   ReportRoute: typeof ReportRoute
   WarrantyRoute: typeof WarrantyRoute
+  MagazinesIdRoute: typeof MagazinesIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -136,6 +166,7 @@ const rootRouteChildren: RootRouteChildren = {
   DetectionRoute: DetectionRoute,
   ReportRoute: ReportRoute,
   WarrantyRoute: WarrantyRoute,
+  MagazinesIdRoute: MagazinesIdRoute,
 }
 
 export const routeTree = rootRoute
@@ -154,7 +185,8 @@ export const routeTree = rootRoute
         "/cars",
         "/detection",
         "/report",
-        "/warranty"
+        "/warranty",
+        "/magazines/$id"
       ]
     },
     "/": {
@@ -171,6 +203,9 @@ export const routeTree = rootRoute
     },
     "/warranty": {
       "filePath": "warranty.tsx"
+    },
+    "/magazines/$id": {
+      "filePath": "magazines.$id.tsx"
     }
   }
 }

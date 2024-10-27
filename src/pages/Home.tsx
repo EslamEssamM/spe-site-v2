@@ -8,8 +8,13 @@ import { Navbar } from "@/components/Navbar";
 import EventsSectionWithParticles from "@/components/sections/Events";
 import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
 import Awards from "@/components/sections/Awards";
+import { NewsSectionComponent } from "@/components/sections/News";
 const sections = [
   { id: "awards", title: "Awards" },
+  {
+    id: "news",
+    title: "News",
+  },
   { id: "highboard", title: "Highboard Team" },
   { id: "events", title: "Events" },
   { id: "magazines", title: "Magazines" },
@@ -52,6 +57,9 @@ export default function HomePage() {
           <HeroSection />
         </section>
 
+        <section id="news" className="">
+          <NewsSectionComponent />
+        </section>
         <section id="awards" className="">
           <Awards />
         </section>
