@@ -68,3 +68,8 @@
     @apply bg-background text-foreground;
   }
 }
+.react-pdf__Page__canvas {
+  max-width: 100%; /* Makes the canvas take up full width of its container */
+  max-height: max-content; /* Maintains aspect ratio */
+  margin: 0 auto; /* Center align on small screens */
+}

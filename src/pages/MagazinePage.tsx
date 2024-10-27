@@ -20,13 +20,14 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 
 // Properly initialize PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
+
 const magazines = [
   {
     id: 1,
     title: "Petro Insights",
     year: 2023,
     cover: "/placeholder.svg?height=400&width=300",
-    pdfUrl: "/pdfs/Criterion1.pdf",
+    pdfUrl: "static-files.brandsecrets.net/magazines/Criterion1.pdf",
     description:
       "Exploring cutting-edge technologies in petroleum engineering.",
     editor: "Dr. Jane Smith",
@@ -107,14 +108,16 @@ export default function MagazineReader() {
           transition={{ duration: 0.5 }}
         >
           {magazine && (
-            <Card className="bg-gray-800 text-white mb-8">
+            <Card className="bg-gray-800 text-white mb-8 p-4 md:p-6 lg:p-8">
               <CardHeader>
-                <div className="flex justify-between items-start">
+                <div className="flex flex-col md:flex-row justify-between items-start">
                   <div>
-                    <CardTitle className="text-3xl font-bold mb-2">
+                    <CardTitle className="text-2xl md:text-3xl font-bold mb-2">
                       {magazine.title}
                     </CardTitle>
-                    <p className="text-xl text-gray-400">{magazine.year}</p>
+                    <p className="text-lg md:text-xl text-gray-400">
+                      {magazine.year}
+                    </p>
                   </div>
                   <Badge variant="secondary" className="bg-blue-600 text-white">
                     {magazine.pageCount} pages
@@ -130,7 +133,33 @@ export default function MagazineReader() {
             </Card>
           )}
 
-          <Card className="bg-white mb-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 mb-4">
+            <Button
+              onClick={() => setPageNumber((page) => Math.max(page - 1, 1))}
+              disabled={pageNumber <= 1}
+              variant="outline"
+              className="w-full md:w-auto"
+            >
+              <ChevronLeft className="w-4 h-4 mr-2" />
+              Previous
+            </Button>
+            <span className="text-white">
+              Page {pageNumber} of {numPages}
+            </span>
+            <Button
+              onClick={() =>
+                setPageNumber((page) => Math.min(page + 1, numPages || 1))
+              }
+              disabled={pageNumber >= (numPages || 1)}
+              variant="outline"
+              className="w-full md:w-auto"
+            >
+              Next
+              <ChevronRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+
+          <Card className="bg-white mb-8 w-full max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
             <CardContent className="p-4">
               {loading ? (
                 <div className="flex items-center justify-center h-64">
@@ -163,7 +192,7 @@ export default function MagazineReader() {
                   <Page
                     pageNumber={pageNumber}
                     renderTextLayer={false}
-                    className="max-w-full shadow-lg"
+                    className="max-w-full shadow-lg  !w-full !min-w-0 !min-h-0"
                     scale={scale}
                   />
                 </Document>
@@ -172,66 +201,47 @@ export default function MagazineReader() {
           </Card>
 
           {!pdfError && !loading && magazine && (
-            <>
-              <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
-                <Button
-                  onClick={() => setPageNumber((page) => Math.max(page - 1, 1))}
-                  disabled={pageNumber <= 1}
-                  variant="outline"
-                >
-                  <ChevronLeft className="w-4 h-4 mr-2" />
-                  Previous
-                </Button>
-                <span className="text-white">
-                  Page {pageNumber} of {numPages}
-                </span>
-                <Button
-                  onClick={() =>
-                    setPageNumber((page) => Math.min(page + 1, numPages || 1))
-                  }
-                  disabled={pageNumber >= (numPages || 1)}
-                  variant="outline"
-                >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-
-              <Card className="bg-gray-800 text-white mb-8">
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <ZoomOut className="w-4 h-4 mr-2" />
-                      <Slider
-                        value={[scale]}
-                        min={0.5}
-                        max={2}
-                        step={0.1}
-                        onValueChange={(value) => setScale(value[0])}
-                        className="w-40"
-                      />
-                      <ZoomIn className="w-4 h-4 ml-2" />
-                    </div>
-                    <a
-                      href={magazine.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      download
-                    >
-                      <Button variant="outline" className="flex items-center">
-                        <Download className="w-4 h-4 mr-2" />
-                        Download PDF
-                      </Button>
-                    </a>
+            <Card className="bg-gray-800 text-white mb-8 p-4">
+              <CardContent className="p-4">
+                <div className="flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
+                  <div className="flex items-center">
+                    <ZoomOut className="w-4 h-4 mr-2" />
+                    <Slider
+                      value={[scale]}
+                      min={0.5}
+                      max={2}
+                      step={0.1}
+                      onValueChange={(value) => setScale(value[0])}
+                      className="w-40"
+                    />
+                    <ZoomIn className="w-4 h-4 ml-2" />
                   </div>
-                </CardContent>
-              </Card>
-            </>
+                  <a
+                    href={magazine.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className="w-full md:w-auto"
+                  >
+                    <Button
+                      variant="outline"
+                      className="flex items-center w-full md:w-auto"
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Download PDF
+                    </Button>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           )}
 
-          <div className="text-center">
+          <div className="text-center mt-8">
             <Link to="/">
-              <Button variant="outline" className="flex items-center">
+              <Button
+                variant="outline"
+                className="flex items-center w-full md:w-auto"
+              >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Magazines
               </Button>
