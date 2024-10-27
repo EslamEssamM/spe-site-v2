@@ -5,15 +5,13 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Slider } from "@/components/ui/slider";
 import {
   ChevronLeft,
   ChevronRight,
-  ZoomIn,
-  ZoomOut,
   Download,
   ArrowLeft,
   AlertCircle,
+  ExternalLink,
 } from "lucide-react";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -27,7 +25,7 @@ const magazines = [
     title: "Petro Insights",
     year: 2023,
     cover: "/placeholder.svg?height=400&width=300",
-    pdfUrl: "static-files.brandsecrets.net/magazines/Criterion1.pdf",
+    pdfUrl: "/pdfs/Criterion1.pdf",
     description:
       "Exploring cutting-edge technologies in petroleum engineering.",
     editor: "Dr. Jane Smith",
@@ -40,7 +38,6 @@ export default function MagazineReader() {
   const [magazine, setMagazine] = useState<any>(null);
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const [scale, setScale] = useState(1.5);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [pdfData, setPdfData] = useState<any | null>(null);
@@ -192,8 +189,7 @@ export default function MagazineReader() {
                   <Page
                     pageNumber={pageNumber}
                     renderTextLayer={false}
-                    className="max-w-full shadow-lg  !w-full !min-w-0 !min-h-0"
-                    scale={scale}
+                    className="max-w-full shadow-lg !w-full !min-w-0 !min-h-0"
                   />
                 </Document>
               )}
@@ -204,18 +200,20 @@ export default function MagazineReader() {
             <Card className="bg-gray-800 text-white mb-8 p-4">
               <CardContent className="p-4">
                 <div className="flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
-                  <div className="flex items-center">
-                    <ZoomOut className="w-4 h-4 mr-2" />
-                    <Slider
-                      value={[scale]}
-                      min={0.5}
-                      max={2}
-                      step={0.1}
-                      onValueChange={(value) => setScale(value[0])}
-                      className="w-40"
-                    />
-                    <ZoomIn className="w-4 h-4 ml-2" />
-                  </div>
+                  <a
+                    href={magazine.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full md:w-auto"
+                  >
+                    <Button
+                      variant="outline"
+                      className="flex items-center w-full md:w-auto"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Read in Browser
+                    </Button>
+                  </a>
                   <a
                     href={magazine.pdfUrl}
                     target="_blank"
