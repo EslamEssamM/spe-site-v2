@@ -31,7 +31,7 @@ const newsItems = [
     date: "3-15 Feb 2023",
     image: dataSpeaksImage,
     description:
-      "The PetroAnalyst Competition in the SPE Suez Student Chapter provides students with the unique opportunity to work on real-world oil and gas data, developing essential skills in the industry. Participants engage in tasks such as exploratory data analysis, data cleaning, visualization, and advanced modeling.",
+      "The Data Speaks Competition in the SPE Suez Student Chapter focused on analyzing survey data about remote working trends in Australia, with participants working exclusively in Excel. Competitors were tasked with exploring, cleaning, and visualizing the data to uncover key insights into remote work dynamics. This Excel-based analysis challenge allowed students to apply their data handling and analytical skills, emphasizing practical experience with survey data and remote work trends.",
     tags: ["Data Analysis", "Oil & Gas", "Competition"],
     moreDetails:
       "Data SPEaks is an event that brings together students and professionals to discuss the latest trends and technologies in data analysis within the oil and gas industry. Attendees will have the opportunity to network, attend workshops, and learn from industry leaders.",

@@ -1,0 +1,27 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Handle requests for API (PHP Backend)
+# Assumes API routes start with "/api/"
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/(.*)$ /path/to/your/php/backend/api/$1 [L,QSA]
+
+# Redirect all non-file and non-directory requests to React app's index.html
+# This will allow React Router to handle front-end routes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Optional: Handle CORS (for API requests)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+# Optional: PHP Configuration
+# Custom PHP settings can be added here

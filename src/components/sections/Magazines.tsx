@@ -7,16 +7,12 @@ import {
 } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/Button";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { Link } from "@tanstack/react-router";
-import { magazines } from "@/data/magazines"; // Import the magazines data
+import { topMagazines as magazines } from "@/data/magazines"; // Import the magazines data
 
 export default function PerfectedMagazinesSectionWithParticles() {
   const [currentIndex, setCurrentIndex] = useState(0);

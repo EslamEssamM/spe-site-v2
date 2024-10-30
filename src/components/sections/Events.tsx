@@ -15,21 +15,9 @@ import type { Engine } from "tsparticles-engine";
 
 const events = [
   {
-    name: "SPEak",
+    name: "Petroleum Arabian Conference and Exhibition",
     description:
-      "Annual technical conference featuring industry experts and innovative presentations.",
-    date: "October 15-17, 2025",
-    attendees: "500+",
-    location: "Suez University Campus",
-    color: "from-purple-600 to-indigo-600",
-    icon: "🎙️",
-    logo: "public/events/SPEak-logo.jpg",
-    pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
-  },
-  {
-    name: "PACE",
-    description:
-      "Petroleum Advanced Computer Experiments - Hands-on workshop on cutting-edge simulation tools.",
+      "Petroleum Arabian Conference and Exhibition - Hands-on workshop on cutting-edge simulation tools.",
     date: "November 5-7, 2025",
     attendees: "200",
     location: "Virtual Event",
@@ -39,19 +27,19 @@ const events = [
     pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
   },
   {
-    name: "SBSS",
+    name: "SSPS - SPE Suez Petroleum Summit",
     description:
-      "Suez Branch Student Summit - Networking event connecting students with industry professionals.",
+      "SPE Suez Petroleum Summit - A premier event bringing together industry leaders, professionals, and students to discuss the latest advancements in petroleum engineering.",
     date: "December 1-2, 2025",
     attendees: "300+",
     location: "Suez Convention Center",
     color: "from-green-600 to-teal-600",
     icon: "🤝",
-    logo: "public/events/SBS-logo.jpg",
+    logo: "/events/SBS-logo.jpg",
     pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
   },
   {
-    name: "E4ME",
+    name: "Energy for ME",
     description:
       "Energy for Middle East - Regional conference on sustainable energy solutions.",
     date: "January 20-22, 2026",
@@ -59,7 +47,7 @@ const events = [
     location: "Cairo International Convention Center",
     color: "from-red-600 to-orange-600",
     icon: "⚡",
-    logo: "public/events/PICS-logo.jpg",
+    logo: "/events/PICS-logo.jpg",
     pastImages: ["/events/pace.png", "/events/pace.png", "/events/pace.png"],
   },
 ];

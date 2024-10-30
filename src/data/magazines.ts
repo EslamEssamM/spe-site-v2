@@ -54,32 +54,6 @@ export const magazines: Magazine[] = [
     pageCount: 36,
     color: "from-purple-500 to-pink-600",
   },
-  {
-    id: 4,
-    title: "Criterion - New Issue",
-    year: 2023,
-    issue: "Special Issue",
-    cover: "/pdfs/Criterion/covers/Criterion-New.png",
-    pdfUrl: "/pdfs/Criterion/Criterion-New.pdf",
-    description:
-      "A special issue dedicated to sustainable practices in petroleum engineering, with insights into renewable integration and carbon management.",
-    editor: "SPE Team",
-    pageCount: 42,
-    color: "from-yellow-500 to-orange-600",
-  },
-  {
-    id: 5,
-    title: "Criterion - Issue 4",
-    year: 2023,
-    issue: "Vol. 1, Issue 4",
-    cover: "/pdfs/Criterion/covers/Criterion4.png",
-    pdfUrl: "/pdfs/Criterion/Criterion4.pdf",
-    description:
-      "Explores the economic and geopolitical landscape impacting oil and gas, providing an in-depth analysis of market trends.",
-    editor: "SPE Team",
-    pageCount: 38,
-    color: "from-red-500 to-purple-600",
-  },
 
   // Echo Series
   {
@@ -225,19 +199,19 @@ export const magazines: Magazine[] = [
     pageCount: 37,
     color: "from-teal-500 to-green-700",
   },
-  {
-    id: 17,
-    title: "Echo - Issue 12",
-    year: 2023,
-    issue: "Vol. 3, Issue 4",
-    cover: "/pdfs/Echo/covers/ECHO12.png",
-    pdfUrl: "/pdfs/Echo/ECHO12.pdf",
-    description:
-      "Insights on advanced geophysical methods and their role in improving accuracy and efficiency in resource exploration.",
-    editor: "SPE Team",
-    pageCount: 39,
-    color: "from-orange-500 to-yellow-600",
-  },
+  // {
+  //   id: 17,
+  //   title: "Echo - Issue 12",
+  //   year: 2023,
+  //   issue: "Vol. 3, Issue 4",
+  //   cover: "/pdfs/Echo/covers/ECHO12.png",
+  //   pdfUrl: "/pdfs/Echo/ECHO12.pdf",
+  //   description:
+  //     "Insights on advanced geophysical methods and their role in improving accuracy and efficiency in resource exploration.",
+  //   editor: "SPE Team",
+  //   pageCount: 39,
+  //   color: "from-orange-500 to-yellow-600",
+  // },
   {
     id: 18,
     title: "Echo - Issue 13",
@@ -264,4 +238,33 @@ export const magazines: Magazine[] = [
     pageCount: 43,
     color: "from-blue-600 to-purple-700",
   },
+  {
+    id: 4,
+    title: "Criterion - New Issue",
+    year: 2023,
+    issue: "Special Issue",
+    cover: "/pdfs/Criterion/covers/Criterion-New.png",
+    pdfUrl: "/pdfs/Criterion/Criterion-New.pdf",
+    description:
+      "A special issue dedicated to sustainable practices in petroleum engineering, with insights into renewable integration and carbon management.",
+    editor: "SPE Team",
+    pageCount: 42,
+    color: "from-yellow-500 to-orange-600",
+  },
+  {
+    id: 5,
+    title: "Criterion - Issue 4",
+    year: 2023,
+    issue: "Vol. 1, Issue 4",
+    cover: "/pdfs/Criterion/covers/Criterion4.png",
+    pdfUrl: "/pdfs/Criterion/Criterion4.pdf",
+    description:
+      "Explores the economic and geopolitical landscape impacting oil and gas, providing an in-depth analysis of market trends.",
+    editor: "SPE Team",
+    pageCount: 38,
+    color: "from-red-500 to-purple-600",
+  },
 ];
+
+// top magazins (5) from end of the array
+export const topMagazines = magazines.slice(-5);

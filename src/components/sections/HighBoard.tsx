@@ -1,41 +1,27 @@
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
-import { Card, CardContent } from "@/components/ui/card";
-import Tooltip from "@/components/ui/Tooltip";
+import React, { useState } from "react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
-const teamMembers = [
-  {
-    name: "Hossam Essam",
-    role: "President",
-    image: "/team/Hossam Essam.png",
-  },
-  {
-    name: "Ahmed Saad",
-    role: "Vice President",
-    image: "/team/Ahmed Saad.png",
-  },
+interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+}
 
+const teamMembers: TeamMember[] = [
+  { name: "Hossam Essam", role: "President", image: "/team/Hossam Essam.png" },
+  { name: "Ahmed Saad", role: "Vice President", image: "/team/Ahmed Saad.png" },
   {
     name: "Amani Abdelbari",
     role: "Operation",
     image: "/team/Amani Abdelbari.png",
   },
-  {
-    name: "Ahmed Alkley",
-    role: "Marketing",
-    image: "/team/Ahmed Alkley.png",
-  },
+  { name: "Ahmed Alkley", role: "Marketing", image: "/team/Ahmed Alkley.png" },
   {
     name: "Mohammed Maher",
     role: "Secretary",
     image: "/team/Mohammed Maher.png",
   },
-  {
-    name: "Saeed Mohammed",
-    role: "HR",
-    image: "/team/Saeed Mohammed.png",
-  },
+  { name: "Saeed Mohammed", role: "HR", image: "/team/Saeed Mohammed.png" },
   {
     name: "Mohammed Fawzy",
     role: "Treasurer",
@@ -46,154 +32,141 @@ const teamMembers = [
     role: "Development",
     image: "/team/Fatma Mohammed.png",
   },
-  {
-    name: "Moaz Aleraky",
-    role: "Technical",
-    image: "/team/Moaz Aleraky.png",
-  },
-
+  { name: "Moaz Aleraky", role: "Technical", image: "/team/Moaz Aleraky.png" },
   {
     name: "Mahmoud Mohamed",
     role: "Vice Technical",
     image: "/team/Mahmoud Mohamed.png",
   },
-  {
-    name: "Eslam Essam",
-    role: "IT",
-    image: "/team/Eslam Essam.png",
-  },
+  { name: "Eslam Essam", role: "IT", image: "/team/Eslam Essam.png" },
 ];
 
-const MemberCard = ({ member, isActive, onClick, position }: any) => {
-  return (
-    <motion.div
-      className="absolute cursor-pointer"
-      style={{
-        left: `${position.x}%`,
-        top: `${position.y}%`,
-        transform: "translate(-50%, -50%)",
-      }}
-      animate={{
-        scale: isActive ? 1.1 : 1,
-        zIndex: isActive ? 10 : 1,
-      }}
-      transition={{ duration: 0.3 }}
-      onClick={onClick}
-    >
-      <Tooltip content={`${member.name}`} active={isActive} />
-      <Card
-        className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 bg-gradient-to-br ${isActive ? "from-blue-600 to-purple-600" : "from-gray-700 to-gray-800"} text-white overflow-hidden rounded-2xl`}
-      >
-        <CardContent className="p-1 flex flex-col items-center justify-center h-full">
-          <Avatar className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 border-2 border-white">
-            <AvatarImage src={member.image} alt={member.name} />
-            <AvatarFallback>
-              {member.name
-                .split(" ")
-                .map((n: any) => n[0])
-                .join("")}
-            </AvatarFallback>
-          </Avatar>
-          <h3 className="text-[8px] sm:text-[10px] md:text-xs font-semibold text-center leading-tight mt-1 truncate w-full">
-            {member.name}
-          </h3>
-          <p className="text-[6px] sm:text-[8px] md:text-[10px] text-center opacity-80 truncate w-full">
-            {member.role}
-          </p>
-        </CardContent>
-      </Card>
-    </motion.div>
-  );
+const cardVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.3,
+      ease: "easeInOut",
+    },
+  }),
 };
 
-const GlowingLine = ({ start, end, isActive }: any) => {
+const MemberCard: React.FC<{
+  member: TeamMember;
+  isActive: boolean;
+  onClick: () => void;
+  index: number;
+}> = ({ member, isActive, onClick, index }) => (
+  <motion.div
+    variants={cardVariants}
+    initial="hidden"
+    animate="visible"
+    custom={index}
+    whileHover={{ scale: 1.05, boxShadow: "0 8px 16px rgba(0,0,0,0.2)" }}
+    whileTap={{ scale: 0.95 }}
+    onClick={onClick}
+    className={`bg-gradient-to-br ${
+      isActive ? "from-purple-600 to-blue-600" : "from-gray-800 to-gray-900"
+    } rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 ease-in-out transform`}
+  >
+    <div className="p-6 flex flex-col items-center ">
+      <div className="w-32 h-32  overflow-hidden mb-2 mt-0   shadow-inner">
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <h3 className="text-xl font-bold text-white text-center mb-2">
+        {member.name}
+      </h3>
+      <p className="text-sm text-gray-300 text-center">{member.role}</p>
+    </div>
+  </motion.div>
+);
+
+const DetailView: React.FC<{ member: TeamMember }> = ({ member }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.9 }}
+    transition={{ duration: 0.3 }}
+    className="bg-white rounded-2xl p-8 shadow-2xl max-w-md mx-auto"
+  >
+    <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6 border-4 border-purple-500 shadow-lg">
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <h2 className="text-3xl font-bold text-gray-800 text-center mb-3">
+      {member.name}
+    </h2>
+    <p className="text-xl text-purple-600 text-center mb-6">{member.role}</p>
+    <p className="text-gray-700 text-center leading-relaxed">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+  </motion.div>
+);
+
+const EnhancedHighboard: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
-    <motion.div
-      className="absolute h-px bg-gradient-to-r from-blue-500 to-purple-500"
-      style={{
-        left: `${start.x}%`,
-        top: `${start.y}%`,
-        width: `${Math.sqrt(Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2))}%`,
-        transform: `rotate(${Math.atan2(end.y - start.y, end.x - start.x)}rad)`,
-        transformOrigin: "left center",
-      }}
-      animate={{
-        opacity: isActive ? 0.8 : 0.2,
-        height: isActive ? "2px" : "1px",
-      }}
-      transition={{ duration: 0.5 }}
-    />
-  );
-};
-
-export default function OptimizedHighboardSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const containerRef = useRef(null);
-  const [positions, setPositions] = useState([]);
-
-  useEffect(() => {
-    const calculatePositions = () => {
-      const container = containerRef.current as any;
-      if (!container) return;
-
-      const { width, height } = container.getBoundingClientRect();
-      const centerX = 40;
-      const centerY = 50;
-      let radius =
-        ((Math.min(width, height) * 0.45) / Math.max(width, height)) * 100;
-      if (width < 400) {
-        radius += 10;
-      }
-
-      const newPositions = teamMembers.map((_, index) => {
-        const angle = (index / teamMembers.length) * Math.PI * 2 - Math.PI / 2;
-        return {
-          x: centerX + radius * Math.cos(angle),
-          y: centerY + radius * Math.sin(angle),
-        };
-      });
-      setPositions(newPositions as any);
-    };
-
-    calculatePositions();
-    window.addEventListener("resize", calculatePositions);
-    return () => window.removeEventListener("resize", calculatePositions);
-  }, []);
-
-  return (
-    <section className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-purple-900 via-blue-900 to-gray-900 min-h-screen relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-purple-900 via-blue-900 to-gray-900 min-h-screen">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-0 sm:mb-0 text-center text-white">
-          Our Highboard Team
-        </h2>
-        <div
-          ref={containerRef}
-          className="relative w-full mt-[-50px] md:mt-[-70px] h-[550px] sm:h-[600px] md:h-[700px] lg:h-[800px]"
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-extrabold mb-16 text-center text-white"
         >
-          {positions.map((start, i) =>
-            positions
-              .slice(i + 1)
-              .map((end, j) => (
-                <GlowingLine
-                  key={`${i}-${j}`}
-                  start={start}
-                  end={end}
-                  isActive={i === activeIndex || i + j + 1 === activeIndex}
-                />
-              ))
-          )}
+          Our Highboard Team
+        </motion.h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8"
+        >
           {teamMembers.map((member, index) => (
             <MemberCard
               key={member.name}
               member={member}
-              index={index}
               isActive={index === activeIndex}
-              onClick={() => setActiveIndex(index)}
-              position={positions[index] || { x: 0, y: 0 }}
+              onClick={() =>
+                setActiveIndex(index === activeIndex ? null : index)
+              }
+              index={index}
             />
           ))}
-        </div>
+        </motion.div>
+        <AnimatePresence>
+          {activeIndex !== null && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+              onClick={() => setActiveIndex(null)}
+            >
+              <div onClick={(e) => e.stopPropagation()}>
+                <DetailView member={teamMembers[activeIndex]} />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
-}
+};
+
+export default EnhancedHighboard;

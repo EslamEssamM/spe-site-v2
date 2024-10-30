@@ -9,8 +9,11 @@ import EventsSectionWithParticles from "@/components/sections/Events";
 import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
 import Awards from "@/components/sections/Awards";
 import { NewsSectionComponent } from "@/components/sections/News";
+import AboutSection from "@/components/sections/About";
+
 const sections = [
   { id: "awards", title: "Awards" },
+  { id: "about", title: "About" },
   {
     id: "news",
     title: "News",
@@ -55,6 +58,9 @@ export default function HomePage() {
       <main>
         <section id="home">
           <HeroSection />
+        </section>
+        <section id="about" className="">
+          <AboutSection />
         </section>
 
         <section id="news" className="">

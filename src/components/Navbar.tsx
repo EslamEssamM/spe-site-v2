@@ -6,6 +6,7 @@ import { Link } from "@tanstack/react-router";
 
 const sections = [
   { id: "home", title: "Home" },
+  { id: "about", title: "About" },
   {
     id: "news",
     title: "News",
