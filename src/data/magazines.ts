@@ -240,7 +240,7 @@ export const magazines: Magazine[] = [
   },
   {
     id: 4,
-    title: "Criterion - New Issue",
+    title: "Criterion - Issue 5",
     year: 2023,
     issue: "Special Issue",
     cover: "/pdfs/Criterion/covers/Criterion-New.png",
