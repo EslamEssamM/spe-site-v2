@@ -10,7 +10,7 @@ import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
 import Awards from "@/components/sections/Awards";
 import { NewsSectionComponent } from "@/components/sections/News";
 import AboutSection from "@/components/sections/About";
-import { Button } from "@/components/ui/Button";
+// import { Button } from "@/components/ui/Button";
 const sections = [
   { id: "awards", title: "Awards" },
   { id: "about", title: "About" },
