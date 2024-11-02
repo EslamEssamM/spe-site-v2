@@ -25,7 +25,7 @@ const sections = [
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  return <ServiceUnavailable />;
+  // return <ServiceUnavailable />;
   return (
     <div className="min-h-screen  bg-gradient-to-br from-gray-900 to-gray-800">
       <Navbar />
@@ -108,34 +108,34 @@ export default function HomePage() {
   );
 }
 
-function ServiceUnavailable() {
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-blue-900 text-white">
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center"
-      >
-        <h1 className="text-4xl font-bold mb-4">Service Unavailable</h1>
-        <p className="text-xl mb-8">
-          Your limit has reached. Please recharge cloud hosting issuer to run
-          this instance.
-        </p>
-        <Button
-          variant="secondary"
-          className="mr-4"
-          onClick={() =>
-            // hostinger
-            window.open("https://www.hostinger.com/")
-          }
-        >
-          Contact Us
-        </Button>
-        <Button variant="outline" onClick={() => window.location.reload()}>
-          Reload
-        </Button>
-      </motion.div>
-    </div>
-  );
-}
+// function ServiceUnavailable() {
+//   return (
+//     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+//       <motion.div
+//         initial={{ opacity: 0, y: -50 }}
+//         animate={{ opacity: 1, y: 0 }}
+//         transition={{ duration: 0.5 }}
+//         className="text-center"
+//       >
+//         <h1 className="text-4xl font-bold mb-4">Service Unavailable</h1>
+//         <p className="text-xl mb-8">
+//           Your limit has reached. Please recharge cloud hosting issuer to run
+//           this instance.
+//         </p>
+//         <Button
+//           variant="secondary"
+//           className="mr-4"
+//           onClick={() =>
+//             // hostinger
+//             window.open("https://www.hostinger.com/")
+//           }
+//         >
+//           Contact Us
+//         </Button>
+//         <Button variant="outline" onClick={() => window.location.reload()}>
+//           Reload
+//         </Button>
+//       </motion.div>
+//     </div>
+//   );
+// }
