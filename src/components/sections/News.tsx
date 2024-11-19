@@ -10,34 +10,8 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-import petroAnalystImage from "@/assets/news/petro-analys.jpg";
-import dataSpeaksImage from "@/assets/news/data-speaks.jpg";
 
-const newsItems = [
-  {
-    id: 1,
-    title: "PetroAnalyst Competition 2023",
-    date: "3-15 Feb 2023",
-    image: petroAnalystImage,
-    description:
-      "The PetroAnalyst Competition in the SPE Suez Student Chapter provides students with the unique opportunity to work on real-world oil and gas data, developing essential skills in the industry. Participants engage in tasks such as exploratory data analysis, data cleaning, visualization, and advanced modeling.",
-    tags: ["Data Analysis", "Oil & Gas", "Competition"],
-    moreDetails:
-      "This competition is designed to challenge students and provide them with hands-on experience in the field of petroleum engineering. The tasks will include working with large datasets, creating predictive models, and presenting findings to a panel of industry experts.",
-  },
-  {
-    id: 2,
-    title: "Data SPEaks",
-    date: "3-15 Feb 2023",
-    image: dataSpeaksImage,
-    description:
-      "The Data Speaks Competition in the SPE Suez Student Chapter focused on analyzing survey data about remote working trends in Australia, with participants working exclusively in Excel. Competitors were tasked with exploring, cleaning, and visualizing the data to uncover key insights into remote work dynamics. This Excel-based analysis challenge allowed students to apply their data handling and analytical skills, emphasizing practical experience with survey data and remote work trends.",
-    tags: ["Data Analysis", "Oil & Gas", "Competition"],
-    moreDetails:
-      "Data SPEaks is an event that brings together students and professionals to discuss the latest trends and technologies in data analysis within the oil and gas industry. Attendees will have the opportunity to network, attend workshops, and learn from industry leaders.",
-  },
-  // Add more news items here as needed
-];
+import newsItems from "@/data/news";
 
 export function NewsSectionComponent() {
   const [expandedItemId, setExpandedItemId] = useState<number | null>(null);
@@ -98,23 +72,43 @@ export function NewsSectionComponent() {
                       </CardHeader>
                       <p className="mb-6 text-gray-300">{item.description}</p>
                       <div className="flex flex-wrap gap-4">
-                        <Button variant="outline" className="flex items-center">
-                          <Users2Icon className="w-4 h-4 mr-2" />
-                          Register Now
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="flex items-center"
-                          onClick={() => handleToggle(item.id)}
-                        >
-                          <BarChartIcon className="w-4 h-4 mr-2" />
-                          Learn More
-                          {expandedItemId === item.id ? (
-                            <ChevronUp className="w-4 h-4 ml-2" />
-                          ) : (
-                            <ChevronDown className="w-4 h-4 ml-2" />
-                          )}
-                        </Button>
+                        {item.links?.map((link, index) => (
+                          <Button
+                            key={index}
+                            variant="outline"
+                            href={link.url}
+                            target="_blank"
+                            className="flex items-center"
+                          >
+                            {link.icon && (
+                              <link.icon className="w-4 h-4 mr-2" />
+                            )}
+                            {link.title}
+                          </Button>
+                        ))}
+                        {item.moreDetails && (
+                          <>
+                            <Button
+                              variant="outline"
+                              className="flex items-center"
+                            >
+                              <Users2Icon className="w-4 h-4 mr-2" />
+                            </Button>
+                            <Button
+                              variant="outline"
+                              className="flex items-center"
+                              onClick={() => handleToggle(item.id)}
+                            >
+                              <BarChartIcon className="w-4 h-4 mr-2" />
+                              Learn More
+                              {expandedItemId === item.id ? (
+                                <ChevronUp className="w-4 h-4 ml-2" />
+                              ) : (
+                                <ChevronDown className="w-4 h-4 ml-2" />
+                              )}
+                            </Button>
+                          </>
+                        )}
                       </div>
                       {expandedItemId === item.id && (
                         <motion.div
