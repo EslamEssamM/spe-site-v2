@@ -1,26 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const sections = [
-  { id: "home", title: "Home" },
-  { id: "about", title: "About" },
+  { id: "#home", title: "Home" },
+  { id: "#about", title: "About" },
   {
-    id: "news",
+    id: "#news",
     title: "News",
   },
-  { id: "awards", title: "Awards" },
-
-  { id: "highboard", title: "Highboard Team" },
-  { id: "events", title: "Events" },
-  { id: "magazines", title: "Magazines" },
+  { id: "#awards", title: "Awards" },
+  { id: "#highboard", title: "Highboard Team" },
+  { id: "#events", title: "Events" },
+  { id: "#magazines", title: "Magazines" },
+  { id: "data-camp", page: "dataCamp", title: "dataCamp" },
 ];
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +42,24 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const handleNavClick = (sectionId: string) => {
     setIsMenuOpen(false);
@@ -81,7 +100,7 @@ export function Navbar() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to={`/#${section.id}`}
+                to={`/${section.id}`}
                 onClick={() => handleNavClick(section.id)}
                 className={`relative px-4 py-2 text-white hover:text-[#0d4b93] transition-colors duration-300 overflow-hidden group`}
               >
@@ -114,6 +133,7 @@ export function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            ref={menuRef}
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
@@ -128,7 +148,7 @@ export function Navbar() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Link
-                    to={`/#${section.id}`}
+                    to={`/${section.id}`}
                     onClick={() => handleNavClick(section.id)}
                     className="flex items-center text-white hover:text-[#ffffff] transition-colors duration-300"
                   >

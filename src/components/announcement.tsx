@@ -43,8 +43,10 @@ export function AnnouncementModal() {
                 <DialogHeader className="p-4 sm:p-6 pb-0 relative z-10">
                   <Button
                     variant="ghost"
-                    className="absolute right-2 top-2 sm:right-4 sm:top-4 rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-                    onClick={handleClose}
+                    className="absolute z-20 right-2 top-2 sm:right-4 sm:top-4 rounded-full p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                    onClick={() => {
+                      handleClose();
+                    }}
                   >
                     <X className="h-5 w-5" />
                     <span className="sr-only">Close</span>

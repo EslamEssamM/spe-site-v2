@@ -12,9 +12,9 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as WarrantyImport } from './routes/warranty'
-import { Route as ReportImport } from './routes/report'
 import { Route as MagazinesImport } from './routes/magazines'
 import { Route as DetectionImport } from './routes/detection'
+import { Route as DataCampImport } from './routes/data-camp'
 import { Route as CarsImport } from './routes/cars'
 import { Route as IndexImport } from './routes/index'
 import { Route as MagazineIdImport } from './routes/magazine.$id'
@@ -26,11 +26,6 @@ const WarrantyRoute = WarrantyImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ReportRoute = ReportImport.update({
-  path: '/report',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const MagazinesRoute = MagazinesImport.update({
   path: '/magazines',
   getParentRoute: () => rootRoute,
@@ -38,6 +33,11 @@ const MagazinesRoute = MagazinesImport.update({
 
 const DetectionRoute = DetectionImport.update({
   path: '/detection',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DataCampRoute = DataCampImport.update({
+  path: '/data-camp',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,6 +74,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CarsImport
       parentRoute: typeof rootRoute
     }
+    '/data-camp': {
+      id: '/data-camp'
+      path: '/data-camp'
+      fullPath: '/data-camp'
+      preLoaderRoute: typeof DataCampImport
+      parentRoute: typeof rootRoute
+    }
     '/detection': {
       id: '/detection'
       path: '/detection'
@@ -86,13 +93,6 @@ declare module '@tanstack/react-router' {
       path: '/magazines'
       fullPath: '/magazines'
       preLoaderRoute: typeof MagazinesImport
-      parentRoute: typeof rootRoute
-    }
-    '/report': {
-      id: '/report'
-      path: '/report'
-      fullPath: '/report'
-      preLoaderRoute: typeof ReportImport
       parentRoute: typeof rootRoute
     }
     '/warranty': {
@@ -117,9 +117,9 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cars': typeof CarsRoute
+  '/data-camp': typeof DataCampRoute
   '/detection': typeof DetectionRoute
   '/magazines': typeof MagazinesRoute
-  '/report': typeof ReportRoute
   '/warranty': typeof WarrantyRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
@@ -127,9 +127,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cars': typeof CarsRoute
+  '/data-camp': typeof DataCampRoute
   '/detection': typeof DetectionRoute
   '/magazines': typeof MagazinesRoute
-  '/report': typeof ReportRoute
   '/warranty': typeof WarrantyRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
@@ -138,9 +138,9 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/cars': typeof CarsRoute
+  '/data-camp': typeof DataCampRoute
   '/detection': typeof DetectionRoute
   '/magazines': typeof MagazinesRoute
-  '/report': typeof ReportRoute
   '/warranty': typeof WarrantyRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
@@ -150,27 +150,27 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cars'
+    | '/data-camp'
     | '/detection'
     | '/magazines'
-    | '/report'
     | '/warranty'
     | '/magazine/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/cars'
+    | '/data-camp'
     | '/detection'
     | '/magazines'
-    | '/report'
     | '/warranty'
     | '/magazine/$id'
   id:
     | '__root__'
     | '/'
     | '/cars'
+    | '/data-camp'
     | '/detection'
     | '/magazines'
-    | '/report'
     | '/warranty'
     | '/magazine/$id'
   fileRoutesById: FileRoutesById
@@ -179,9 +179,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CarsRoute: typeof CarsRoute
+  DataCampRoute: typeof DataCampRoute
   DetectionRoute: typeof DetectionRoute
   MagazinesRoute: typeof MagazinesRoute
-  ReportRoute: typeof ReportRoute
   WarrantyRoute: typeof WarrantyRoute
   MagazineIdRoute: typeof MagazineIdRoute
 }
@@ -189,9 +189,9 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CarsRoute: CarsRoute,
+  DataCampRoute: DataCampRoute,
   DetectionRoute: DetectionRoute,
   MagazinesRoute: MagazinesRoute,
-  ReportRoute: ReportRoute,
   WarrantyRoute: WarrantyRoute,
   MagazineIdRoute: MagazineIdRoute,
 }
@@ -210,9 +210,9 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/cars",
+        "/data-camp",
         "/detection",
         "/magazines",
-        "/report",
         "/warranty",
         "/magazine/$id"
       ]
@@ -223,14 +223,14 @@ export const routeTree = rootRoute
     "/cars": {
       "filePath": "cars.tsx"
     },
+    "/data-camp": {
+      "filePath": "data-camp.tsx"
+    },
     "/detection": {
       "filePath": "detection.tsx"
     },
     "/magazines": {
       "filePath": "magazines.tsx"
-    },
-    "/report": {
-      "filePath": "report.tsx"
     },
     "/warranty": {
       "filePath": "warranty.tsx"

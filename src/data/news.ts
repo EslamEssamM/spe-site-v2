@@ -38,6 +38,11 @@ const newsItems = [
         url: "https://forms.gle/jMTfSGep5Fwu32cr9",
         icon: Users2Icon,
       },
+      {
+        title: "read full article",
+        url: "/data-camp",
+        icon: Users2Icon,
+      },
     ],
     description:
       "We’re beyond thrilled to announce a groundbreaking scholarship with DataCamp, a leading online learning platform for data science and analytics. This collaboration will provide selected applicants with 1 full year of access to all courses on the platform—completely free! 🎉",
