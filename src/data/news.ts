@@ -1,10 +1,4 @@
-import {
-  CalendarIcon,
-  Users2Icon,
-  BarChartIcon,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
+import { Users2Icon } from "lucide-react";
 import petroAnalystImage from "@/assets/news/petro-analys.jpg";
 import dataSpeaksImage from "@/assets/news/data-speaks.jpg";
 import dataCampImage from "@/assets/news/datacamp.jpg";
@@ -37,6 +31,7 @@ const newsItems = [
     title: "Datacamp Donates",
     date: "19 Nov 2024",
     image: dataCampImage,
+    isHot: true,
     links: [
       {
         title: "apply now",

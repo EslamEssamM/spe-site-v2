@@ -10,6 +10,7 @@ import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
 import Awards from "@/components/sections/Awards";
 import { NewsSectionComponent } from "@/components/sections/News";
 import AboutSection from "@/components/sections/About";
+import { AnnouncementModal } from "@/components/announcement";
 // import { Button } from "@/components/ui/Button";
 const sections = [
   { id: "awards", title: "Awards" },
@@ -29,6 +30,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen  bg-gradient-to-br from-gray-900 to-gray-800">
       <Navbar />
+      <AnnouncementModal />
 
       <AnimatePresence>
         {isMenuOpen && (

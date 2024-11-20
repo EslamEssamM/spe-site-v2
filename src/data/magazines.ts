@@ -238,19 +238,19 @@ export const magazines: Magazine[] = [
     pageCount: 43,
     color: "from-blue-600 to-purple-700",
   },
-  {
-    id: 4,
-    title: "Criterion - Issue 5",
-    year: 2023,
-    issue: "Special Issue",
-    cover: "/pdfs/Criterion/covers/Criterion-New.png",
-    pdfUrl: "/pdfs/Criterion/Criterion-New.pdf",
-    description:
-      "A special issue dedicated to sustainable practices in petroleum engineering, with insights into renewable integration and carbon management.",
-    editor: "SPE Team",
-    pageCount: 42,
-    color: "from-yellow-500 to-orange-600",
-  },
+  // {
+  //   id: 4,
+  //   title: "Criterion - Issue 5",
+  //   year: 2023,
+  //   issue: "Special Issue",
+  //   cover: "/pdfs/Criterion/covers/Criterion-New.png",
+  //   pdfUrl: "/pdfs/Criterion/Criterion-New.pdf",
+  //   description:
+  //     "A special issue dedicated to sustainable practices in petroleum engineering, with insights into renewable integration and carbon management.",
+  //   editor: "SPE Team",
+  //   pageCount: 42,
+  //   color: "from-yellow-500 to-orange-600",
+  // },
   {
     id: 5,
     title: "Criterion - Issue 4",
@@ -264,6 +264,7 @@ export const magazines: Magazine[] = [
     pageCount: 38,
     color: "from-red-500 to-purple-600",
   },
+  
 ];
 
 // top magazins (5) from end of the array
