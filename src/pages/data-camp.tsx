@@ -25,7 +25,7 @@ function DataCampPartnership() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white py-12 px-4">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-0 ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,10 @@ function DataCampPartnership() {
                   Partnership Announcement
                 </CardTitle>
                 <CardDescription className="text-xl sm:text-2xl text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]">
-                  SPE Suez Chapter x DataCamp Donates
+                  SPE Suez Chapter x DataCamp Donates{" "}
+                  <span className="text-yellow-300 font-semibold">
+                    Free Scholarship
+                  </span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-6 sm:p-10">
@@ -122,11 +125,10 @@ function DataCampPartnership() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.5, duration: 0.5 }}
                 >
-                  This scholarship program is open to all active members of the
-                  SPE Suez Chapter. Whether you're a beginner looking to start
-                  your data science journey or an experienced practitioner
-                  aiming to upgrade your skills, this program has something for
-                  everyone.
+                  This scholarship program is open to everyone interested in
+                  data science. Whether you're a beginner looking to start your
+                  data science journey or an experienced practitioner aiming to
+                  upgrade your skills, this program has something for you.
                 </motion.p>
                 <motion.h3
                   className="text-xl sm:text-2xl font-semibold mb-4 text-cyan-300"
@@ -184,7 +186,6 @@ function DataCampPartnership() {
                 >
                   <Button
                     asChild
-                    variant="outline"
                     className="text-white border-white/20 hover:bg-white/10 transition-colors text-base sm:text-lg"
                   >
                     <Link to="/">Back to Home</Link>

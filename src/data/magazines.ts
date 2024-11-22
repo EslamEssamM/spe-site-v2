@@ -230,13 +230,40 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 14",
     year: 2024,
     issue: "Vol. 4, Issue 2",
-    cover: "/pdfs/Echo/covers/Echo14.png",
-    pdfUrl: "/pdfs/Echo/Echo14.pdf",
+    cover: "/pdfs/Echo/covers/ECHO14.png",
+    pdfUrl: "/pdfs/Echo/ECHO14.pdf",
     description:
       "Analyzes the impact of AI and machine learning on predictive maintenance and decision-making in energy operations.",
     editor: "SPE Team",
     pageCount: 43,
     color: "from-blue-600 to-purple-700",
+  },
+  // add 15 16
+  {
+    id: 20,
+    title: "Echo - Issue 15",
+    year: 2024,
+    issue: "Vol. 4, Issue 3",
+    cover: "/pdfs/Echo/covers/ECHO15.png",
+    pdfUrl: "/pdfs/Echo/ECHO15.pdf",
+    description:
+      "Focuses on the role of digital twins in energy production, exploring their applications in asset management and optimization.",
+    editor: "SPE Team",
+    pageCount: 45,
+    color: "from-teal-600 to-green-700",
+  },
+  {
+    id: 21,
+    title: "Echo - Issue 16",
+    year: 2024,
+    issue: "Vol. 4, Issue 4",
+    cover: "/pdfs/Echo/covers/ECHO16.png",
+    pdfUrl: "/pdfs/Echo/ECHO16.pdf",
+    description:
+      "Examines the future of energy storage technologies and their potential to revolutionize the power grid and energy distribution.",
+    editor: "SPE Team",
+    pageCount: 47,
+    color: "from-orange-600 to-yellow-700",
   },
   // {
   //   id: 4,
@@ -264,7 +291,6 @@ export const magazines: Magazine[] = [
     pageCount: 38,
     color: "from-red-500 to-purple-600",
   },
-  
 ];
 
 // top magazins (5) from end of the array
