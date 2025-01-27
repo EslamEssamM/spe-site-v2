@@ -11,18 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as WarrantyImport } from './routes/warranty'
+import { Route as PartnersImport } from './routes/partners'
 import { Route as MagazinesImport } from './routes/magazines'
-import { Route as DetectionImport } from './routes/detection'
+import { Route as EtsImport } from './routes/ets'
 import { Route as DataCampImport } from './routes/data-camp'
-import { Route as CarsImport } from './routes/cars'
 import { Route as IndexImport } from './routes/index'
 import { Route as MagazineIdImport } from './routes/magazine.$id'
 
 // Create/Update Routes
 
-const WarrantyRoute = WarrantyImport.update({
-  path: '/warranty',
+const PartnersRoute = PartnersImport.update({
+  path: '/partners',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -31,18 +30,13 @@ const MagazinesRoute = MagazinesImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const DetectionRoute = DetectionImport.update({
-  path: '/detection',
+const EtsRoute = EtsImport.update({
+  path: '/ets',
   getParentRoute: () => rootRoute,
 } as any)
 
 const DataCampRoute = DataCampImport.update({
   path: '/data-camp',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const CarsRoute = CarsImport.update({
-  path: '/cars',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,13 +61,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/cars': {
-      id: '/cars'
-      path: '/cars'
-      fullPath: '/cars'
-      preLoaderRoute: typeof CarsImport
-      parentRoute: typeof rootRoute
-    }
     '/data-camp': {
       id: '/data-camp'
       path: '/data-camp'
@@ -81,11 +68,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DataCampImport
       parentRoute: typeof rootRoute
     }
-    '/detection': {
-      id: '/detection'
-      path: '/detection'
-      fullPath: '/detection'
-      preLoaderRoute: typeof DetectionImport
+    '/ets': {
+      id: '/ets'
+      path: '/ets'
+      fullPath: '/ets'
+      preLoaderRoute: typeof EtsImport
       parentRoute: typeof rootRoute
     }
     '/magazines': {
@@ -95,11 +82,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MagazinesImport
       parentRoute: typeof rootRoute
     }
-    '/warranty': {
-      id: '/warranty'
-      path: '/warranty'
-      fullPath: '/warranty'
-      preLoaderRoute: typeof WarrantyImport
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersImport
       parentRoute: typeof rootRoute
     }
     '/magazine/$id': {
@@ -116,32 +103,29 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/cars': typeof CarsRoute
   '/data-camp': typeof DataCampRoute
-  '/detection': typeof DetectionRoute
+  '/ets': typeof EtsRoute
   '/magazines': typeof MagazinesRoute
-  '/warranty': typeof WarrantyRoute
+  '/partners': typeof PartnersRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/cars': typeof CarsRoute
   '/data-camp': typeof DataCampRoute
-  '/detection': typeof DetectionRoute
+  '/ets': typeof EtsRoute
   '/magazines': typeof MagazinesRoute
-  '/warranty': typeof WarrantyRoute
+  '/partners': typeof PartnersRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/cars': typeof CarsRoute
   '/data-camp': typeof DataCampRoute
-  '/detection': typeof DetectionRoute
+  '/ets': typeof EtsRoute
   '/magazines': typeof MagazinesRoute
-  '/warranty': typeof WarrantyRoute
+  '/partners': typeof PartnersRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 
@@ -149,50 +133,39 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/cars'
     | '/data-camp'
-    | '/detection'
+    | '/ets'
     | '/magazines'
-    | '/warranty'
+    | '/partners'
     | '/magazine/$id'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/cars'
-    | '/data-camp'
-    | '/detection'
-    | '/magazines'
-    | '/warranty'
-    | '/magazine/$id'
+  to: '/' | '/data-camp' | '/ets' | '/magazines' | '/partners' | '/magazine/$id'
   id:
     | '__root__'
     | '/'
-    | '/cars'
     | '/data-camp'
-    | '/detection'
+    | '/ets'
     | '/magazines'
-    | '/warranty'
+    | '/partners'
     | '/magazine/$id'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CarsRoute: typeof CarsRoute
   DataCampRoute: typeof DataCampRoute
-  DetectionRoute: typeof DetectionRoute
+  EtsRoute: typeof EtsRoute
   MagazinesRoute: typeof MagazinesRoute
-  WarrantyRoute: typeof WarrantyRoute
+  PartnersRoute: typeof PartnersRoute
   MagazineIdRoute: typeof MagazineIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CarsRoute: CarsRoute,
   DataCampRoute: DataCampRoute,
-  DetectionRoute: DetectionRoute,
+  EtsRoute: EtsRoute,
   MagazinesRoute: MagazinesRoute,
-  WarrantyRoute: WarrantyRoute,
+  PartnersRoute: PartnersRoute,
   MagazineIdRoute: MagazineIdRoute,
 }
 
@@ -209,31 +182,27 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/cars",
         "/data-camp",
-        "/detection",
+        "/ets",
         "/magazines",
-        "/warranty",
+        "/partners",
         "/magazine/$id"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/cars": {
-      "filePath": "cars.tsx"
-    },
     "/data-camp": {
       "filePath": "data-camp.tsx"
     },
-    "/detection": {
-      "filePath": "detection.tsx"
+    "/ets": {
+      "filePath": "ets.tsx"
     },
     "/magazines": {
       "filePath": "magazines.tsx"
     },
-    "/warranty": {
-      "filePath": "warranty.tsx"
+    "/partners": {
+      "filePath": "partners.tsx"
     },
     "/magazine/$id": {
       "filePath": "magazine.$id.tsx"

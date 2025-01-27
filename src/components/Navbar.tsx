@@ -15,7 +15,7 @@ const sections = [
   { id: "#highboard", title: "Highboard Team" },
   { id: "#events", title: "Events" },
   { id: "#magazines", title: "Magazines" },
-  { id: "data-camp", page: "dataCamp", title: "dataCamp" },
+  { id: "partners", title: "Partners" },
 ];
 
 export function Navbar() {

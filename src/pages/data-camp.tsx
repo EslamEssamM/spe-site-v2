@@ -188,7 +188,7 @@ function DataCampPartnership() {
                     asChild
                     className="text-white border-white/20 hover:bg-white/10 transition-colors text-base sm:text-lg"
                   >
-                    <Link to="/">Back to Home</Link>
+                    <Link to="/partners">Back to Partners</Link>
                   </Button>
                 </motion.div>
               </CardFooter>
