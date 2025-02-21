@@ -23,11 +23,40 @@ const sponsorLogos = [
     href: "#",
     category: "Bronze"
   },
+  {
+    src: "/sponsors/sponsor3.png",
+    alt: "Sponsor 3",
+    href: "#",
+    category: "Bronze"
+  },
+  {
+    src: "/sponsors/sponsor3.png",
+    alt: "Sponsor 3",
+    href: "#",
+    category: "Bronze"
+  },
+  {
+    src: "/sponsors/sponsor3.png",
+    alt: "Sponsor 3",
+    href: "#",
+    category: "Bronze"
+  },
+  {
+    src: "/sponsors/sponsor3.png",
+    alt: "Sponsor 3",
+    href: "#",
+    category: "Bronze"
+  },
+  {
+    src: "/sponsors/sponsor3.png",
+    alt: "Sponsor 3",
+    href: "#",
+    category: "Bronze"
+  },
   // Add more sponsors as needed
 ];
 
 export default function SponsorsSection() {
-  const [isHovered, setIsHovered] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = ["All", ...new Set(sponsorLogos.map(logo => logo.category))];
@@ -59,8 +88,8 @@ export default function SponsorsSection() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-full transition-all duration-300 ${activeCategory === category
-                    ? "bg-[#0d4b93] text-white"
-                    : "bg-white/10 text-gray-300 hover:bg-white/20"
+                  ? "bg-[#0d4b93] text-white"
+                  : "bg-white/10 text-gray-300 hover:bg-white/20"
                   }`}
               >
                 {category}
@@ -70,15 +99,11 @@ export default function SponsorsSection() {
         </motion.div>
 
         {/* Logos Slider */}
-        <div
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="relative overflow-hidden">
           <motion.div
             className="flex space-x-8 py-8"
             animate={{
-              x: isHovered ? 0 : "-100%",
+              x: ["0%", "-50%"],
             }}
             transition={{
               x: {
@@ -89,28 +114,26 @@ export default function SponsorsSection() {
               },
             }}
           >
-            {/* Triple the logos for smoother infinite loop */}
-            {[...filteredLogos, ...filteredLogos, ...filteredLogos].map((logo, index) => (
-              <motion.a
+            {/* Double the logos for smoother infinite loop */}
+            {[...filteredLogos, ...filteredLogos].map((logo, index) => (
+              <a
                 key={index}
                 href={logo.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 group"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                className="flex-shrink-0"
               >
-                <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-xl p-6 w-44 h-44 flex flex-col items-center justify-center gap-3 border border-white/10 hover:border-white/30 transition-all duration-300">
+                <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-xl p-6 w-44 h-44 flex flex-col items-center justify-center gap-3 border border-white/10 transition-all duration-300">
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-w-full max-h-full object-contain filter brightness-100 group-hover:brightness-110 transition-all duration-300"
+                    className="max-w-full max-h-full object-contain filter brightness-100 transition-all duration-300"
                   />
-                  <span className="text-sm text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-sm text-gray-400">
                     {logo.category}
                   </span>
                 </div>
-              </motion.a>
+              </a>
             ))}
           </motion.div>
         </div>
