@@ -9,9 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  ChevronRight,
   ExternalLink,
-  Star,
   Book,
   Headphones,
   Mic,
@@ -103,10 +101,10 @@ function ETSPartnership() {
             <div className="absolute inset-0 bg-black/70 backdrop-blur-sm z-10" />
             <div className="relative z-20">
               <CardHeader className="p-6 sm:p-10">
-                <CardTitle className="text-4xl sm:text-5xl font-bold mb-2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+                <CardTitle className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
                   Partnership Announcement
                 </CardTitle>
-                <CardDescription className="text-xl sm:text-2xl text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)] mb-4">
+                <CardDescription className="text-lg sm:text-xl md:text-2xl text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)] mb-4">
                   SPE Suez Chapter x ETS TOEFL iBT®
                 </CardDescription>
                 <motion.div
@@ -116,11 +114,9 @@ function ETSPartnership() {
                   className="flex justify-center"
                 >
                   <img
-                    src={etsLogo}
-                    alt="ETS TOEFL iBT® Logo"
-                    className="h-16 sm:h-20 object-contain fill-white text-white"
-                    // fill-white svg
-                    style={{ fill: "white" }}
+                    src={etsLogo || "/placeholder.svg"}
+                    alt="ETS Logo"
+                    className="h-16 sm:h-20 object-contain"
                   />
                 </motion.div>
               </CardHeader>
@@ -141,11 +137,11 @@ function ETSPartnership() {
                       transition={{ delay: 0.4, duration: 0.5 }}
                       className="mb-4"
                     >
-                      <span className="text-7xl sm:text-8xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">
+                      <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">
                         25% OFF
                       </span>
                     </motion.div>
-                    <p className="text-xl sm:text-2xl text-white/90 mb-4">
+                    <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4">
                       Special discount on TOEFL iBT® exam registration
                     </p>
                     {daysLeft > 0 && (
@@ -161,10 +157,10 @@ function ETSPartnership() {
                           "_blank"
                         )
                       }
-                      className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white transition-all text-lg sm:text-xl font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-200 relative overflow-hidden group"
+                      className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white transition-all text-base sm:text-lg md:text-xl font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-200 relative overflow-hidden group"
                     >
                       <span className="relative z-10 flex items-center">
-                        Register Now & Get Your Voucher
+                        Register Now
                         <ExternalLink className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
                       </span>
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -191,7 +187,7 @@ function ETSPartnership() {
                 </motion.div>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                   {skills.map((skill, index) => (
                     <motion.div
                       key={skill.title}
@@ -217,14 +213,14 @@ function ETSPartnership() {
                 </div>
 
                 <motion.h3
-                  className="text-2xl sm:text-3xl font-semibold mb-8 text-cyan-300 text-center"
+                  className="text-xl sm:text-2xl md:text-3xl font-semibold mb-8 text-cyan-300 text-center"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
                   Why Choose TOEFL iBT®?
                 </motion.h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
                   {benefits.map((benefit, index) => (
                     <motion.div
                       key={index}
@@ -259,7 +255,7 @@ function ETSPartnership() {
                         "_blank"
                       )
                     }
-                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white transition-all text-lg sm:text-xl font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-200 relative overflow-hidden group"
+                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white transition-all text-base sm:text-lg md:text-xl font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-200 relative overflow-hidden group"
                   >
                     <span className="relative z-10 flex items-center">
                       Get Your 25% Discount Now
@@ -270,9 +266,9 @@ function ETSPartnership() {
                 </motion.div>
               </CardContent>
 
-              <CardFooter className="flex flex-col sm:flex-row justify-between items-center bg-black/60 backdrop-blur-sm p-6 sm:p-10">
+              <CardFooter className="flex flex-col items-center sm:flex-row sm:justify-between bg-black/60 backdrop-blur-sm p-6 sm:p-10">
                 <motion.p
-                  className="font-semibold text-xl sm:text-2xl text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)] mb-4 sm:mb-0"
+                  className="font-semibold text-lg sm:text-xl md:text-2xl text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)] mb-4 sm:mb-0"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.4, duration: 0.5 }}
@@ -289,7 +285,7 @@ function ETSPartnership() {
                     // variant="outline"
                     className="text-white border-white/20 hover:bg-white/10 transition-colors text-base sm:text-lg"
                   >
-                    <Link to="/partners">Back to Partners</Link>
+                    <Link to="/">Back to Home</Link>
                   </Button>
                 </motion.div>
               </CardFooter>

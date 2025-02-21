@@ -11,6 +11,7 @@ import Awards from "@/components/sections/Awards";
 import { NewsSectionComponent } from "@/components/sections/News";
 import AboutSection from "@/components/sections/About";
 import { AnnouncementModal } from "@/components/announcement";
+import SponsorsSection from "@/components/sections/Sponsors";
 // import { Button } from "@/components/ui/Button";
 const sections = [
   { id: "awards", title: "Awards" },
@@ -22,6 +23,7 @@ const sections = [
   { id: "highboard", title: "Highboard Team" },
   { id: "events", title: "Events" },
   { id: "magazines", title: "Magazines" },
+  { id: "sponsors", title: "Sponsors" },
 ];
 
 export default function HomePage() {
@@ -81,6 +83,10 @@ export default function HomePage() {
 
         <section id="magazines" className="">
           <EnhancedMagazinesSectionComponent />
+        </section>
+
+        <section id="sponsors" className="">
+          <SponsorsSection />
         </section>
 
         {/* {sections.map((section) => (

@@ -3,42 +3,78 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 
 interface TeamMember {
   name: string;
-  role: string;
+  position: string;
+  details: string;
   image: string;
 }
 
 const teamMembers: TeamMember[] = [
-  { name: "Hossam Essam", role: "President", image: "/team/Hossam Essam.png" },
-  { name: "Ahmed Saad", role: "Vice President", image: "/team/Ahmed Saad.png" },
+  { 
+    name: "Hossam Essam", 
+    position: "President",
+    details: "",
+    image: "/team/Hossam Essam.png" 
+  },
+  {
+    name: "Ahmed Saad",
+    position: "Vice President",
+    details: "Senior Petroleum Engineering Student, Suez University",
+    image: "/team/Ahmed Saad.png"
+  },
   {
     name: "Amani Abdelbari",
-    role: "Operation",
+    position: "Operation",
+    details: "Third-Year Economics Student, Faculty of Economics and Political Science, Suez University",
     image: "/team/Amani Abdelbari.png",
   },
-  { name: "Ahmed Alkley", role: "Marketing", image: "/team/Ahmed Alkley.png" },
+  {
+    name: "Ahmed Alkley",
+    position: "Marketing",
+    details: "Senior Petroleum Engineering Student, Suez University",
+    image: "/team/Ahmed Alkley.png"
+  },
   {
     name: "Mohammed Maher",
-    role: "Secretary",
+    position: "Secretary",
+    details: "Junior Petroleum Engineering Student, Suez University",
     image: "/team/Mohammed Maher.png",
   },
-  { name: "Saeed Mohammed", role: "HR", image: "/team/Saeed Mohammed.png" },
+  { 
+    name: "Saeed Mohammed", 
+    position: "HR",
+    details: "",
+    image: "/team/Saeed Mohammed.png" 
+  },
   {
     name: "Mohammed Fawzy",
-    role: "Treasurer",
+    position: "Treasurer",
+    details: "Senior Petroleum Engineering Student, Suez University",
     image: "/team/Mohammed Fawzy.png",
   },
   {
     name: "Fatma Mohammed",
-    role: "Development",
+    position: "Development",
+    details: "Senior Faculty of Arts Student, Suez University",
     image: "/team/Fatma Mohammed.png",
   },
-  { name: "Moaz Aleraky", role: "Technical", image: "/team/Moaz Aleraky.png" },
+  {
+    name: "Moaz Aleraky",
+    position: "Technical",
+    details: "Junior Petroleum Engineering Student, Suez University",
+    image: "/team/Moaz Aleraky.png"
+  },
   {
     name: "Mahmoud Mohamed",
-    role: "Vice Technical",
+    position: "Vice Technical",
+    details: "",
     image: "/team/Mahmoud Mohamed.png",
   },
-  { name: "Eslam Essam", role: "IT", image: "/team/Eslam Essam.png" },
+  {
+    name: "Eslam Essam",
+    position: "IT",
+    details: "Junior Petroleum Engineering Student & Senior Software Developer, Suez University",
+    image: "/team/Eslam Essam.png"
+  },
 ];
 
 const cardVariants: Variants = {
@@ -69,21 +105,25 @@ const MemberCard: React.FC<{
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
     className={`bg-gradient-to-br ${
-      isActive ? "from-purple-600 to-blue-600" : "from-gray-800 to-gray-900"
+      isActive 
+        ? "from-violet-600 via-indigo-600 to-blue-600" 
+        : "from-slate-800 via-slate-900 to-black hover:from-slate-700 hover:via-slate-800 hover:to-slate-900"
     } rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 ease-in-out transform`}
   >
-    <div className="p-6 flex flex-col items-center ">
-      <div className="w-32 h-32  overflow-hidden mb-2 mt-0   shadow-inner">
+    <div className="p-6 flex flex-col items-center">
+      <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-2 border-indigo-400/50 shadow-xl">
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover"
         />
       </div>
       <h3 className="text-xl font-bold text-white text-center mb-2">
         {member.name}
       </h3>
-      <p className="text-sm text-gray-300 text-center">{member.role}</p>
+      <span className="px-3 py-1 bg-indigo-500/20 rounded-full text-indigo-300 text-sm font-medium mb-2">
+        {member.position}
+      </span>
     </div>
   </motion.div>
 );
@@ -94,25 +134,28 @@ const DetailView: React.FC<{ member: TeamMember }> = ({ member }) => (
     animate={{ opacity: 1, scale: 1 }}
     exit={{ opacity: 0, scale: 0.9 }}
     transition={{ duration: 0.3 }}
-    className="bg-white rounded-2xl p-8 shadow-2xl max-w-md mx-auto"
+    className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-8 shadow-2xl max-w-2xl mx-auto border border-indigo-500/20"
   >
-    <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6 border-4 border-purple-500 shadow-lg">
+    <div className="w-48 h-48 rounded-full overflow-hidden mx-auto mb-8 border-4 border-indigo-500/50 shadow-2xl">
       <img
         src={member.image}
         alt={member.name}
         className="w-full h-full object-cover"
       />
     </div>
-    <h2 className="text-3xl font-bold text-gray-800 text-center mb-3">
+    <h2 className="text-4xl font-bold text-white text-center mb-4">
       {member.name}
     </h2>
-    <p className="text-xl text-purple-600 text-center mb-6">{member.role}</p>
-    <p className="text-gray-700 text-center leading-relaxed">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
-    </p>
+    <div className="flex flex-col items-center gap-4">
+      <span className="px-4 py-2 bg-indigo-500/20 rounded-full text-indigo-300 text-xl font-medium">
+        {member.position}
+      </span>
+      {member.details && (
+        <p className="text-lg text-slate-300 text-center max-w-lg">
+          {member.details}
+        </p>
+      )}
+    </div>
   </motion.div>
 );
 
@@ -120,7 +163,7 @@ const EnhancedHighboard: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-gradient-to-br from-purple-900 via-blue-900 to-gray-900 min-h-screen">
+    <section className="py-24 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 min-h-screen">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -155,7 +198,7 @@ const EnhancedHighboard: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+              className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 z-50"
               onClick={() => setActiveIndex(null)}
             >
               <div onClick={(e) => e.stopPropagation()}>

@@ -291,6 +291,19 @@ export const magazines: Magazine[] = [
     pageCount: 38,
     color: "from-red-500 to-purple-600",
   },
+  {
+    id: 22,
+    title: "Echo - Issue 17",
+    year: 2025,
+    issue: "Issue 17",
+    cover: "/pdfs/Echo/covers/ECHO17.png",
+    pdfUrl: "/pdfs/Echo/ECHO17.pdf",
+    description:
+      "Explores the role of leadership and volunteering in the energy sector, featuring interviews with industry leaders and insights into digital optimization solutions.",
+    editor: "SPE Team x Ehab Hany",
+    pageCount: 23,
+    color: "from-purple-600 to-blue-700",
+  },
 ];
 
 // top magazins (5) from end of the array
