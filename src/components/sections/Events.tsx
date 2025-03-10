@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/Button";
 import { ChevronRight, Calendar, Users, MapPin, ExternalLink, Clock, Award, Star, ArrowRight, X } from 'lucide-react';
@@ -14,9 +14,9 @@ export default function EnhancedEventsSection() {
   const [activeEvent, setActiveEvent] = useState(eventsData[0]);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
-  const [isHovering, setIsHovering] = useState(false);
-  const [autoplayPaused, setAutoplayPaused] = useState(false);
-  const controls = useAnimation();
+  // const [isHovering, setIsHovering] = useState(false);
+  // const [autoplayPaused, setAutoplayPaused] = useState(false);
+  // const controls = useAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -25,7 +25,7 @@ export default function EnhancedEventsSection() {
 
   // Auto-rotate through events
   useEffect(() => {
-    if (autoplayPaused) return;
+    // if (autoplayPaused) return;
 
     const interval = setInterval(() => {
       const currentIndex = eventsData.findIndex(e => e.name === activeEvent.name);
@@ -34,18 +34,18 @@ export default function EnhancedEventsSection() {
     }, 8000);
 
     return () => clearInterval(interval);
-  }, [activeEvent, autoplayPaused]);
+  }, [activeEvent]);
 
   // Pause autoplay when hovering
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-    setAutoplayPaused(true);
-  };
+  // const handleMouseEnter = () => {
+  //   setIsHovering(true);
+  //   setAutoplayPaused(true);
+  // };
 
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-    setAutoplayPaused(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setIsHovering(false);
+  //   setAutoplayPaused(false);
+  // };
 
   // Open image modal
   const openModal = (imageSrc: string) => {
@@ -192,7 +192,7 @@ export default function EnhancedEventsSection() {
         </motion.div>
 
         {/* Events Content */}
-        <div className="grid md:grid-cols-3 gap-8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Events Navigation */}
           <div className="space-y-4 md:pr-4">
             {eventsData.map((event, index) => (
