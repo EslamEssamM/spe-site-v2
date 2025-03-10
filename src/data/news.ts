@@ -76,8 +76,5 @@ const newsItems = [
     moreDetails:
       "Data SPEaks is an event that brings together students and professionals to discuss the latest trends and technologies in data analysis within the oil and gas industry. Attendees will have the opportunity to network, attend workshops, and learn from industry leaders.",
   },
-  
-  
-
 ];
 export default newsItems;
