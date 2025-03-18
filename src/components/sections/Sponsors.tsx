@@ -458,7 +458,7 @@ export default function SponsorsSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full bg-white text-primary hover:bg-white/90 transition-all duration-300 text-lg font-semibold shadow-lg hover:shadow-xl"
             >
-              <span>Become a Sponsor</span>
+              <span>info@spesusc.com</span>
               <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
