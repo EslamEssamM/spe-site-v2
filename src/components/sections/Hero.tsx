@@ -43,7 +43,7 @@ export default function BestHeroSection() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
-      <motion.div className="absolute inset-0 z-0 bg-[url('/events/activities.jpg')] bg-cover bg-center" />
+      <motion.div className="absolute inset-0 z-0 bg-[url('/events/activities.webp')] bg-cover bg-center" />
       <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-indigo-900/70 to-purple-900/60 z-10" />
 
       {/* Animated particles */}

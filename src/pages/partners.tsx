@@ -10,8 +10,8 @@ import {
 } from "@/components/ui/card";
 import { ChevronRight, ExternalLink, Calendar } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import dataCampImage from "@/assets/news/datacamp.jpg";
-import etsImage from "@/assets/news/ets.jpg";
+import dataCampImage from "@/assets/news/datacamp.webp";
+import etsImage from "@/assets/news/ets.webp";
 import dataCampLogo from "@/assets/logos/data-camp-logo.svg";
 import etsLogo from "@/assets/logos/ets.svg";
 

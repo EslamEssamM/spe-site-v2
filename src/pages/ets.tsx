@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
-import etsImage from "@/assets/news/ets.jpg";
+import etsImage from "@/assets/news/ets.webp";
 import etsLogo from "@/assets/logos/ets.svg";
 
 function ETSPartnership() {

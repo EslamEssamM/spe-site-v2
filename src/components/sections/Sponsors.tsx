@@ -7,23 +7,23 @@ import {
   ChevronRight,
   ExternalLink,
   ArrowRight,
-  Globe,
   Award,
+  Globe,
   Zap,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const sponsorLogos = [
   {
-    src: "/sponsors/SLB.jpg",
-    alt: "Schlumberger",
+    src: "/sponsors/SLB.webp",
+    alt: "SLB",
     href: "https://www.slb.com/",
     description:
       "Global technology leader in the energy industry, providing digital solutions and innovative technologies.",
     color: "from-blue-500 to-cyan-500",
   },
   {
-    src: "/sponsors/datacamp.jpg",
+    src: "/sponsors/datacamp.webp",
     alt: "DataCamp",
     href: "https://www.datacamp.com/",
     description:
@@ -31,7 +31,7 @@ const sponsorLogos = [
     color: "from-emerald-500 to-teal-500",
   },
   {
-    src: "/sponsors/BGS.jpg",
+    src: "/sponsors/BGS.webp",
     alt: "BGS Energy Services",
     href: "https://bgses.com/",
     description:
@@ -39,7 +39,7 @@ const sponsorLogos = [
     color: "from-purple-500 to-blue-500",
   },
   {
-    src: "/sponsors/UEE.jpg",
+    src: "/sponsors/UEE.webp",
     alt: "United Energy Egypt",
     href: "https://ueel.co/",
     description:
@@ -47,7 +47,7 @@ const sponsorLogos = [
     color: "from-amber-500 to-orange-500",
   },
   {
-    src: "/sponsors/ets.jpg",
+    src: "/sponsors/ets.webp",
     alt: "ETS",
     href: "https://www.ets.org/",
     description:
@@ -139,40 +139,9 @@ export default function SponsorsSection() {
     return result;
   };
 
-  // Particle effect component
-  const Particles = () => {
-    return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 rounded-full bg-cyan-500/30"
-            initial={{
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%",
-              scale: Math.random() * 0.5 + 0.5,
-              opacity: Math.random() * 0.5 + 0.25,
-            }}
-            animate={{
-              y: [null, "-100%"],
-              opacity: [null, 0],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              ease: "linear",
-              delay: Math.random() * 10,
-            }}
-          />
-        ))}
-      </div>
-    );
-  };
-
   return (
     <div className="py-20 bg-gradient-to-b from-gray-900/80 to-gray-900/40 backdrop-blur-sm relative overflow-hidden">
       {/* Background effects */}
-      <Particles />
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
 
@@ -484,18 +453,14 @@ export default function SponsorsSection() {
               and education
             </p>
 
-            <Link
-              // @ts-expect-error
-              to="mailto:info@spesusc.com"
-              target="_blank"
+            <a
+              href="mailto:info@spesusc.com"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full bg-white text-primary hover:bg-white/90 transition-all duration-300 text-lg font-semibold shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               <span>Become a Sponsor</span>
               <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>

@@ -18,7 +18,7 @@ const magazineData = {
   title: "Echo - Issue 17",
   year: 2025,
   issue: "Issue 17",
-  cover: "/pdfs/Echo/covers/ECHO17.png",
+  cover: "/pdfs/Echo/covers/ECHO17.webp",
   description:
     "Explores the role of leadership and volunteering in the energy sector, featuring interviews with industry leaders and insights into digital optimization solutions.",
   editor: "SPE Team",

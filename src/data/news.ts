@@ -1,8 +1,8 @@
 import { Users2Icon } from "lucide-react";
-import petroAnalystImage from "@/assets/news/petro-analys.jpg";
-import dataSpeaksImage from "@/assets/news/data-speaks.jpg";
-import dataCampImage from "@/assets/news/datacamp.jpg";
-import etsImage from "@/assets/news/ets.jpg";
+import petroAnalystImage from "@/assets/news/petro-analys.webp";
+import dataSpeaksImage from "@/assets/news/data-speaks.webp";
+import dataCampImage from "@/assets/news/datacamp.webp";
+import etsImage from "@/assets/news/ets.webp";
 
 const newsItems = [
   {

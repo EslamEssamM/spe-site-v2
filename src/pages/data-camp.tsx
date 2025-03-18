@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { ChevronRight, ExternalLink, Star, Calendar } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import dataCampImage from "@/assets/news/datacamp.jpg";
+import dataCampImage from "@/assets/news/datacamp.webp";
 
 function DataCampPartnership() {
   const benefits = [

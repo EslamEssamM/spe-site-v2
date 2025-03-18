@@ -9,71 +9,71 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  { 
-    name: "Hossam Essam", 
+  {
+    name: "Hossam Essam",
     position: "President",
-    details: "",
-    image: "/team/Hossam Essam.png" 
+    details: "Senior Petroleum Engineering Student, Suez University",
+    image: "/team/Hossam Essam.webp"
   },
   {
     name: "Ahmed Saad",
     position: "Vice President",
     details: "Senior Petroleum Engineering Student, Suez University",
-    image: "/team/Ahmed Saad.png"
+    image: "/team/Ahmed Saad.webp"
   },
   {
     name: "Amani Abdelbari",
     position: "Operation",
     details: "Third-Year Economics Student, Faculty of Economics and Political Science, Suez University",
-    image: "/team/Amani Abdelbari.png",
+    image: "/team/Amani Abdelbari.webp",
   },
   {
     name: "Ahmed Alkley",
     position: "Marketing",
     details: "Senior Petroleum Engineering Student, Suez University",
-    image: "/team/Ahmed Alkley.png"
+    image: "/team/Ahmed Alkley.webp"
   },
   {
     name: "Mohammed Maher",
     position: "Secretary",
     details: "Junior Petroleum Engineering Student, Suez University",
-    image: "/team/Mohammed Maher.png",
+    image: "/team/Mohammed Maher.webp",
   },
-  { 
-    name: "Saeed Mohammed", 
+  {
+    name: "Saeed Mohammed",
     position: "HR",
-    details: "",
-    image: "/team/Saeed Mohammed.png" 
+    details: "Junior Petroleum Engineering Student, Suez University",
+    image: "/team/Saeed Mohammed.webp"
   },
   {
     name: "Mohammed Fawzy",
     position: "Treasurer",
     details: "Senior Petroleum Engineering Student, Suez University",
-    image: "/team/Mohammed Fawzy.png",
+    image: "/team/Mohammed Fawzy.webp",
   },
   {
     name: "Fatma Mohammed",
     position: "Development",
     details: "Senior Faculty of Arts Student, Suez University",
-    image: "/team/Fatma Mohammed.png",
+    image: "/team/Fatma Mohammed.webp",
   },
   {
     name: "Moaz Aleraky",
     position: "Technical",
     details: "Junior Petroleum Engineering Student, Suez University",
-    image: "/team/Moaz Aleraky.png"
+    image: "/team/Moaz Aleraky.webp"
   },
   {
-    name: "Mahmoud Mohamed",
+    name: "Abdelrahman Atef",
     position: "Vice Technical",
-    details: "",
-    image: "/team/Mahmoud Mohamed.png",
+    details: "Junior Petroleum Engineering Student, Suez University",
+    image: "/team/Abdelrahman-Atef.webp",
   },
   {
     name: "Eslam Essam",
     position: "IT",
     details: "Junior Petroleum Engineering Student & Senior Software Developer, Suez University",
-    image: "/team/Eslam Essam.png"
+    image: "/team/Eslam Essam.webp"
   },
 ];
 
@@ -104,11 +104,10 @@ const MemberCard: React.FC<{
     whileHover={{ scale: 1.05, boxShadow: "0 8px 16px rgba(0,0,0,0.2)" }}
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
-    className={`bg-gradient-to-br ${
-      isActive 
-        ? "from-violet-600 via-indigo-600 to-blue-600" 
-        : "from-slate-800 via-slate-900 to-black hover:from-slate-700 hover:via-slate-800 hover:to-slate-900"
-    } rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 ease-in-out transform`}
+    className={`bg-gradient-to-br ${isActive
+      ? "from-violet-600 via-indigo-600 to-blue-600"
+      : "from-slate-800 via-slate-900 to-black hover:from-slate-700 hover:via-slate-800 hover:to-slate-900"
+      } rounded-xl overflow-hidden shadow-lg cursor-pointer transition-all duration-300 ease-in-out transform`}
   >
     <div className="p-6 flex flex-col items-center">
       <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-2 border-indigo-400/50 shadow-xl">

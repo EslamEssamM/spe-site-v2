@@ -1,31 +1,28 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/Button";
-import { ChevronRight, Calendar, Users, MapPin, ExternalLink, Clock, Award, Star, ArrowRight, X } from 'lucide-react';
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
+import { ChevronRight, Calendar, Users, MapPin, Clock, Award, Star, X } from 'lucide-react';
+// import { loadFull } from "tsparticles";
+// import type { Engine } from "tsparticles-engine";
 import eventsData from "@/data/events";
+
+// Mock data - replace with your actual data import
+
 
 export default function EnhancedEventsSection() {
   const [activeEvent, setActiveEvent] = useState(eventsData[0]);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
-  // const [isHovering, setIsHovering] = useState(false);
-  // const [autoplayPaused, setAutoplayPaused] = useState(false);
-  // const controls = useAnimation();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [autoplayPaused, setAutoplayPaused] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
+  const eventSectionRef = useRef<HTMLDivElement>(null);
 
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine as any);
-  }, []);
-
-  // Auto-rotate through events
+  // Auto-rotate through events only if not paused and user hasn't interacted
   useEffect(() => {
-    // if (autoplayPaused) return;
+    if (autoplayPaused || userInteracted) return;
 
     const interval = setInterval(() => {
       const currentIndex = eventsData.findIndex(e => e.name === activeEvent.name);
@@ -34,137 +31,93 @@ export default function EnhancedEventsSection() {
     }, 8000);
 
     return () => clearInterval(interval);
-  }, [activeEvent]);
+  }, [activeEvent, autoplayPaused, userInteracted]);
+
+  // Handle event selection with smooth scrolling only on mobile and when clicked
+  const handleEventSelect = (event: typeof eventsData[0]) => {
+    setActiveEvent(event);
+    setUserInteracted(true);
+
+    // Only scroll if on mobile and the event section is not in view
+    if (window.innerWidth < 768 && eventSectionRef.current) {
+      const sectionRect = eventSectionRef.current.getBoundingClientRect();
+      const isInView = (
+        sectionRect.top >= 0 &&
+        sectionRect.bottom <= window.innerHeight
+      );
+
+      if (!isInView) {
+        eventSectionRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      }
+    }
+  };
 
   // Pause autoplay when hovering
-  // const handleMouseEnter = () => {
-  //   setIsHovering(true);
-  //   setAutoplayPaused(true);
-  // };
+  const handleMouseEnter = () => setAutoplayPaused(true);
+  const handleMouseLeave = () => {
+    if (!userInteracted) {
+      setAutoplayPaused(false);
+    }
+  };
 
-  // const handleMouseLeave = () => {
-  //   setIsHovering(false);
-  //   setAutoplayPaused(false);
-  // };
-
-  // Open image modal
+  // Image modal handlers
   const openModal = (imageSrc: string) => {
     setSelectedImage(imageSrc);
     setShowModal(true);
     document.body.style.overflow = "hidden";
   };
 
-  // Close image modal
   const closeModal = () => {
     setShowModal(false);
     document.body.style.overflow = "auto";
   };
 
-  // Handle click outside modal
   const handleModalBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
   };
 
-  // Scroll to event when selected
+  // Reset user interaction when leaving the section
   useEffect(() => {
-    if (containerRef.current && window.innerWidth < 768) {
-      containerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) {
+          setUserInteracted(false);
+          setAutoplayPaused(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (eventSectionRef.current) {
+      observer.observe(eventSectionRef.current);
     }
-  }, [activeEvent]);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
       id="events"
-      className="py-16 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
-      ref={containerRef}
+      className="py-16 md:py-24 relative overflow-hidden"
+      ref={eventSectionRef}
     >
-      {/* Enhanced Particles Background */}
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          fullScreen: { enable: false },
-          background: {
-            color: {
-              value: "transparent",
-            },
-          },
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onClick: {
-                enable: true,
-                mode: "push",
-              },
-              onHover: {
-                enable: true,
-                mode: "repulse",
-              },
-              resize: true,
-            },
-            modes: {
-              push: {
-                quantity: 4,
-              },
-              repulse: {
-                distance: 200,
-                duration: 0.4,
-              },
-            },
-          },
-          particles: {
-            color: {
-              value: "#ffffff",
-            },
-            links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.3,
-              width: 1,
-            },
-            collisions: {
-              enable: true,
-            },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: false,
-              speed: 1,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-                area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.3,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 5 },
-            },
-          },
-          detectRetina: true,
-        }}
-        className="absolute inset-0"
-      />
+      {/* Background with gradient and pattern */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"></div>
+      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
 
-      {/* Decorative Elements */}
+      {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-      <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
+
+      {/* Glow effects */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -192,7 +145,7 @@ export default function EnhancedEventsSection() {
         </motion.div>
 
         {/* Events Content */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           {/* Events Navigation */}
           <div className="space-y-4 md:pr-4">
             {eventsData.map((event, index) => (
@@ -204,18 +157,18 @@ export default function EnhancedEventsSection() {
               >
                 <Button
                   className={`w-full justify-start text-left h-auto py-4 px-6 rounded-xl transition-all duration-300 ${activeEvent.name === event.name
-                    ? `bg-gradient-to-r ${event.color} shadow-lg shadow-${event.shadowColor} border-none text-white`
+                    ? `bg-gradient-to-r ${event.color} shadow-lg border-none text-white`
                     : "bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 text-white"
                     }`}
-                  onClick={() => setActiveEvent(event)}
+                  onClick={() => handleEventSelect(event)}
                 >
                   <div className="flex items-center w-full">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center ${activeEvent.name === event.name
                       ? "bg-white/20"
-                      : `bg-gradient-to-r ${event.color} bg-opacity-20`
+                      : "bg-white/10"
                       } mr-4`}>
                       <img
-                        src={event.logo || "/placeholder.svg"}
+                        src={event.logo || "/placeholder.svg?height=24&width=24"}
                         alt={`${event.name} logo`}
                         className="w-6 h-6"
                       />
@@ -242,18 +195,18 @@ export default function EnhancedEventsSection() {
                 transition={{ duration: 0.4 }}
               >
                 <Card
-                  className={`overflow-hidden border-none shadow-2xl`}
+                  className="overflow-hidden border-none shadow-2xl"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${activeEvent.color} opacity-90`}></div>
-                  <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
+                  {/* <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div> */}
 
-                  <CardContent className="p-0">
+                  <CardContent className="p-0 relative">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${activeEvent.color} opacity-90`}></div>
                     {/* Event Header */}
                     <div className="relative p-6 md:p-8 pb-0">
                       <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
                         <div className="bg-white/10 backdrop-blur-sm p-4 rounded-2xl">
                           <img
-                            src={activeEvent.logo || "/placeholder.svg"}
+                            src={activeEvent.logo || "/placeholder.svg?height=64&width=64"}
                             alt={`${activeEvent.name} logo`}
                             className="w-16 h-16"
                           />
@@ -308,35 +261,36 @@ export default function EnhancedEventsSection() {
                     </div>
 
                     {/* Past Event Highlights */}
-                    <div className="relative bg-black/30 backdrop-blur-sm p-6 md:p-8 rounded-t-3xl">
-                      <h4 className="text-xl font-semibold mb-4 text-white flex items-center">
-                        <Award className="mr-2 h-5 w-5 text-yellow-400" />
-                        Past Event Highlights
-                      </h4>
+                    {activeEvent.pastImages.length > 0 && (
+                      <div className="relative bg-black/30 backdrop-blur-sm p-6 md:p-8 rounded-t-3xl">
+                        <h4 className="text-xl font-semibold mb-4 text-white flex items-center">
+                          <Award className="mr-2 h-5 w-5 text-yellow-400" />
+                          Past Event Highlights
+                        </h4>
 
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                        {activeEvent.pastImages.map((image, index) => (
-                          <motion.div
-                            key={index}
-                            className="relative group overflow-hidden rounded-xl aspect-video bg-gray-800"
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => openModal(image)}
-                          >
-                            <img
-                              src={image || "/placeholder.svg"}
-                              alt={`${activeEvent.name} past event ${index + 1}`}
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                              <span className="text-white text-sm font-medium">View larger</span>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </div>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                          {activeEvent.pastImages.map((image, index) => (
+                            <motion.div
+                              key={index}
+                              className="relative group overflow-hidden rounded-xl aspect-video bg-gray-800"
+                              whileHover={{ scale: 1.03 }}
+                              whileTap={{ scale: 0.98 }}
+                              onClick={() => openModal(image)}
+                            >
+                              <img
+                                src={image || "/placeholder.svg?height=180&width=320"}
+                                alt={`${activeEvent.name} past event ${index + 1}`}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                                <span className="text-white text-sm font-medium">View larger</span>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
 
-                      {/* Action Buttons */}
-                      <div className="flex flex-col sm:flex-row gap-4">
+                        {/* Action Buttons */}
+                        {/* <div className="flex flex-col sm:flex-row gap-4">
                         <motion.div
                           whileHover={{ scale: 1.03 }}
                           whileTap={{ scale: 0.97 }}
@@ -362,34 +316,15 @@ export default function EnhancedEventsSection() {
                             <ExternalLink className="ml-2 h-5 w-5" />
                           </Button>
                         </motion.div>
+                      </div> */}
                       </div>
-                    </div>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
-
-        {/* Upcoming Events Teaser */}
-        <motion.div
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">Upcoming Events</h3>
-          <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Stay tuned for our upcoming events and activities. Join us to expand your knowledge and network.
-          </p>
-          <Button
-            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 px-8 rounded-full"
-          >
-            View All Events
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </motion.div>
       </div>
 
       {/* Image Modal */}
@@ -420,7 +355,7 @@ export default function EnhancedEventsSection() {
 
               <div className="aspect-video bg-black flex items-center justify-center">
                 <img
-                  src={selectedImage || "/placeholder.svg"}
+                  src={selectedImage || "/placeholder.svg?height=720&width=1280"}
                   alt="Event highlight"
                   className="max-w-full max-h-full object-contain"
                 />

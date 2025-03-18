@@ -20,7 +20,7 @@ export const magazines: Magazine[] = [
     title: "Criterion - Issue 1",
     year: 2021,
     issue: "Vol. 1, Issue 1",
-    cover: "/pdfs/Criterion/covers/Criterion1.png",
+    cover: "/pdfs/Criterion/covers/Criterion1.webp",
     pdfUrl: "/pdfs/Criterion/Criterion1.pdf",
     description:
       "An introductory exploration of the oil and gas sector, focusing on upstream activities and the industry's challenges in the new decade.",
@@ -33,7 +33,7 @@ export const magazines: Magazine[] = [
     title: "Criterion - Issue 2",
     year: 2021,
     issue: "Vol. 1, Issue 2",
-    cover: "/pdfs/Criterion/covers/Criterion2.png",
+    cover: "/pdfs/Criterion/covers/Criterion2.webp",
     pdfUrl: "/pdfs/Criterion/Criterion2.pdf",
     description:
       "Dives into reservoir engineering advancements, discussing new technologies that enhance efficiency and reduce environmental impact.",
@@ -46,7 +46,7 @@ export const magazines: Magazine[] = [
     title: "Criterion - Issue 3",
     year: 2022,
     issue: "Vol. 1, Issue 3",
-    cover: "/pdfs/Criterion/covers/Criterion-Issue-3.png",
+    cover: "/pdfs/Criterion/covers/Criterion-Issue-3.webp",
     pdfUrl: "/pdfs/Criterion/Criterion-Issue-3.pdf",
     description:
       "Focuses on digital transformation in oil and gas, exploring the role of data analytics, AI, and IoT in optimizing operations.",
@@ -61,7 +61,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 1",
     year: 2021,
     issue: "Vol. 1, Issue 1",
-    cover: "/pdfs/Echo/covers/ECHO1.png",
+    cover: "/pdfs/Echo/covers/ECHO1.webp",
     pdfUrl: "/pdfs/Echo/ECHO1.pdf",
     description:
       "Examines the global energy market, covering both traditional and renewable energy sources and their roles in the evolving energy landscape.",
@@ -74,7 +74,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 2",
     year: 2021,
     issue: "Vol. 1, Issue 2",
-    cover: "/pdfs/Echo/covers/ECHO2.png",
+    cover: "/pdfs/Echo/covers/ECHO2.webp",
     pdfUrl: "/pdfs/Echo/ECHO2.pdf",
     description:
       "Explores innovations in drilling technology and techniques aimed at enhancing safety and reducing operational costs.",
@@ -87,7 +87,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 3",
     year: 2021,
     issue: "Vol. 1, Issue 3",
-    cover: "/pdfs/Echo/covers/ECHO3.png",
+    cover: "/pdfs/Echo/covers/ECHO3.webp",
     pdfUrl: "/pdfs/Echo/ECHO3.pdf",
     description:
       "Focuses on environmental challenges, highlighting new regulations and best practices for reducing the ecological footprint of energy production.",
@@ -100,7 +100,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 4",
     year: 2021,
     issue: "Vol. 1, Issue 4",
-    cover: "/pdfs/Echo/covers/ECHO4.png",
+    cover: "/pdfs/Echo/covers/ECHO4.webp",
     pdfUrl: "/pdfs/Echo/ECHO4.pdf",
     description:
       "Presents case studies on energy efficiency improvements and shares expert insights on future industry innovations.",
@@ -113,7 +113,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 5",
     year: 2022,
     issue: "Vol. 2, Issue 1",
-    cover: "/pdfs/Echo/covers/ECHO5.png",
+    cover: "/pdfs/Echo/covers/ECHO5.webp",
     pdfUrl: "/pdfs/Echo/ECHO5.pdf",
     description:
       "Analyzes global energy policies and the role of renewables in shaping energy security for the future.",
@@ -126,7 +126,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 6",
     year: 2022,
     issue: "Vol. 2, Issue 2",
-    cover: "/pdfs/Echo/covers/ECHO6.png",
+    cover: "/pdfs/Echo/covers/ECHO6.webp",
     pdfUrl: "/pdfs/Echo/ECHO6.pdf",
     description:
       "Explores new technologies in carbon capture and storage (CCS) and their potential for large-scale emission reductions.",
@@ -139,7 +139,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 7",
     year: 2022,
     issue: "Vol. 2, Issue 3",
-    cover: "/pdfs/Echo/covers/ECHO7.png",
+    cover: "/pdfs/Echo/covers/ECHO7.webp",
     pdfUrl: "/pdfs/Echo/ECHO7.pdf",
     description:
       "Highlights advancements in offshore drilling and the engineering innovations designed to maximize resource extraction in deep waters.",
@@ -152,7 +152,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 8",
     year: 2022,
     issue: "Vol. 2, Issue 4",
-    cover: "/pdfs/Echo/covers/ECHO8.png",
+    cover: "/pdfs/Echo/covers/ECHO8.webp",
     pdfUrl: "/pdfs/Echo/ECHO8.pdf",
     description:
       "Discusses the impact of renewable energy on traditional markets and the economic shifts driven by clean technology.",
@@ -165,7 +165,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 9",
     year: 2023,
     issue: "Vol. 3, Issue 1",
-    cover: "/pdfs/Echo/covers/ECHO9.png",
+    cover: "/pdfs/Echo/covers/ECHO9.webp",
     pdfUrl: "/pdfs/Echo/ECHO9.pdf",
     description:
       "Focuses on safety innovations in energy production, including automation and the Internet of Things (IoT) for monitoring hazards.",
@@ -178,7 +178,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 10",
     year: 2023,
     issue: "Vol. 3, Issue 2",
-    cover: "/pdfs/Echo/covers/ECHO10.png",
+    cover: "/pdfs/Echo/covers/ECHO10.webp",
     pdfUrl: "/pdfs/Echo/ECHO10.pdf",
     description:
       "An exploration of the emerging hydrogen economy, examining the latest projects and policies supporting hydrogen as a clean fuel.",
@@ -191,7 +191,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 11",
     year: 2023,
     issue: "Vol. 3, Issue 3",
-    cover: "/pdfs/Echo/covers/ECHO11.png",
+    cover: "/pdfs/Echo/covers/ECHO11.webp",
     pdfUrl: "/pdfs/Echo/ECHO11.pdf",
     description:
       "Provides a review of the global petroleum engineering education landscape and trends in workforce development for the energy sector.",
@@ -204,7 +204,7 @@ export const magazines: Magazine[] = [
   //   title: "Echo - Issue 12",
   //   year: 2023,
   //   issue: "Vol. 3, Issue 4",
-  //   cover: "/pdfs/Echo/covers/ECHO12.png",
+  //   cover: "/pdfs/Echo/covers/ECHO12.webp",
   //   pdfUrl: "/pdfs/Echo/ECHO12.pdf",
   //   description:
   //     "Insights on advanced geophysical methods and their role in improving accuracy and efficiency in resource exploration.",
@@ -217,7 +217,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 13",
     year: 2024,
     issue: "Vol. 4, Issue 1",
-    cover: "/pdfs/Echo/covers/ECHO13.png",
+    cover: "/pdfs/Echo/covers/ECHO13.webp",
     pdfUrl: "/pdfs/Echo/ECHO13.pdf",
     description:
       "Discusses breakthroughs in unconventional resources and technologies that are pushing the limits of extraction and recovery.",
@@ -230,7 +230,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 14",
     year: 2024,
     issue: "Vol. 4, Issue 2",
-    cover: "/pdfs/Echo/covers/ECHO14.png",
+    cover: "/pdfs/Echo/covers/ECHO14.webp",
     pdfUrl: "/pdfs/Echo/ECHO14.pdf",
     description:
       "Analyzes the impact of AI and machine learning on predictive maintenance and decision-making in energy operations.",
@@ -244,7 +244,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 15",
     year: 2024,
     issue: "Vol. 4, Issue 3",
-    cover: "/pdfs/Echo/covers/ECHO15.png",
+    cover: "/pdfs/Echo/covers/ECHO15.webp",
     pdfUrl: "/pdfs/Echo/ECHO15.pdf",
     description:
       "Focuses on the role of digital twins in energy production, exploring their applications in asset management and optimization.",
@@ -257,7 +257,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 16",
     year: 2024,
     issue: "Vol. 4, Issue 4",
-    cover: "/pdfs/Echo/covers/ECHO16.png",
+    cover: "/pdfs/Echo/covers/ECHO16.webp",
     pdfUrl: "/pdfs/Echo/ECHO16.pdf",
     description:
       "Examines the future of energy storage technologies and their potential to revolutionize the power grid and energy distribution.",
@@ -270,7 +270,7 @@ export const magazines: Magazine[] = [
   //   title: "Criterion - Issue 5",
   //   year: 2023,
   //   issue: "Special Issue",
-  //   cover: "/pdfs/Criterion/covers/Criterion-New.png",
+  //   cover: "/pdfs/Criterion/covers/Criterion-New.webp",
   //   pdfUrl: "/pdfs/Criterion/Criterion-New.pdf",
   //   description:
   //     "A special issue dedicated to sustainable practices in petroleum engineering, with insights into renewable integration and carbon management.",
@@ -283,7 +283,7 @@ export const magazines: Magazine[] = [
     title: "Criterion - Issue 4",
     year: 2023,
     issue: "Vol. 1, Issue 4",
-    cover: "/pdfs/Criterion/covers/Criterion4.png",
+    cover: "/pdfs/Criterion/covers/Criterion4.webp",
     pdfUrl: "/pdfs/Criterion/Criterion4.pdf",
     description:
       "Explores the economic and geopolitical landscape impacting oil and gas, providing an in-depth analysis of market trends.",
@@ -296,7 +296,7 @@ export const magazines: Magazine[] = [
     title: "Echo - Issue 17",
     year: 2025,
     issue: "Issue 17",
-    cover: "/pdfs/Echo/covers/ECHO17.png",
+    cover: "/pdfs/Echo/covers/ECHO17.webp",
     pdfUrl: "/pdfs/Echo/ECHO17.pdf",
     description:
       "Explores the role of leadership and volunteering in the energy sector, featuring interviews with industry leaders and insights into digital optimization solutions.",
