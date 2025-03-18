@@ -24,7 +24,10 @@ function DataCampPartnership() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white py-12 px-4">
+    <div
+      className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white py-12 px-4"
+      id="home"
+    >
       <div className="container mx-auto px-0 ">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

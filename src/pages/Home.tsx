@@ -103,15 +103,6 @@ export default function HomePage() {
           </section> */}
         {/* ))} */}
       </main>
-
-      <footer className="bg-[#0d4b93] text-white py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p>
-            &copy; {new Date().getFullYear()} SPE Suez University Student
-            Chapter. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -11,7 +11,10 @@ export default function MagazinesList() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 py-16">
+    <div
+      className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 py-16"
+      id="home"
+    >
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
           SPE Suez Chapter Magazines

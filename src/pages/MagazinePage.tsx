@@ -84,7 +84,10 @@ export default function MagazineReader() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-8">
+    <div
+      className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-8"
+      id="home"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

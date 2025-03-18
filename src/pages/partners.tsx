@@ -48,7 +48,7 @@ function PartnersPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white py-12 px-4 pt-16 ">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white py-12 px-4 pt-16 " id="home">
       <div className="container mx-auto">
         <motion.h1
           className="text-4xl sm:text-5xl font-bold mb-8 text-center text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
