@@ -1,0 +1,54 @@
+NEWS DATA
+=========
+
+Fill in the data below. Copy the format for each news item.
+Images: Put news images in /public/news/ folder
+
+---
+
+NEWS 1:
+Title: DataCamp Partnership - Free Premium Access
+Category: partnership
+Date: 2024-12-01
+Featured: yes
+Summary: SPE Suez members now get free access to DataCamp's entire library of data science courses.
+Full Content: We're excited to announce our partnership with DataCamp providing free premium access to all SPE Suez members...
+Image: datacamp-partnership.webp
+Link Label: Claim Access
+Link URL: /data-camp
+
+---
+
+NEWS 2:
+Title: ETS TOEFL Partnership
+Category: partnership
+Date: 2024-11-15
+Featured: no
+Summary: Special TOEFL preparation resources and discounts for SPE Suez members.
+Full Content: 
+Image: ets-partnership.webp
+Link Label: Learn More
+Link URL: /ets
+
+---
+
+NEWS 3:
+Title: 
+Category: (announcement / competition / partnership / achievement / event-recap / opportunity)
+Date: 
+Featured: (yes / no)
+Summary: 
+Full Content: 
+Image: 
+Link Label: 
+Link URL: 
+
+---
+
+CATEGORIES:
+- announcement (general chapter news)
+- competition (results, calls for participation)
+- partnership (new sponsors, collaborations)
+- achievement (awards, recognitions)
+- event-recap (post-event summaries)
+- opportunity (internships, jobs, scholarships)

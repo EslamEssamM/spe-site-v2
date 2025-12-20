@@ -55,36 +55,30 @@ export default function Footer() {
   ];
 
   return (
-    <footer
-      className="relative bg-gradient-to-b from-gray-900 to-[#0d4b93] text-white overflow-hidden"
-      id="contact"
-    >
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
-      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2"></div>
+    <footer className="bg-[#050B1A] text-white" id="contact">
+      {/* Top Border Accent */}
+      <div className="h-1 bg-gradient-to-r from-[#0D4C92] via-[#00C29A] to-[#0D4C92]"></div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Logo and About */}
           <div>
             <div className="flex items-center mb-6">
               <img
-                src="/speLogo.png"
+                src="/brand/spe-logo-light.png"
                 alt="SPE Suez University Student Chapter"
-                className="h-12 mr-3"
+                className="h-14 mr-3"
               />
               <div>
                 <h3 className="font-bold text-lg">SPE Suez</h3>
-                <p className="text-sm text-blue-300">Student Chapter</p>
+                <p className="text-sm text-[#00C29A]">Student Chapter</p>
               </div>
             </div>
-            <p className="text-gray-300 mb-6">
-              The Society of Petroleum Engineers (SPE) Suez University Student
-              Chapter is dedicated to fostering technical knowledge,
-              professional growth, and networking opportunities for petroleum
-              engineering students.
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              SPE Suez University Student Chapter is the largest SPE student chapter 
+              in the MENA region. Established in 2004, we are dedicated to empowering 
+              students through technical, professional, and developmental activities.
             </p>
             <div className="flex space-x-3">
               {socialLinks.map((social) => (
@@ -93,9 +87,8 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-300"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 bg-[#0F1629] border border-gray-800 hover:bg-[#0D4C92] hover:border-[#0D4C92] rounded-xl flex items-center justify-center transition-all duration-300"
+                  whileHover={{ y: -3 }}
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
@@ -106,18 +99,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-6 flex items-center">
-              <span className="w-6 h-0.5 bg-blue-400 mr-2"></span>
-              Quick Links
-            </h3>
+            <h3 className="font-bold text-lg mb-6 text-white">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group"
+                    className="text-gray-400 hover:text-[#00C29A] transition-colors duration-200 flex items-center group"
                   >
-                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
                     {link.name}
                   </Link>
                 </li>
@@ -127,35 +117,29 @@ export default function Footer() {
 
           {/* Partnerships */}
           <div>
-            <h3 className="font-bold text-lg mb-6 flex items-center">
-              <span className="w-6 h-0.5 bg-blue-400 mr-2"></span>
-              Partnerships
-            </h3>
+            <h3 className="font-bold text-lg mb-6 text-white">Partnerships</h3>
             <ul className="space-y-3">
               {partnershipLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group"
+                    className="text-gray-400 hover:text-[#00C29A] transition-colors duration-200 flex items-center group"
                   >
-                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                    <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-200" />
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            <h3 className="font-bold text-lg mt-8 mb-6 flex items-center">
-              <span className="w-6 h-0.5 bg-blue-400 mr-2"></span>
-              Resources
-            </h3>
+            <h3 className="font-bold text-lg mt-8 mb-6 text-white">Resources</h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="https://www.spe.org/en/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-gray-400 hover:text-[#0D4C92] transition-colors duration-200 flex items-center"
                 >
                   SPE International
                   <ExternalLink className="h-3 w-3 ml-1" />
@@ -166,7 +150,7 @@ export default function Footer() {
                   href="https://www.spe.org/en/jpt/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center"
+                  className="text-gray-400 hover:text-[#0D4C92] transition-colors duration-200 flex items-center"
                 >
                   Journal of Petroleum Technology
                   <ExternalLink className="h-3 w-3 ml-1" />
@@ -175,60 +159,40 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info and Newsletter */}
+          {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-6 flex items-center">
-              <span className="w-6 h-0.5 bg-blue-400 mr-2"></span>
-              Contact Us
-            </h3>
-            <ul className="space-y-4 mb-8">
+            <h3 className="font-bold text-lg mb-6 text-white">Contact Us</h3>
+            <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 mt-0.5 text-blue-400" />
-                <span className="text-gray-300">
+                <div className="w-10 h-10 bg-[#0D4C92]/10 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
+                  <MapPin className="h-5 w-5 text-[#0D4C92]" />
+                </div>
+                <span className="text-gray-400">
                   Faculty of Petroleum Engineering, Suez University, Suez, Egypt
                 </span>
               </li>
               <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-blue-400" />
+                <div className="w-10 h-10 bg-[#00C29A]/10 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
+                  <Mail className="h-5 w-5 text-[#00C29A]" />
+                </div>
                 <a
-                  href="mailto:info@spesusc.com"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                  href="mailto:info@spesuez.com"
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
                 >
-                  info@spesusc.com
+                  info@spesuez.com
                 </a>
               </li>
             </ul>
-
-            {/* <h3 className="font-bold text-lg mb-4">Newsletter</h3>
-            <p className="text-gray-300 text-sm mb-4">
-              Subscribe to our newsletter to receive updates on events and
-              opportunities.
-            </p>
-            <form onSubmit={handleSubscribe} className="relative">
-              <Input
-                type="email"
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 pr-12 focus:border-blue-400 focus:ring-blue-400"
-                required
-              />
-              <Button
-                type="submit"
-                className="absolute right-1 top-1 bottom-1 px-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
-                disabled={subscribed}
-              >
-                {subscribed ? "Subscribed!" : <Send className="h-4 w-4" />}
-              </Button>
-            </form> */}
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 mt-8 border-t border-white/10 flex flex-col md:flex-row justify-center items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} SPE Suez University Student Chapter. All rights
-            reserved.
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm">
+            &copy; {currentYear} SPE Suez University Student Chapter. All rights reserved.
+          </p>
+          <p className="text-gray-500 text-sm">
+            Made with ❤️ by SPE Suez IT Team
           </p>
         </div>
       </div>

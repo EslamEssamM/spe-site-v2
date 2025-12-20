@@ -1,8 +1,8 @@
 // src/routes/__root.tsx
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { Navbar } from "@/components/Navbar";
-// import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import Footer from "@/components/Footer";
+import { SmoothScrollProvider } from "@/components/shared/SmoothScroll";
 
 export const Route = createRootRoute({
   component: Root,
@@ -10,13 +10,12 @@ export const Route = createRootRoute({
 
 function Root() {
   return (
-    <>
+    <SmoothScrollProvider>
       <Navbar />
-      <div className="min-h-screen">
+      <main className="min-h-screen">
         <Outlet />
-      </div>
+      </main>
       <Footer />
-      {/* <TanStackRouterDevtools position="bottom-right" /> */}
-    </>
+    </SmoothScrollProvider>
   );
 }

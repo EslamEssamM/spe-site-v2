@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Direct Access Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .pdf-link {
+            display: block;
+            margin: 10px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .pdf-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .magazine-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2563eb;
+        }
+        .magazine-info {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Direct Access Test</h1>
+    <p>Click on any magazine below to test direct PDF access in browser:</p>
+    
+    <div id="magazine-links"></div>
+
+    <script>
+        const magazines = [
+            { title: "Criterion - Issue 1", pdfUrl: "/pdfs/Criterion/Criterion1.pdf", year: 2021 },
+            { title: "Criterion - Issue 2", pdfUrl: "/pdfs/Criterion/Criterion2.pdf", year: 2021 },
+            { title: "Criterion - Issue 3", pdfUrl: "/pdfs/Criterion/Criterion-Issue-3.pdf", year: 2022 },
+            { title: "Criterion - Issue 4", pdfUrl: "/pdfs/Criterion/Criterion4.pdf", year: 2023 },
+            { title: "Echo - Issue 1", pdfUrl: "/pdfs/Echo/ECHO1.pdf", year: 2021 },
+            { title: "Echo - Issue 17", pdfUrl: "/pdfs/Echo/ECHO17.pdf", year: 2025 }
+        ];
+
+        const container = document.getElementById('magazine-links');
+        
+        magazines.forEach(magazine => {
+            const link = document.createElement('a');
+            link.href = magazine.pdfUrl;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'pdf-link';
+            
+            link.innerHTML = `
+                <div class="magazine-title">${magazine.title}</div>
+                <div class="magazine-info">${magazine.year} • Click to open PDF in browser</div>
+            `;
+            
+            container.appendChild(link);
+        });
+    </script>
+</body>
+</html>

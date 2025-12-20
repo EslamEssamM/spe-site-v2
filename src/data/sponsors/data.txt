@@ -1,0 +1,70 @@
+SPONSORS & PARTNERS DATA
+========================
+
+Fill in the data below. Copy the format for each partner.
+Images: Put logos in /public/sponsors/ folder (transparent PNG or WebP preferred)
+
+---
+
+PARTNER 1:
+Name: SLB
+Full Name: Schlumberger
+Tier: platinum
+Type: industry
+Description: Global technology leader in the energy industry, providing digital solutions and innovative technologies.
+Website: https://www.slb.com/
+Logo: slb.webp
+Benefits: Technical workshops, Internship opportunities, Career sessions
+
+---
+
+PARTNER 2:
+Name: DataCamp
+Full Name: 
+Tier: partner
+Type: education
+Description: Leading platform for data science and analytics education.
+Website: https://www.datacamp.com/
+Logo: datacamp.webp
+Benefits: Free premium access for members, Data science courses
+
+---
+
+PARTNER 3:
+Name: BGS
+Full Name: BGS Energy Services
+Tier: gold
+Type: industry
+Description: Leading global provider of products and services for Oil and Gas Industry.
+Website: https://bgses.com/
+Logo: bgs.webp
+Benefits: 
+
+---
+
+PARTNER 4:
+Name: 
+Full Name: 
+Tier: (platinum / gold / silver / bronze / partner / media)
+Type: (industry / education / technology / service / media)
+Description: 
+Website: 
+Logo: 
+Benefits: 
+
+---
+
+PARTNER TIERS:
+- platinum (major sponsors)
+- gold (significant sponsors)
+- silver (standard sponsors)
+- bronze (supporting sponsors)
+- partner (non-financial partners)
+- media (media partners)
+
+PARTNER TYPES:
+- industry (oil & gas companies)
+- education (DataCamp, ETS, universities)
+- technology (tech companies)
+- service (service providers)
+- media (media outlets)

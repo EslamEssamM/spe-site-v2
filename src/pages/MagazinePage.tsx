@@ -3,8 +3,6 @@ import { useParams, Link } from "@tanstack/react-router";
 import { Document, Page, pdfjs } from "react-pdf";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   ChevronLeft,
   ChevronRight,
@@ -12,10 +10,12 @@ import {
   ArrowLeft,
   AlertCircle,
   ExternalLink,
+  User,
+  FileText,
 } from "lucide-react";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
-import { magazines, Magazine } from "@/data/magazines"; // Import magazines data
+import { magazines, Magazine } from "@/data/magazines";
 
 // Properly initialize PDF.js worker
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
@@ -77,88 +77,101 @@ export default function MagazineReader() {
 
   if (!magazine && !loading && !pdfError) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <div className="min-h-screen flex items-center justify-center bg-[#050B1A]">
         <p className="text-white text-2xl">Magazine not found</p>
       </div>
     );
   }
 
   return (
-    <div
-      className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 py-8"
-      id="home"
-    >
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {magazine && (
-            <Card className="bg-gray-800 text-white mb-8 p-4 md:p-6 lg:p-8">
-              <CardHeader>
-                <div className="flex flex-col md:flex-row justify-between items-start">
-                  <div>
-                    <CardTitle className="text-2xl md:text-3xl font-bold mb-2">
-                      {magazine.title}
-                    </CardTitle>
-                    <p className="text-lg md:text-xl text-gray-400">
-                      {magazine.year}
-                    </p>
-                  </div>
-                  <Badge variant="secondary" className="bg-blue-600 text-white">
-                    {magazine.pageCount} pages
-                  </Badge>
+    <div className="min-h-screen bg-[#050B1A]" id="home">
+      {/* Header */}
+      {magazine && (
+        <section className="pt-32 pb-8 border-b border-white/10">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex items-center gap-2 mb-4">
+                <Link to="/magazines" className="text-white/60 hover:text-white transition-colors">
+                  Magazines
+                </Link>
+                <ChevronRight className="w-4 h-4 text-white/40" />
+                <span className="text-white">{magazine.title}</span>
+              </div>
+              
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <div>
+                  <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                    {magazine.title}
+                  </h1>
+                  <p className="text-white/60 max-w-2xl">{magazine.description}</p>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-4">{magazine.description}</p>
-                <p className="text-sm text-gray-400">
-                  Editor: {magazine.editor}
-                </p>
-              </CardContent>
-            </Card>
-          )}
+                
+                <div className="flex items-center gap-6 text-sm text-white/60">
+                  <div className="flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    <span>{magazine.editor}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FileText className="w-4 h-4" />
+                    <span>{magazine.pageCount} pages</span>
+                  </div>
+                  <span className="text-[#0D4C92] font-semibold">{magazine.year}</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
-          <div className="flex flex-wrap justify-center items-center gap-4 mb-4">
+      {/* PDF Viewer */}
+      <section className="py-8">
+        <div className="container mx-auto px-6">
+          {/* Navigation Controls */}
+          <div className="flex flex-wrap justify-center items-center gap-4 mb-6 p-4 bg-white/[0.03] border border-white/10">
             <Button
               onClick={() => setPageNumber((page) => Math.max(page - 1, 1))}
               disabled={pageNumber <= 1}
               variant="outline"
-              className="w-full md:w-auto"
+              className="border-white/20 text-white hover:bg-white/10 rounded-xl disabled:opacity-50"
             >
               <ChevronLeft className="w-4 h-4 mr-2" />
               Previous
             </Button>
-            <span className="text-white">
-              Page {pageNumber} of {numPages}
+            <span className="text-white font-medium px-4">
+              Page {pageNumber} of {numPages || "..."}
             </span>
             <Button
-              onClick={() =>
-                setPageNumber((page) => Math.min(page + 1, numPages || 1))
-              }
+              onClick={() => setPageNumber((page) => Math.min(page + 1, numPages || 1))}
               disabled={pageNumber >= (numPages || 1)}
               variant="outline"
-              className="w-full md:w-auto"
+              className="border-white/20 text-white hover:bg-white/10 rounded-xl disabled:opacity-50"
             >
               Next
               <ChevronRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
 
-          <Card className="bg-white mb-8 w-full max-w-lg md:max-w-xl lg:max-w-2xl mx-auto">
-            <CardContent className="p-4">
+          {/* PDF Display */}
+          <div className="bg-white mb-8 w-full max-w-3xl mx-auto">
+            <div className="p-4">
               {loading ? (
-                <div className="flex items-center justify-center h-64">
-                  <p className="text-gray-500">Loading PDF...</p>
+                <div className="flex items-center justify-center h-[600px] bg-gray-100">
+                  <div className="text-center">
+                    <div className="w-8 h-8 border-2 border-[#0D4C92] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-gray-500">Loading PDF...</p>
+                  </div>
                 </div>
               ) : pdfError ? (
-                <div className="flex flex-col items-center justify-center text-red-500 p-4">
-                  <AlertCircle className="w-12 h-12 mb-2" />
-                  <p>{pdfError}</p>
+                <div className="flex flex-col items-center justify-center h-[400px] text-red-500 p-4">
+                  <AlertCircle className="w-12 h-12 mb-4" />
+                  <p className="text-center mb-4">{pdfError}</p>
                   <Button
                     variant="outline"
-                    className="mt-4"
+                    className="rounded-xl"
                     onClick={() => window.location.reload()}
                   >
                     Try Again
@@ -171,7 +184,7 @@ export default function MagazineReader() {
                   onLoadError={onDocumentLoadError}
                   className="flex flex-col items-center"
                   loading={
-                    <div className="flex items-center justify-center h-64">
+                    <div className="flex items-center justify-center h-[600px]">
                       <p className="text-gray-500">Loading PDF...</p>
                     </div>
                   }
@@ -183,60 +196,40 @@ export default function MagazineReader() {
                   />
                 </Document>
               )}
-            </CardContent>
-          </Card>
-
-          {!pdfError && !loading && magazine && (
-            <Card className="bg-gray-800 text-white mb-8 p-4">
-              <CardContent className="p-4">
-                <div className="flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
-                  <a
-                    href={magazine.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full md:w-auto"
-                  >
-                    <Button
-                      variant="outline"
-                      className="flex items-center w-full md:w-auto"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Read in Browser
-                    </Button>
-                  </a>
-                  <a
-                    href={magazine.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                    className="w-full md:w-auto"
-                  >
-                    <Button
-                      variant="outline"
-                      className="flex items-center w-full md:w-auto"
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Download PDF
-                    </Button>
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
-          <div className="text-center mt-8">
-            <Link to="/magazines">
-              <Button
-                variant="outline"
-                className="flex items-center w-full md:w-auto"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Magazines
-              </Button>
-            </Link>
+            </div>
           </div>
-        </motion.div>
-      </div>
+
+          {/* Actions */}
+          {!pdfError && !loading && magazine && (
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <a href={magazine.pdfUrl} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-xl px-6 py-4">
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Open in Browser
+                </Button>
+              </a>
+              <a href={magazine.pdfUrl} target="_blank" rel="noopener noreferrer" download>
+                <Button className="bg-[#0D4C92] hover:bg-[#005CB9] text-white rounded-xl px-6 py-4">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download PDF
+                </Button>
+              </a>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Back Navigation */}
+      <section className="py-8 border-t border-white/10">
+        <div className="container mx-auto px-6">
+          <Link to="/magazines">
+            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-xl px-6 py-4">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Magazines
+            </Button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

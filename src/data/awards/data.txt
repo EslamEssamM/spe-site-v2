@@ -1,0 +1,44 @@
+AWARDS DATA
+===========
+
+Fill in the data below. Copy the format for each award type.
+Images (optional): Put certificate images in /public/awards/ folder
+
+---
+
+AWARD 1:
+Name: Presidential Award for Outstanding Student Chapter
+Type: outstanding-chapter
+Years Won: 2014, 2015, 2017, 2019, 2020, 2022, 2025
+Description: Recognized for exceptional performance in technical dissemination and professional development. Ranked among the top three performing student chapters worldwide.
+Awarded By: SPE International
+Certificate Image: (optional)
+
+---
+
+AWARD 2:
+Name: Gold Standard Award
+Type: gold-standard
+Years Won: 2010, 2011, 2012, 2013, 2016
+Description: Achieved the highest level of excellence in chapter operations and activities.
+Awarded By: SPE International
+Certificate Image: 
+
+---
+
+AWARD 3:
+Name: 
+Type: (presidential / outstanding-chapter / gold-standard / regional / special)
+Years Won: 
+Description: 
+Awarded By: 
+Certificate Image: 
+
+---
+
+AWARD TYPES:
+- presidential (SPE Presidential Award)
+- outstanding-chapter (Outstanding Student Chapter)
+- gold-standard (Gold Standard Status)
+- regional (Regional awards)
+- special (Special recognitions)

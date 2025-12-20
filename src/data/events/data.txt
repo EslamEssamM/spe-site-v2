@@ -1,0 +1,63 @@
+EVENTS DATA
+===========
+
+Fill in the data below. Copy the format for each event.
+Images: Put event logos/photos in /public/events/ folder
+
+---
+
+EVENT 1:
+Name: PACE 2025
+Full Name: Petroleum Arabian Conference & Exhibition
+Type: flagship
+Status: upcoming
+Description: The premier petroleum conference bringing together industry leaders, students, and academics.
+Start Date: 2025-11-05
+End Date: 2025-11-07
+Location: AUC, American University in Cairo
+City: Cairo
+Expected Attendees: 200
+Logo: pace-logo.webp
+Gallery Images: pace-1.webp, pace-2.webp
+
+---
+
+EVENT 2:
+Name: SSPS
+Full Name: SPE Suez Petroleum Summit
+Type: flagship
+Status: past
+Description: A 3-day event designed to expand students' knowledge beyond academic studies.
+Start Date: 2024-11-05
+End Date: 2024-11-07
+Location: Ideaspace Suez, Suez University
+City: Suez
+Attendees: 300+
+Logo: ssps.webp
+Gallery Images: ssps-1.webp, ssps-2.webp
+
+---
+
+EVENT 3:
+Name: 
+Full Name: 
+Type: (flagship / technical / career / soft-skills / competition / community)
+Status: (upcoming / past)
+Description: 
+Start Date: 
+End Date: 
+Location: 
+City: 
+Attendees: 
+Logo: 
+Gallery Images: 
+
+---
+
+EVENT TYPES:
+- flagship (major conferences like PACE, SSPS)
+- technical (workshops, technical sessions)
+- career (career fairs, company visits)
+- soft-skills (leadership, communication)
+- competition (PetroAnalyst, case competitions)
+- community (outreach, social events)

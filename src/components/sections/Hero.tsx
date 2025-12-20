@@ -1,137 +1,187 @@
-import { useState, useEffect } from "react";
-import { motion, useSpring } from "framer-motion";
-import { Button } from "@/components/ui/Button";
-import { ChevronDown } from "lucide-react";
-import { TypeAnimation } from "react-type-animation";
-import { useInView } from "react-intersection-observer";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Sparkles, Award, Users } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const texts = [
-  "Empowering the future of petroleum engineering",
-  "Connecting students with industry professionals",
-  "Fostering innovation in energy solutions",
-  "Building leaders for tomorrow's challenges",
-];
-
-export default function BestHeroSection() {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const springConfig = { stiffness: 100, damping: 5 };
-  const mouseXSpring = useSpring(mousePosition.x, springConfig);
-  const mouseYSpring = useSpring(mousePosition.y, springConfig);
-
+export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+  const { scrollY } = useScroll();
+  
+  // Detect mobile devices
   useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const handleExploreClick = () => {
-    const awardsSection = document.getElementById("awards");
-    if (awardsSection) {
-      awardsSection.scrollIntoView({ behavior: "smooth" });
+  // Disable parallax effects on mobile for better scroll behavior
+  const imageY = useTransform(scrollY, [0, 500], isMobile ? [0, 0] : [0, 150]);
+  const contentOpacity = useTransform(scrollY, [0, 400], isMobile ? [1, 1] : [1, 0]);
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
-      <motion.div className="absolute inset-0 z-0 bg-[url('/events/activities.webp')] bg-cover bg-center" />
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-indigo-900/70 to-purple-900/60 z-10" />
-
-      {/* Animated particles */}
-      {[...Array(20)].map((_, index) => (
-        <motion.div
-          key={index}
-          className="absolute w-2 h-2 bg-white rounded-full"
-          style={{
-            x: mouseXSpring,
-            y: mouseYSpring,
-            opacity: 0.2,
-          }}
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-          }}
-          // @ts-ignore
-          animate={{
-            x: mouseXSpring,
-            y: mouseYSpring,
-            transition: {
-              delay: index * 0.05,
-              type: "spring",
-              stiffness: 50,
-              damping: 10,
-            },
-          }}
-        />
-      ))}
-
-      <div className="relative z-20 text-white text-center px-4 max-w-4xl">
-        <motion.h1
-          className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          SPE Suez Chapter
-        </motion.h1>
-        <div className="h-24 md:h-28 mb-8">
-          <TypeAnimation
-            sequence={[
-              texts[0],
-              2000,
-              texts[1],
-              2000,
-              texts[2],
-              2000,
-              texts[3],
-              2000,
-            ]}
-            wrapper="p"
-            cursor={true}
-            repeat={Infinity}
-            className="text-2xl md:text-3xl font-light"
-          />
-        </div>
-        <motion.div
-          ref={ref}
-          className="mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <Button
-            variant="outline"
-            size="lg"
-            className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg px-8 py-4 rounded-full"
-            onClick={handleExploreClick}
-          >
-            Explore Our Chapter
-          </Button>
-        </motion.div>
-      </div>
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
+    <section className="relative min-h-screen bg-[#050B1A] overflow-hidden">
+      {/* Background */}
+      <motion.div 
+        style={{ y: imageY }}
+        className="absolute inset-0 lg:h-[110vh]"
       >
-        <ChevronDown className="text-white" size={40} />
+        <div className="absolute inset-0 h-full">
+          <img
+            src="/hero.webp"
+            alt="SPE Suez Chapter"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050B1A]/60 via-[#050B1A]/70 to-[#050B1A]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050B1A]/80 via-transparent to-[#050B1A]/60" />
+        </div>
       </motion.div>
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-purple-900 to-transparent z-30" />
+
+      {/* Content Container */}
+      <motion.div 
+        style={{ opacity: contentOpacity }} 
+        className="relative z-10 min-h-screen flex items-center"
+      >
+        <div className="container mx-auto px-6 py-24 lg:py-32">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column - Main Content */}
+            <div className="lg:col-span-7">
+              {/* Tagline */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center gap-2 mb-8"
+              >
+                <div className="h-px w-8 bg-white" />
+                <span className="text-white text-sm font-medium uppercase tracking-wider">
+                  Est. 2004 • Chapter #5948
+                </span>
+              </motion.div>
+
+              {/* Main Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-8 leading-[1.1]"
+              >
+                Building
+                <br />
+                <span className="relative inline-block">
+                  Tomorrow's
+                  <motion.span
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="absolute bottom-2 left-0 h-3 bg-[#0D4C92] -z-10"
+                  />
+                </span>
+                <br />
+                Energy Leaders
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="text-lg sm:text-xl text-white/90 max-w-2xl mb-10 leading-relaxed"
+              >
+                The largest SPE student chapter in the MENA region, empowering petroleum 
+                engineering students through world-class training, industry connections, 
+                and hands-on experience.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="flex flex-wrap gap-4"
+              >
+                <button 
+                  aria-label="Join SPE Suez Student Chapter"
+                  className="group px-8 py-4 bg-[#0D4C92] text-white font-semibold rounded-xl hover:bg-[#005CB9] transition-all duration-300 flex items-center gap-2 shadow-lg"
+                >
+                  Join Our Chapter
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button 
+                  onClick={() => scrollToSection("events")}
+                  aria-label="View our events"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-xl hover:border-white hover:bg-white/10 transition-all duration-300"
+                >
+                  View Events
+                </button>
+              </motion.div>
+            </div>
+
+            {/* Right Column - Stats Cards */}
+            <div className="lg:col-span-5 flex flex-col gap-4">
+              {[
+                { icon: Users, number: "200+", label: "Active Members", description: "Passionate students" },
+                { icon: Award, number: "17", label: "International Awards", description: "Since 2010" },
+                { icon: Sparkles, number: "10+", label: "Annual Events", description: "Technical & professional" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  className="group relative"
+                >
+                  <div className="relative bg-white/[0.05] backdrop-blur-sm border border-white/20 p-6 hover:bg-white/[0.08] hover:border-white/40 transition-all duration-300">
+                    {/* Left accent line */}
+                    <div className="absolute top-0 left-0 w-[3px] h-0 bg-[#0D4C92] group-hover:h-full transition-all duration-500" />
+                    
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="text-4xl lg:text-5xl font-bold text-white mb-1">
+                          {stat.number}
+                        </p>
+                        <p className="text-white font-semibold mb-1">
+                          {stat.label}
+                        </p>
+                        <p className="text-white/60 text-sm">
+                          {stat.description}
+                        </p>
+                      </div>
+                      <div className="w-12 h-12 bg-[#0D4C92] flex items-center justify-center">
+                        <stat.icon className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-3"
+          >
+            <span className="text-white/40 text-xs uppercase tracking-widest">Scroll</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-[2px] h-12 bg-gradient-to-b from-white/40 to-transparent"
+            />
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Bottom Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050B1A] to-transparent pointer-events-none z-20" />
     </section>
   );
 }

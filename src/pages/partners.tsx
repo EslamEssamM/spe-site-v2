@@ -1,14 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { ChevronRight, ExternalLink, Calendar } from "lucide-react";
+import { CheckCircle2, ExternalLink, ArrowLeft, Users, Award, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import dataCampImage from "@/assets/news/datacamp.webp";
 import etsImage from "@/assets/news/ets.webp";
@@ -22,132 +14,197 @@ function PartnersPage() {
       description: "Free Scholarship Program",
       logo: dataCampLogo,
       image: dataCampImage,
-      deadline: "27/11/2024",
       benefits: [
         "Full year of free access to all DataCamp courses",
-        "440+ courses on data science, machine learning, Python, R, SQL, and more",
-        "Learn from industry experts and apply skills through real-world projects",
+        "440+ courses on data science, machine learning, Python, R, SQL",
+        "Globally recognized certificates",
       ],
       applyLink: "https://forms.gle/jMTfSGep5Fwu32cr9",
       viewMoreLink: "/data-camp",
+      stats: { courses: "440+", learners: "10K+", skills: "50+" },
     },
     {
       name: "ETS TOEFL iBT®",
-      description: "25% Discount on TOEFL iBT® Exam",
+      description: "25% Discount on Exam",
       logo: etsLogo,
       image: etsImage,
-      deadline: "Ongoing",
       benefits: [
         "25% off on TOEFL iBT® exam registration",
-        "Widely recognized by thousands of institutions globally",
-        "Comprehensive assessment of all four key English skills",
+        "Recognized by 11,000+ institutions globally",
+        "Comprehensive English proficiency assessment",
       ],
       applyLink: "https://forms.gle/m7Au3jMMW3QY85ax9",
       viewMoreLink: "/ets",
+      stats: { savings: "25%", institutions: "11K+", countries: "150+" },
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white py-12 px-4 pt-16 " id="home">
-      <div className="container mx-auto">
-        <motion.h1
-          className="text-4xl sm:text-5xl font-bold mb-8 text-center text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Our Partnerships
-        </motion.h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {partnerships.map((partnership, index) => (
-            <motion.div
-              key={partnership.name}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <Card className="relative border-none overflow-hidden shadow-2xl h-full">
-                <div
-                  className="absolute inset-0 bg-cover bg-center z-0"
-                  style={{ backgroundImage: `url(${partnership.image})` }}
-                />
-                <div className="absolute inset-0 bg-black/70 backdrop-blur-sm z-10" />
-                <div className="relative z-20">
-                  <CardHeader className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <img
-                        src={partnership.logo || "/placeholder.svg"}
-                        alt={`${partnership.name} Logo`}
-                        className="h-12 object-contain"
-                      />
-                      <div className="flex items-center bg-blue-600/30 px-3 py-1 rounded-full">
-                        <Calendar className="w-4 h-4 mr-2 text-yellow-300" />
-                        <span className="text-sm font-semibold text-yellow-300">
-                          Deadline: {partnership.deadline}
-                        </span>
+    <div className="min-h-screen bg-[#050B1A] text-white" id="home">
+      {/* Hero Header */}
+      <section className="pt-32 pb-16 border-b border-white/10">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <div className="h-px w-8 bg-[#0D4C92]" />
+              <span className="text-[#0D4C92] text-sm font-medium uppercase tracking-wider">
+                Exclusive Opportunities
+              </span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Strategic Partnerships
+            </h1>
+            <p className="text-white/60 max-w-2xl text-lg">
+              Unlock exclusive benefits and opportunities through our collaborations 
+              with industry-leading organizations.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Partnership Cards */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-8">
+            {partnerships.map((partnership, index) => (
+              <motion.div
+                key={partnership.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="group"
+              >
+                <div className="relative bg-white/[0.03] border border-white/10 overflow-hidden hover:border-[#0D4C92]/50 transition-all duration-300 h-full">
+                  {/* Background Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={partnership.image}
+                      alt={partnership.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050B1A] to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <div className="bg-white/10 backdrop-blur-sm p-3 border border-white/10">
+                        <img
+                          src={partnership.logo}
+                          alt={`${partnership.name} Logo`}
+                          className="h-8 object-contain"
+                        />
                       </div>
                     </div>
-                    <CardTitle className="text-2xl sm:text-3xl font-bold mb-2 text-white">
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-6">
+                    <h2 className="text-2xl font-bold text-white mb-2">
                       {partnership.name}
-                    </CardTitle>
-                    <CardDescription className="text-lg sm:text-xl text-cyan-300">
+                    </h2>
+                    <p className="text-[#0D4C92] font-medium mb-6">
                       {partnership.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4 text-cyan-300">
-                      Key Benefits
-                    </h3>
-                    <ul className="space-y-2 mb-6">
-                      {partnership.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start">
-                          <ChevronRight className="h-5 w-5 text-emerald-400 mr-2 mt-1 flex-shrink-0" />
-                          <span className="text-white/85">{benefit}</span>
-                        </li>
+                    </p>
+                    
+                    {/* Stats Row */}
+                    <div className="grid grid-cols-3 gap-4 mb-6 py-4 border-y border-white/10">
+                      {Object.entries(partnership.stats).map(([key, value]) => (
+                        <div key={key} className="text-center">
+                          <div className="text-xl font-bold text-white">{value}</div>
+                          <div className="text-xs text-white/50 uppercase tracking-wider">{key}</div>
+                        </div>
                       ))}
-                    </ul>
-                  </CardContent>
-                  <CardFooter className="p-6 flex flex-col sm:flex-row gap-4">
-                    <Button
-                      onClick={() =>
-                        window.open(partnership.applyLink, "_blank")
-                      }
-                      size="lg"
-                      className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white transition-colors font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-200"
-                    >
-                      Apply Now
-                      <ExternalLink className="w-5 h-5 ml-2" />
-                    </Button>
-                    <Button
-                      asChild
-                      //   variant="secondary"
-                      size="lg"
-                      className="w-full sm:w-auto text-white border-white/20 hover:bg-white/10 transition-colors font-bold py-2 px-4 rounded-full"
-                    >
-                      <Link to={partnership.viewMoreLink}>View More</Link>
-                    </Button>
-                  </CardFooter>
+                    </div>
+                    
+                    {/* Benefits */}
+                    <div className="space-y-3 mb-6">
+                      {partnership.benefits.map((benefit, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#0D4C92]" />
+                          <span className="text-white/70 text-sm">{benefit}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* Actions */}
+                    <div className="flex gap-3">
+                      <Button
+                        onClick={() => window.open(partnership.applyLink, "_blank")}
+                        className="flex-1 bg-[#0D4C92] hover:bg-[#005CB9] text-white font-semibold py-4 rounded-xl"
+                      >
+                        Apply Now
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="flex-1 text-white border-white/20 hover:bg-white/10 font-semibold py-4 rounded-xl"
+                      >
+                        <Link to={partnership.viewMoreLink}>
+                          Learn More
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
-              </Card>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-        <motion.div
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <Button
-            asChild
-            // variant="secondary"
-            size="lg"
-            className="text-white border-white/20 hover:bg-white/10 transition-colors text-lg font-bold py-2 px-6 rounded-full"
+      </section>
+        
+      {/* Why Partner Section */}
+      <section className="py-16 border-t border-white/10">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="max-w-4xl mx-auto"
           >
-            <Link to="/">Back to Home</Link>
-          </Button>
-        </motion.div>
-      </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-[#0D4C92] flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-white font-semibold mb-2">200+ Members</h3>
+                <p className="text-white/60 text-sm">Active engineering students</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-[#0D4C92] flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-white font-semibold mb-2">Award-Winning</h3>
+                <p className="text-white/60 text-sm">SPE Presidential Award recipient</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-[#0D4C92] flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                  </svg>
+                </div>
+                <h3 className="text-white font-semibold mb-2">MENA's Largest</h3>
+                <p className="text-white/60 text-sm">SPE student chapter in the region</p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Button
+                asChild
+                variant="outline"
+                className="text-white border-white/20 hover:bg-white/10 px-8 py-4 rounded-xl"
+              >
+                <Link to="/">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to Home
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }

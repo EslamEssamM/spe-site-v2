@@ -1,301 +1,232 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
   ExternalLink,
   Book,
   Headphones,
   Mic,
   Pencil,
-  Clock,
   CheckCircle2,
   Globe2,
   Award,
+  ArrowLeft,
+  Percent,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
 import etsImage from "@/assets/news/ets.webp";
 import etsLogo from "@/assets/logos/ets.svg";
 
 function ETSPartnership() {
-  const [daysLeft, setDaysLeft] = useState(0);
-
-  useEffect(() => {
-    const deadline = new Date("2024-11-27");
-    const today = new Date();
-    const diff = deadline.getTime() - today.getTime();
-    setDaysLeft(Math.ceil(diff / (1000 * 60 * 60 * 24)));
-  }, []);
-
   const skills = [
-    {
-      icon: Book,
-      title: "Reading",
-      description: "Understand academic texts and passages",
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: Headphones,
-      title: "Listening",
-      description: "Comprehend lectures and conversations",
-      color: "from-cyan-500 to-teal-500",
-    },
-    {
-      icon: Mic,
-      title: "Speaking",
-      description: "Express yourself clearly and confidently",
-      color: "from-teal-500 to-emerald-500",
-    },
-    {
-      icon: Pencil,
-      title: "Writing",
-      description: "Compose well-structured academic essays",
-      color: "from-emerald-500 to-blue-500",
-    },
+    { icon: Book, title: "Reading", description: "Understand academic texts and passages" },
+    { icon: Headphones, title: "Listening", description: "Comprehend lectures and conversations" },
+    { icon: Mic, title: "Speaking", description: "Express yourself clearly and confidently" },
+    { icon: Pencil, title: "Writing", description: "Compose well-structured academic essays" },
   ];
 
   const benefits = [
-    {
-      icon: Globe2,
-      title: "Widely Recognized",
-      description:
-        "Accepted by thousands of universities and institutions globally",
-    },
-    {
-      icon: CheckCircle2,
-      title: "Comprehensive",
-      description: "Assesses all four key English skills",
-    },
-    {
-      icon: Clock,
-      title: "Convenient",
-      description: "Available year-round at test centers worldwide",
-    },
-    {
-      icon: Award,
-      title: "Reliable",
-      description: "Fair and unbiased scoring system",
-    },
+    { icon: Globe2, title: "Widely Recognized", description: "Accepted by thousands of universities globally" },
+    { icon: CheckCircle2, title: "Comprehensive", description: "Assesses all four key English skills" },
+    { icon: Award, title: "Reliable", description: "Fair and unbiased scoring system" },
   ];
 
   return (
-    <div
-      className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white py-12 px-4"
-      id="home"
-    >
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Card className="relative border-none overflow-hidden shadow-2xl">
-            <div
-              className="absolute inset-0 bg-cover bg-center z-0"
-              style={{ backgroundImage: `url(${etsImage})` }}
-            />
-            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm z-10" />
-            <div className="relative z-20">
-              <CardHeader className="p-6 sm:p-10">
-                <CardTitle className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-                  Partnership Announcement
-                </CardTitle>
-                <CardDescription className="text-lg sm:text-xl md:text-2xl text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)] mb-4">
-                  SPE Suez Chapter x ETS TOEFL iBT®
-                </CardDescription>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                  className="flex justify-center"
-                >
-                  <img
-                    src={etsLogo || "/placeholder.svg"}
-                    alt="ETS Logo"
-                    className="h-16 sm:h-20 object-contain"
-                  />
-                </motion.div>
-              </CardHeader>
+    <div className="min-h-screen bg-[#050B1A] text-white" id="home">
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-end overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={etsImage}
+            alt="ETS TOEFL Partnership"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050B1A] via-[#050B1A]/80 to-[#050B1A]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050B1A]/60 via-transparent to-[#050B1A]/60" />
+        </div>
 
-              <CardContent className="p-6 sm:p-10">
-                {/* Discount Banner */}
-                <motion.div
-                  className="relative overflow-hidden bg-gradient-to-r from-blue-600/30 to-cyan-600/30 rounded-2xl p-8 mb-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                >
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500 animate-pulse" />
-                  <div className="text-center">
-                    <motion.div
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ delay: 0.4, duration: 0.5 }}
-                      className="mb-4"
-                    >
-                      <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">
-                        25% OFF
-                      </span>
-                    </motion.div>
-                    <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4">
-                      Special discount on TOEFL iBT® exam registration
-                    </p>
-                    {daysLeft > 0 && (
-                      <div className="text-lg text-yellow-300 mb-6 flex items-center justify-center">
-                        <Clock className="w-5 h-5 mr-2 animate-pulse" />
-                        Only {daysLeft} days left to apply!
-                      </div>
-                    )}
-                    <Button
-                      onClick={() =>
-                        window.open(
-                          "https://forms.gle/m7Au3jMMW3QY85ax9",
-                          "_blank"
-                        )
-                      }
-                      className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white transition-all text-base sm:text-lg md:text-xl font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-200 relative overflow-hidden group"
-                    >
-                      <span className="relative z-10 flex items-center">
-                        Register Now
-                        <ExternalLink className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Button>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                  className="text-center mb-12"
-                >
-                  <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)]">
-                    About TOEFL iBT®
-                  </h2>
-                  <p className="mb-8 text-lg sm:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-                    The TOEFL iBT® is the world's most widely recognized
-                    English-language proficiency test, accepted by thousands of
-                    universities and institutions worldwide. It measures your
-                    ability to use and understand English in an academic setting
-                    through real-world academic tasks.
-                  </p>
-                </motion.div>
-
-                {/* Skills Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                  {skills.map((skill, index) => (
-                    <motion.div
-                      key={skill.title}
-                      className="relative group"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg blur-sm" />
-                      <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 text-center relative transform group-hover:scale-105 transition-transform duration-300">
-                        <div
-                          className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r ${skill.color} p-4 transform group-hover:rotate-12 transition-transform duration-300`}
-                        >
-                          <skill.icon className="w-full h-full text-white" />
-                        </div>
-                        <h3 className="text-xl font-semibold mb-2 text-white">
-                          {skill.title}
-                        </h3>
-                        <p className="text-white/70">{skill.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <motion.h3
-                  className="text-xl sm:text-2xl md:text-3xl font-semibold mb-8 text-cyan-300 text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                >
-                  Why Choose TOEFL iBT®?
-                </motion.h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-                  {benefits.map((benefit, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-start bg-white/5 backdrop-blur-sm rounded-lg p-6 transform hover:scale-105 transition-transform duration-300"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.9 + 0.1 * index, duration: 0.5 }}
-                    >
-                      <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full p-3 mr-4">
-                        <benefit.icon className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-cyan-300 mb-2">
-                          {benefit.title}
-                        </h4>
-                        <p className="text-white/85">{benefit.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <motion.div
-                  className="flex justify-center mt-8 mb-6"
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 1.3, duration: 0.3 }}
-                >
-                  <Button
-                    onClick={() =>
-                      window.open(
-                        "https://forms.gle/m7Au3jMMW3QY85ax9",
-                        "_blank"
-                      )
-                    }
-                    className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white transition-all text-base sm:text-lg md:text-xl font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 duration-200 relative overflow-hidden group"
-                  >
-                    <span className="relative z-10 flex items-center">
-                      Get Your 25% Discount Now
-                      <ExternalLink className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Button>
-                </motion.div>
-              </CardContent>
-
-              <CardFooter className="flex flex-col items-center sm:flex-row sm:justify-between bg-black/60 backdrop-blur-sm p-6 sm:p-10">
-                <motion.p
-                  className="font-semibold text-lg sm:text-xl md:text-2xl text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.3)] mb-4 sm:mb-0"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.4, duration: 0.5 }}
-                >
-                  #Volunteers_to_pioneers
-                </motion.p>
-                <motion.div
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 1.5, duration: 0.3 }}
-                >
-                  <Button
-                    asChild
-                    // variant="outline"
-                    className="text-white border-white/20 hover:bg-white/10 transition-colors text-base sm:text-lg"
-                  >
-                    <Link to="/">Back to Home</Link>
-                  </Button>
-                </motion.div>
-              </CardFooter>
+        <div className="relative z-10 container mx-auto px-6 pb-16 pt-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <div className="h-px w-8 bg-white" />
+              <span className="text-white text-sm font-medium uppercase tracking-wider">
+                Partnership Program
+              </span>
             </div>
-          </Card>
-        </motion.div>
-      </div>
+            <div className="flex items-center gap-6 mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+                ETS TOEFL iBT®
+              </h1>
+              <img src={etsLogo} alt="ETS Logo" className="h-12 lg:h-16 hidden sm:block" />
+            </div>
+            <p className="text-xl text-white/80 max-w-2xl">
+              SPE Suez Chapter x ETS — Exclusive discount on TOEFL iBT® exam registration.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Discount Banner */}
+      <section className="border-y border-white/10 bg-[#0D4C92]/10">
+        <div className="container mx-auto px-6 py-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col md:flex-row items-center justify-between gap-8"
+          >
+            <div className="flex items-center gap-4">
+              <div className="w-20 h-20 bg-[#0D4C92] flex items-center justify-center">
+                <Percent className="w-10 h-10 text-white" />
+              </div>
+              <div>
+                <p className="text-4xl lg:text-5xl font-bold text-white">25% OFF</p>
+                <p className="text-white/60">Special discount on exam registration</p>
+              </div>
+            </div>
+            <Button
+              onClick={() => window.open("https://forms.gle/m7Au3jMMW3QY85ax9", "_blank")}
+              className="bg-[#0D4C92] hover:bg-[#005CB9] text-white font-semibold px-8 py-6 rounded-xl shadow-lg"
+            >
+              Register Now
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          {/* About Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-3xl mx-auto text-center mb-20"
+          >
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+              About TOEFL iBT®
+            </h2>
+            <p className="text-white/70 text-lg leading-relaxed">
+              The TOEFL iBT® is the world's most widely recognized English-language
+              proficiency test, accepted by thousands of universities and institutions
+              worldwide. It measures your ability to use and understand English in an
+              academic setting through real-world academic tasks.
+            </p>
+          </motion.div>
+
+          {/* Skills Grid */}
+          <div className="mb-20">
+            <h3 className="text-xl font-bold text-white text-center mb-8">
+              Four Key Skills Assessed
+            </h3>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  className="bg-white/[0.03] border border-white/10 p-6 text-center hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
+                >
+                  <skill.icon className="w-8 h-8 text-[#0D4C92] mx-auto mb-4" />
+                  <h4 className="text-white font-semibold mb-2">{skill.title}</h4>
+                  <p className="text-white/60 text-sm">{skill.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Benefits */}
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+                Why Choose TOEFL iBT®?
+              </h2>
+              <div className="space-y-4">
+                {benefits.map((benefit, index) => (
+                  <div
+                    key={benefit.title}
+                    className="flex items-start gap-4 p-4 bg-white/[0.03] border border-white/10"
+                  >
+                    <benefit.icon className="w-6 h-6 text-[#0D4C92] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">{benefit.title}</h4>
+                      <p className="text-white/60 text-sm">{benefit.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-white/[0.03] border border-white/10 p-8"
+            >
+              <h3 className="text-xl font-bold text-white mb-4">
+                How to Get Your Discount
+              </h3>
+              <ol className="space-y-4 text-white/70 mb-8">
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 bg-[#0D4C92] text-white text-sm font-bold flex items-center justify-center">1</span>
+                  <span>Click the "Register Now" button to fill out the application form</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 bg-[#0D4C92] text-white text-sm font-bold flex items-center justify-center">2</span>
+                  <span>Provide your details and verify your eligibility</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 bg-[#0D4C92] text-white text-sm font-bold flex items-center justify-center">3</span>
+                  <span>Receive your exclusive discount code via email</span>
+                </li>
+              </ol>
+              <div className="flex flex-wrap gap-4">
+                <Button
+                  onClick={() => window.open("https://forms.gle/m7Au3jMMW3QY85ax9", "_blank")}
+                  className="bg-[#0D4C92] hover:bg-[#005CB9] text-white font-semibold px-6 py-4 rounded-xl"
+                >
+                  Get 25% Discount
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10 px-6 py-4 rounded-xl"
+                >
+                  <Link to="/partners">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    All Partners
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer CTA */}
+      <section className="border-t border-white/10 py-12">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="font-semibold text-xl text-[#0D4C92]">
+              #Volunteers_to_pioneers
+            </p>
+            <p className="text-white/60 text-sm">
+              SPE Suez University Student Chapter © {new Date().getFullYear()}
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

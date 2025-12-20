@@ -1,0 +1,51 @@
+HIGHBOARD TEAM DATA
+===================
+
+Fill in the data below. Copy the format for each team member.
+Images: Put photos in /public/team/ folder with names like "firstname-lastname.webp"
+
+---
+
+MEMBER 1:
+Name: Hossam Essam
+Position: President
+Department: Executive Board
+Bio: Senior Petroleum Engineering Student, Suez University
+Image: hossam-essam.webp
+LinkedIn: 
+Email: 
+
+---
+
+MEMBER 2:
+Name: Ahmed Saad
+Position: Vice President
+Department: Executive Board
+Bio: Senior Petroleum Engineering Student, Suez University
+Image: ahmed-saad.webp
+LinkedIn: 
+Email: 
+
+---
+
+MEMBER 3:
+Name: 
+Position: 
+Department: 
+Bio: 
+Image: 
+LinkedIn: 
+Email: 
+
+---
+
+DEPARTMENTS:
+- Executive Board (President, Vice President)
+- Operations
+- Marketing
+- Human Resources
+- Technical
+- Development
+- IT
+- Finance
+- Secretary

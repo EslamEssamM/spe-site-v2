@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/Button";
 import { X, ExternalLink, ChevronRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 
 const magazineData = {
   id: 22,
@@ -19,6 +18,7 @@ const magazineData = {
   year: 2025,
   issue: "Issue 17",
   cover: "/pdfs/Echo/covers/ECHO17.webp",
+  pdfUrl: "/pdfs/Echo/ECHO17.pdf",
   description:
     "Explores the role of leadership and volunteering in the energy sector, featuring interviews with industry leaders and insights into digital optimization solutions.",
   editor: "SPE Team",
@@ -111,14 +111,16 @@ export function AnnouncementModal() {
                   >
                     Remind me later
                   </Button>
-                  <Link
-                    to={`/magazine/${magazineData.id}`}
+                  <a
+                    href={magazineData.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={handleClose}
                     className="bg-purple-600 hover:bg-purple-700 text-white transition-colors text-xs sm:text-sm px-4 py-2 rounded-md inline-flex items-center"
                   >
                     Read Now{" "}
                     <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
-                  </Link>
+                  </a>
                 </DialogFooter>
               </div>
             </div>

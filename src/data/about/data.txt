@@ -1,0 +1,138 @@
+CHAPTER INFO DATA
+=================
+
+Fill in the chapter information below.
+
+---
+
+BASIC INFO:
+Chapter Name: SPE Suez
+Full Name: SPE Suez University Student Chapter
+University: Suez University
+Chapter Number: 5948
+Founded Year: 2004
+City: Suez
+Country: Egypt
+Email: 
+
+---
+
+MISSION STATEMENT:
+To bridge the gap between academic learning and industry practices, empowering petroleum engineering students with cutting-edge knowledge, practical skills, and networking opportunities.
+
+---
+
+VISION STATEMENT:
+To be the leading student chapter in the region, recognized for excellence in technical education, professional development, and community impact.
+
+---
+
+ABOUT PARAGRAPH:
+The Society of Petroleum Engineers (SPE) Suez University Student Chapter is a dynamic community of future petroleum engineers dedicated to fostering knowledge, innovation, and professional growth in the energy sector.
+
+---
+
+KEY STATS:
+Founded: 2004
+Total Awards: 17
+Active Members: 200+
+Events Per Year: 10+
+Partners: 5
+
+---
+
+SOCIAL LINKS:
+Facebook: https://www.facebook.com/SPESuez
+LinkedIn: https://www.linkedin.com/company/spescusc
+YouTube: https://www.youtube.com/@SPESCUSC
+Instagram: https://www.instagram.com/spesusc/
+
+---
+
+VALUES (list your core values):
+1. Excellence - Striving for the highest standards
+2. Innovation - Embracing new ideas in energy
+3. Community - Building strong connections
+4. Integrity - Maintaining ethical standards
+
+Who Are We
+SPE Suez University Student Chapter is the largest SPE student chapter in the MENA region. It was established in 2004 and has been actively operating since 2008. The chapter is dedicated to empowering students through a wide range of technical, professional, and developmental activities. 
+Our mission is to prepare students and fresh graduates academically and professionally through hands-on experience, global exposure, and strong industry connections.
+What We Do
+SPE Suez organizes technical workshops, certified courses, internships, and engineering sessions across multiple disciplines. The chapter conducts field visits and facilitates direct industry interaction to bridge the gap between academia and real-world practice. In addition, we build strong connections with major national and international companies while focusing on developing leadership, innovation, teamwork, and professional skills among students.
+Awards & Recognition
+SPE Suez has received the Presidential Award for Outstanding Student Chapter in the years 2014, 2015, 2017, 2019, 2020, 2022, and 2025.
+The chapter also achieved the Gold Standard Award in 2010, 2011, 2012, 2013, and 2016.
+Presidential Award for Outstanding Student Chapter (2025)
+SPE Suez achieved the Presidential Award for Outstanding Student Chapter in the field of technical dissemination and professional development for the seventh time. This achievement reaffirmed the chapter’s position among the top three performing student chapters worldwide. After passing both regional and global evaluation rounds, SPE Suez ranked within the top three chapters globally and was recognized at ATCE as one of the most impactful student chapters internationally.
+ 
+1.Courses, Trainings & Industry Engagement
+During the season, SPE Suez delivered over 170 courses across technical, sustainability, development, and language tracks. Members benefited from hundreds of learning licenses and gained real-world exposure through site visits, lab visits, and job-shadowing programs.
+The season included more than 45 internships in international companies, over 10 panel discussions, 35+ offline sessions, 20+ specialized workshops, and 90+ online sessions, all contributing to stronger technical and professional development.
+2.Data Speaks Competition
+The Data Speaks Competition enabled beginner-level teams to explore data analysis fundamentals and transform numbers into meaningful insights. Participants followed guided educational materials, applied their learning to practical analytical projects, and presented their findings in a structured judging round. The competition emphasized analytical thinking, teamwork, and effective communication of data-driven decisions.
+3.Petroanalyst Competition
+The PetroAnalyst Competition is a hands-on technical initiative that trains students to transform petroleum data into engineering decisions using Python. Participants develop a Streamlit-based application focused on production-related analysis, combining data analysis skills with petroleum engineering knowledge.
+Evaluation is based on completing core analytical tasks, optional advanced challenges, and a short technical presentation explaining the methodology and insights. The competition targets students with basic Python and data analysis backgrounds, preparing them for data-driven roles in the petroleum industry.
+4.SLB Yard Trip
+SPE Suez organized a field visit to SLB facilities, allowing students to connect classroom theory with real-world oilfield operations. The visit included a safety induction, equipment walkthroughs, and an overview of how advanced technologies such as artificial intelligence and machine learning enhance efficiency and decision-making in the energy sector.
+5.DataCamp Partnership
+Through the DataCamp partnership, SPE Suez provided structured data-skills training via a dedicated learning platform. Members completed 4,109 learning units, logged 2,288 hours of active learning, and finished 18 assessments to identify and improve skill gaps. A total of 294 licenses supported wide participation, reflecting the chapter’s commitment to measurable and practical skill development.
+6.English Club
+SPE Suez organized weekly English workshops designed to improve students’ language skills through interactive activities. Participants practiced real-life conversations, grammar application, games, and competitions in small supportive groups, helping them build confidence, fluency, and communication skills.
+7.English Camp
+SPE Suez announced a fully free offline English Camp in collaboration with A+ Academy, hosted at Idea Space in Suez. The program focuses on improving communication skills through interactive sessions and real-life practice. Participants are placed into different levels based on an online placement test.
+Top performers receive additional rewards, including free advanced courses and discounts. An accredited certificate is awarded to participants who attend at least 80% of the sessions.
+8.SPE Cares
+SPE Suez organized visits to orphanages, hospitals, and care centers, providing emotional support and spreading compassion. These initiatives strengthened social responsibility values while making a tangible positive impact on the community.
+9.Energy 4 Kids
+Energy 4 Kids is an awareness initiative designed to educate children in schools and kindergartens aged 4 to 7 years about sustainability, energy conservation, different energy forms, and the importance of keeping the environment clean. The program highlights the dangers of pollution and aims to plant environmental responsibility in children’s minds at an early age so these values grow with them over time.
+By focusing on early awareness, the initiative helps build conscious future generations who understand their responsibility toward the environment, emphasizing that lasting change starts young and through leading by example.
+10.Energy 4 Kids & School Visits
+Energy 4 Kids is an awareness initiative designed to educate children in schools and kindergartens aged 4 to 7 years about sustainability, energy conservation, different energy forms, and the importance of keeping the environment clean. The program highlights the dangers of pollution and aims to plant environmental responsibility in children’s minds at an early age so these values grow with them over time.
+By focusing on early awareness, the initiative helps build conscious future generations who understand their responsibility toward the environment, emphasizing that lasting change starts young and through leading by example.
+11.Energy 4 Her
+Energy 4 Her is an initiative aimed at empowering women in the energy sector. The event included inspiring talks, interactive workshops, and a competition focused on green and sustainable energy solutions. Winners received valuable awards, including summer internships.
+12.Green Environment Hackathon (GEH)
+The Green Environment Hackathon focuses on developing eco-friendly solutions for environmental challenges in the petroleum industry. Participants work on research-based ideas addressing emissions, flaring, wastewater treatment, and green technologies, supported by mentorship from industry experts and professors.
+13.PetroCamp
+PetroCamp is an intensive five-week technical program covering Geology & Geophysics, Reservoir Engineering, Production Technology, Drilling Engineering, and Process Engineering. The program combines online sessions, exams, and a final project, culminating in project presentations evaluated by industry professionals.
+14.Flagship Events & Global Exposure
+SPE Suez organizes major events such as SSPS, PACE, SPEak, and Science Fair, alongside international participation in PetroBowl, ATCE, ADIPEC, and regional research competitions. These initiatives provide students with global exposure, technical excellence, and career opportunities.
+Continuing in the same structured, professional format, without adding or altering content:
+15.SPE Lab
+SPE Suez organized SPE Lab to provide hands-on technical experience in key petroleum engineering disciplines. The program included practical sessions in drilling fluids, reservoir analysis, well testing, and simulation software. Participants trained on industry-standard SLB software such as Ecrin, Eclipse, and Petrel, enabling them to build reservoir models and simulate production scenarios.
+In collaboration with SPE BUE, the lab combined theoretical concepts with real laboratory work, strengthening participants’ technical foundations and preparing them for real industry environments.
+16.International Collaboration
+SPE Suez partnered with international SPE student chapters to deliver a webinar series focused on directional drilling. These sessions provided expert insights into drilling operations, automation challenges, and advanced techniques, strengthening global connections and enhancing students’ technical exposure through shared international expertise.
+17.Recycling Exhibition
+The Recycling Exhibition encouraged students to transform waste materials into innovative and sustainable solutions. Participants showcased creative projects, competed for awards, and demonstrated how environmental responsibility and design thinking can drive positive impact. The event promoted hands-on learning and sustainability awareness within the university community.
+18.ECHO Magazine
+ECHO is an international student petroleum magazine published annually by SPE Suez University Student Chapter since 2009. Now in its 17th edition, the magazine highlights innovation, resilience, and progress in the energy sector.
+ECHO includes forewords from chapter leadership, interviews with industry pioneers, articles on emerging technologies, young researchers’ contributions, industry insights, and chapter news. With 36–44 high-quality A4 pages, the magazine is printed and distributed internationally, serving as a bridge between academia and industry and training future leaders through real editorial and technical exposure.
+19.HR Camp
+HR Camp is a fully online training program designed to build comprehensive human resources skills. The program consists of structured sessions covering recruitment, interviewing, talent acquisition, performance management, compensation and benefits, training design, and HR technology.
+Over six weeks, participants completed more than 40 online sessions, expert panels, competitions, and skill-based activities, gaining both technical HR knowledge and essential soft skills such as leadership, communication, and time management.
+20.Criterion Magazine
+Criterion is a career development and personal skills magazine issued annually by SPE Suez University Student Chapter. It focuses on guiding students and young professionals toward informed career choices through interviews, expert insights, and practical knowledge.
+The magazine covers topics including AI, entrepreneurship, business, digitalization, career planning, soft skills, and environmental awareness. Criterion follows a structured process of professional engagement, content curation, and high-quality design to deliver accessible and actionable knowledge. Each edition spans approximately 36–40 A4 pages and reaches more than 400 students and engineers.
+21.SPEak Summit
+SPEak is a non-technical mega career event organized by SPE Suez University Student Chapter. It focuses on developing students’ soft skills, computer skills, and job-market readiness through interactive offline workshops, panel discussions, and networking opportunities.
+The summit attracts over 500 participants, features more than 25 speakers, and offers hundreds of opportunities including internships, free tools, licensed platforms, and professional development sessions, making it one of the largest student-led career events in Egypt.
+22.Global Representation & PetroBowl
+SPE Suez achieved a historic milestone by ranking among the Top 10 teams worldwide at PetroBowl 2025, becoming the only team from the MENA region to reach this level. The team also ranked within the Top 5 in the MENA region and represented Egypt internationally.
+In 2024, SPE Suez secured third place in the PetroBowl MENA Regional Qualifiers in Saudi Arabia, qualifying for ATCE in the USA and showcasing Egypt’s technical excellence on a global stage.
+23.International Conferences & Research Excellence
+SPE Suez participated in major international conferences including ATCE 2023, ATCE 2025, and ADIPEC 2024/2025.
+The chapter also achieved second place in the Student Research Paper Contest at the Oman Petroleum & Energy Show (OPES), highlighting strong research capabilities and regional academic excellence.
+24.SPE Suez Research School
+Research School is a three-month program designed to teach research methodology, data analysis, and academic writing. Guided by experienced mentors, participants progress through structured training, filtration stages, and final presentations.
+Top-performing participants receive opportunities to publish research and secure internships with industry partners, reinforcing SPE Suez’s commitment to scientific research and innovation.
+25.Skills Club
+Skills Club is an initiative focused on bridging academic knowledge with industry demands through practical soft-skill and career-development sessions. Topics include CV writing, interviews, personal branding, freelancing, and professional communication.
+Sessions are delivered by experienced industry professionals and HR experts, providing students with practical tools to navigate the job market confidently.
+26.Job Shadowing Program
+Through the Job Shadowing Program, students received direct mentorship from industry leaders, including global directors and senior executives. Participants gained insights into career planning, decision-making, and professional growth through guided sessions and real-world exposure.
+27.GO CLEAN Initiative
+GO CLEAN is a community-driven environmental initiative launched by SPE Suez to promote environmental awareness and responsibility. The initiative began with a beach-cleaning campaign at Suez Corniche, aiming to restore natural beauty, protect marine life, and encourage sustainable behavior through direct action and public awareness.
+
