@@ -99,11 +99,17 @@ export function Navbar() {
 
         {/* CTA Button & Mobile Menu Toggle */}
         <div className="flex items-center gap-4">
-          <Button
-            className="hidden md:flex bg-[#0D4C92] hover:bg-[#005CB9] text-white font-medium px-5 py-2 rounded-lg transition-all duration-200"
+          <a
+            href="https://rec.spesuez.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Join Chapter
-          </Button>
+            <Button
+              className="hidden md:flex bg-[#0D4C92] hover:bg-[#005CB9] text-white font-medium px-5 py-2 rounded-lg transition-all duration-200"
+            >
+              Join Chapter
+            </Button>
+          </a>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -181,9 +187,16 @@ export function Navbar() {
 
                 {/* Menu Footer */}
                 <div className="p-6 border-t border-white/10">
-                  <Button className="w-full bg-[#0D4C92] hover:bg-[#005CB9] text-white font-medium py-3 rounded-lg">
-                    Join the Chapter
-                  </Button>
+                  <a
+                    href="https://rec.spesuez.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button className="w-full bg-[#0D4C92] hover:bg-[#005CB9] text-white font-medium py-3 rounded-lg">
+                      Join the Chapter
+                    </Button>
+                  </a>
                 </div>
               </div>
             </motion.div>

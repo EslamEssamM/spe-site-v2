@@ -106,13 +106,16 @@ export default function HeroSection() {
                 transition={{ duration: 0.7, delay: 0.4 }}
                 className="flex flex-wrap gap-4"
               >
-                <button 
+                <a 
+                  href="https://rec.spesuez.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Join SPE Suez Student Chapter"
                   className="group px-8 py-4 bg-[#0D4C92] text-white font-semibold rounded-xl hover:bg-[#005CB9] transition-all duration-300 flex items-center gap-2 shadow-lg"
                 >
                   Join Our Chapter
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
                 <button 
                   onClick={() => scrollToSection("events")}
                   aria-label="View our events"

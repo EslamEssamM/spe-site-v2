@@ -304,6 +304,19 @@ export const magazines: Magazine[] = [
     pageCount: 23,
     color: "from-purple-600 to-blue-700",
   },
+  {
+    id: 23,
+    title: "Criterion - Issue 6",
+    year: 2025,
+    issue: "Issue 6",
+    cover: "/pdfs/Criterion/covers/Criterion6.jpeg",
+    pdfUrl: "/pdfs/Criterion/Criterion6.pdf",
+    description:
+      "A leadership and career growth special issue exploring career development, leadership, energy innovations like geothermal expansion, AI-driven business strategies, and professional interviews for the next generation of energy and business professionals.",
+    editor: "SPE Team",
+    pageCount: 38,
+    color: "from-indigo-500 to-cyan-600",
+  },
 ];
 
 // top magazins (5) from end of the array
