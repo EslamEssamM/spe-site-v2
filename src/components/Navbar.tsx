@@ -70,9 +70,9 @@ export function Navbar() {
         >
           <div className="relative">
             <img
-              src="/brand/spe-logo-light.png"
+              src="/brand/spe-logo-dark.png"
               alt="SPE Suez"
-              className="h-11 w-11 rounded-full object-cover border-2 border-white/20 group-hover:border-[#00C29A]/50 transition-colors duration-300"
+              className="h-16 w-16 rounded-full object-cover border-2 border-white/20 group-hover:border-[#00C29A]/50 transition-colors duration-300"
             />
           </div>
           <div className="hidden sm:block">

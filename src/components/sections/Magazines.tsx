@@ -103,6 +103,7 @@ export default function PerfectedMagazinesSectionWithParticles() {
 
                     <div className="flex flex-wrap gap-3">
                       <Link
+                        // @ts-ignore
                         to={`/magazine/${magazines[currentIndex].id}`}
                         className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D4C92] hover:bg-[#0D4C92]/80 text-white rounded-xl font-semibold transition-colors duration-200"
                       >

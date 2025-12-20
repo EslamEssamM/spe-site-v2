@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { ChevronLeft, ChevronRight, Award, Trophy, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Award, Trophy } from "lucide-react";
 
 const awards = [
   {

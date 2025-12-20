@@ -152,7 +152,7 @@ function ETSPartnership() {
                 Why Choose TOEFL iBT®?
               </h2>
               <div className="space-y-4">
-                {benefits.map((benefit, index) => (
+                {benefits.map((benefit) => (
                   <div
                     key={benefit.title}
                     className="flex items-start gap-4 p-4 bg-white/[0.03] border border-white/10"
