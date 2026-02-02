@@ -9,21 +9,41 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as NewsRouteImport } from './routes/news'
 import { Route as MagazinesRouteImport } from './routes/magazines'
+import { Route as EventsRouteImport } from './routes/events'
 import { Route as EtsRouteImport } from './routes/ets'
 import { Route as DataCampRouteImport } from './routes/data-camp'
+import { Route as AwardsRouteImport } from './routes/awards'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MagazineIdRouteImport } from './routes/magazine.$id'
 
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PartnersRoute = PartnersRouteImport.update({
   id: '/partners',
   path: '/partners',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MagazinesRoute = MagazinesRouteImport.update({
   id: '/magazines',
   path: '/magazines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventsRoute = EventsRouteImport.update({
+  id: '/events',
+  path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EtsRoute = EtsRouteImport.update({
@@ -34,6 +54,16 @@ const EtsRoute = EtsRouteImport.update({
 const DataCampRoute = DataCampRouteImport.update({
   id: '/data-camp',
   path: '/data-camp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AwardsRoute = AwardsRouteImport.update({
+  id: '/awards',
+  path: '/awards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -49,61 +79,109 @@ const MagazineIdRoute = MagazineIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/awards': typeof AwardsRoute
   '/data-camp': typeof DataCampRoute
   '/ets': typeof EtsRoute
+  '/events': typeof EventsRoute
   '/magazines': typeof MagazinesRoute
+  '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
+  '/team': typeof TeamRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/awards': typeof AwardsRoute
   '/data-camp': typeof DataCampRoute
   '/ets': typeof EtsRoute
+  '/events': typeof EventsRoute
   '/magazines': typeof MagazinesRoute
+  '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
+  '/team': typeof TeamRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/awards': typeof AwardsRoute
   '/data-camp': typeof DataCampRoute
   '/ets': typeof EtsRoute
+  '/events': typeof EventsRoute
   '/magazines': typeof MagazinesRoute
+  '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
+  '/team': typeof TeamRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/awards'
     | '/data-camp'
     | '/ets'
+    | '/events'
     | '/magazines'
+    | '/news'
     | '/partners'
+    | '/team'
     | '/magazine/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/data-camp' | '/ets' | '/magazines' | '/partners' | '/magazine/$id'
+  to:
+    | '/'
+    | '/about'
+    | '/awards'
+    | '/data-camp'
+    | '/ets'
+    | '/events'
+    | '/magazines'
+    | '/news'
+    | '/partners'
+    | '/team'
+    | '/magazine/$id'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/awards'
     | '/data-camp'
     | '/ets'
+    | '/events'
     | '/magazines'
+    | '/news'
     | '/partners'
+    | '/team'
     | '/magazine/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AwardsRoute: typeof AwardsRoute
   DataCampRoute: typeof DataCampRoute
   EtsRoute: typeof EtsRoute
+  EventsRoute: typeof EventsRoute
   MagazinesRoute: typeof MagazinesRoute
+  NewsRoute: typeof NewsRoute
   PartnersRoute: typeof PartnersRoute
+  TeamRoute: typeof TeamRoute
   MagazineIdRoute: typeof MagazineIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/partners': {
       id: '/partners'
       path: '/partners'
@@ -111,11 +189,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/magazines': {
       id: '/magazines'
       path: '/magazines'
       fullPath: '/magazines'
       preLoaderRoute: typeof MagazinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/events': {
+      id: '/events'
+      path: '/events'
+      fullPath: '/events'
+      preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ets': {
@@ -130,6 +222,20 @@ declare module '@tanstack/react-router' {
       path: '/data-camp'
       fullPath: '/data-camp'
       preLoaderRoute: typeof DataCampRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/awards': {
+      id: '/awards'
+      path: '/awards'
+      fullPath: '/awards'
+      preLoaderRoute: typeof AwardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -151,10 +257,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AwardsRoute: AwardsRoute,
   DataCampRoute: DataCampRoute,
   EtsRoute: EtsRoute,
+  EventsRoute: EventsRoute,
   MagazinesRoute: MagazinesRoute,
+  NewsRoute: NewsRoute,
   PartnersRoute: PartnersRoute,
+  TeamRoute: TeamRoute,
   MagazineIdRoute: MagazineIdRoute,
 }
 export const routeTree = rootRouteImport

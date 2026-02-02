@@ -3,7 +3,8 @@
 import HeroSection from "@/components/sections/Hero";
 import StatsStrip from "@/components/sections/StatsStrip";
 import HighBoardSectionComponent from "@/components/sections/HighBoard";
-import EventsSectionWithParticles from "@/components/sections/Events";
+import FlagshipEventsSection from "@/components/sections/FlagshipEvents";
+import ActivitiesSection from "@/components/sections/Activities";
 import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
 import Awards from "@/components/sections/Awards";
 import { NewsSectionComponent } from "@/components/sections/News";
@@ -40,7 +41,11 @@ export default function HomePage() {
         </section>
 
         <section id="events">
-          <EventsSectionWithParticles />
+          <FlagshipEventsSection />
+        </section>
+
+        <section id="activities">
+          <ActivitiesSection />
         </section>
 
         <section id="magazines">

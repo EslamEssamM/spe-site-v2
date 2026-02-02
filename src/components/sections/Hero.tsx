@@ -52,17 +52,42 @@ export default function HeroSection() {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Column - Main Content */}
             <div className="lg:col-span-7">
-              {/* Tagline */}
+              {/* Award Badge & Tagline */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex items-center gap-2 mb-8"
+                className="flex items-center gap-4 mb-8"
               >
-                <div className="h-px w-8 bg-white" />
-                <span className="text-white text-sm font-medium uppercase tracking-wider">
-                  Est. 2004 • Chapter #5948
-                </span>
+                {/* 2025 Presidential Award Badge */}
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+                  className="relative"
+                >
+                  <img
+                    src="/logos/25-Badge-StudentChapter.png"
+                    alt="SPE 2025 Presidential Award for Outstanding Student Chapter"
+                    className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-2xl"
+                  />
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-[#FFC857]/20 rounded-full blur-xl -z-10"
+                  />
+                </motion.div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-[#FFC857] text-xs sm:text-sm font-bold uppercase tracking-wider">
+                    2025 Presidential Award Winner
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <div className="h-px w-6 bg-white/40" />
+                    <span className="text-white/70 text-xs sm:text-sm font-medium uppercase tracking-wider">
+                      Est. 2004 • Chapter #5948
+                    </span>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Main Headline */}

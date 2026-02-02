@@ -7,35 +7,126 @@ Images: Put photos in /public/team/ folder with names like "firstname-lastname.w
 ---
 
 MEMBER 1:
-Name: Hossam Essam
-Position: President
+Name: Moaaz Khamis Eleraky
+Position: SPE SU SC President
 Department: Executive Board
-Bio: Senior Petroleum Engineering Student, Suez University
-Image: hossam-essam.webp
-LinkedIn: 
-Email: 
+Bio: Senior petroleum engineering student with hands-on industry experience as an intern at Baker Hughes, Halliburton, and Shell. He is currently serving as Chapter President and has previously held the role of Technical Manager, developing the technical skills of numerous students and young professionals. Additionally, he contributed as an Editor in ECHO, overseeing content and program quality. Experienced in managing teams, coordinating technical initiatives, and bridging academic knowledge with practical industry applications.
+Image: Moaaz.jpeg
+LinkedIn: https://www.linkedin.com/in/moaaz-aleraky-bb4510282
+Email: Masamaher4@gmail.com
 
 ---
 
 MEMBER 2:
-Name: Ahmed Saad
+Name: Mohamed Maher Mohamed Abdullah
 Position: Vice President
 Department: Executive Board
-Bio: Senior Petroleum Engineering Student, Suez University
-Image: ahmed-saad.webp
-LinkedIn: 
-Email: 
+Bio: Senior petroleum engineering student with hands-on industry exposure as a former intern at Baker Hughes, SLB, and Halliburton. I am currently serving as Vice President of the Student Chapter and COO of ECHO & Criterion. During Season 25, I held the roles of Secretary of the Chapter and CEO of ECHO & Criterion, leading strategic planning, operations, and coordination of technical and professional development initiatives. Experienced in managing teams, collaborating with industry professionals, and delivering high-impact programs that bridge academic knowledge with real-world applications.
+Image: MohamedMaher.jpg
+LinkedIn: https://www.linkedin.com/in/mohamed-maher-b3670b230
+Email: mohammedmaher148@gmail.com
 
 ---
 
 MEMBER 3:
-Name: 
-Position: 
-Department: 
-Bio: 
-Image: 
+Name: Eslam Essam
+Position: IT Manager
+Department: IT
+Bio: Senior Petroleum Engineering student at FPME and Freelance Software Engineer, specializing in Node.js, Laravel backends, and real-time systems. Served as IT Manager for SPE Suez Student Chapter for two years (2025 & 2026), leading digital transformations. Trained at Baker Hughes and Halliburton, and attended ADIPEC 2025, blending tech expertise with energy sector experience.
+Image: eslam-essam.jpg
+LinkedIn: https://www.linkedin.com/in/eslam-essam-ss/
+Email: essamdrc@gmail.com
+
+---
+
+---
+
+MEMBER 4:
+Name: Youssef Gerges Rezk
+Position: Technical Manager
+Department: Technical
+Bio: Senior Petroleum Engineering Student, Suez University
+Image: youssef-rezk.jpg
+LinkedIn: https://www.linkedin.com/in/youssef-rezk-85563b2a3
+Email: youssef.gerges.rezk@gmail.com
+
+---
+
+MEMBER 5:
+Name: Mohamed Sakr
+Position: Chapter Secretary
+Department: Secretary
+Bio: Junior Petroleum Engineering student with hands-on industry exposure through internships at bp, Baker Hughes and Halliburton. Currently serving as Chapter Secretary and CEO of ECHO and Criterion magazines, with previous leadership experience as Academy Vice Head. Actively involved in technical development, content management, and student leadership, with a strong focus on bridging academic knowledge with real-world petroleum industry applications.
+Image: MohamedSakr.jpg
+LinkedIn: https://www.linkedin.com/in/mohamed-sakr0
+Email: mohamedmgms123@gmail.com
+
+---
+
+
+MEMBER 6:
+Name: Fatma Amin Ali
+Position: HR Manager
+Department: Human Resources
+Bio: Senior Arabic Language Student, Faculty of Arts
+Image: fatma-amin.jpg
+LinkedIn: https://www.linkedin.com/in/%D9%81%D8%A7%D8%B7%D9%90%D9%85%D8%A9-%D8%A7%D9%85%D9%8A%D9%86-51540336a
+Email: fatmtamyn456@gmail.com
+
+---
+
+MEMBER 7:
+Name: Yossef Zahra
+Position: Treasurer & Business Development Manager
+Department: Finance
+Bio: Play a key role in driving strategic partnerships, sponsorship acquisition, and financial planning to support the chapter's technical and professional activities. With a strong background in negotiation, stakeholder relations, and budget management, Yossef works on expanding the chapter's industry engagement while ensuring financial sustainability. He is passionate about bridging the gap between students and the energy industry and contributing to impactful, value-driven initiatives within SPE SU SC.
+Image: yossef-zahra.jpg
+LinkedIn: https://www.linkedin.com/in/yossef-zahra-99047537a
+Email: yossefabozahra14@gmail.com
+
+---
+
+MEMBER 8:
+Name: Ahmed Shawki Fouad Arafa
+Position: Marketing Manager
+Department: Marketing
+Bio: Metallurgy & Materials Science Senior Student. Junior Graphic Designer. Mid - Full-Stack Developer (.NET & MERN)
+Image: ahmed-shawki.jpg
+LinkedIn: https://linkedin.com/in/ahmed-shawki26/
+Email: ahmedshawki2026@gmail.com
+
+---
+
+MEMBER 9:
+Name: Omar Essam Lotfy
+Position: Technical Vice Manager
+Department: Technical
+Bio: Junior Petroleum Engineering undergraduate with hands-on industry experience as a former intern at Baker Hughes and Halliburton. Currently serving as Chapter Technical Vice Manager and formerly a Technical Leader, contributing to the development of students' technical competencies. Also experienced as an Editor at Criterion and ECHO, ensuring content quality and program alignment. Skilled in team leadership, technical coordination, and bridging academic foundations with practical industry applications.
+Image: omar-essam.jpg
+LinkedIn: https://www.linkedin.com/in/omar-essam-lotfy
+Email: omar9999essam@gmail.com
+
+---
+
+MEMBER 10:
+Name: Ayman Mohamed Hassan
+Position: Operations Manager
+Department: Operations
+Bio: Chemical Engineer
+Image: ayman-mohamed.jpg
 LinkedIn: 
-Email: 
+Email: aymanmohamed3236@gmail.com
+
+
+
+MEMBER 11:
+Name: Nadia Maher Elshahat Abdelhady
+Position: Vice Marketing Manager
+Department: Marketing
+Bio: 
+Image: nadia-maher.jpg
+LinkedIn: 
+Email: nadiamaher178@gmail.com
 
 ---
 

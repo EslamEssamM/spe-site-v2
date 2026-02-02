@@ -3,31 +3,34 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { ChevronRight, Calendar, Users, MapPin, Clock, X } from 'lucide-react';
+import { ChevronRight, Calendar, Users, MapPin, Clock, X, Sparkles } from 'lucide-react';
 import eventsData from "@/data/events";
 
+// Separate flagship and activity events
+const flagshipEvents = eventsData.filter(e => e.type === "flagship");
+const activityEvents = eventsData.filter(e => e.type !== "flagship");
+
 export default function EnhancedEventsSection() {
-  const [activeEvent, setActiveEvent] = useState(eventsData[0]);
+  const [activeEvent, setActiveEvent] = useState(flagshipEvents[0]);
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
   const [autoplayPaused, setAutoplayPaused] = useState(false);
   const [userInteracted, setUserInteracted] = useState(false);
   const eventSectionRef = useRef<HTMLDivElement>(null);
 
-  // Auto-rotate through events only if not paused and user hasn't interacted
+  // Auto-rotate through flagship events only if not paused and user hasn't interacted
   useEffect(() => {
     if (autoplayPaused || userInteracted) return;
 
     const interval = setInterval(() => {
-      const currentIndex = eventsData.findIndex(e => e.name === activeEvent.name);
-      const nextIndex = (currentIndex + 1) % eventsData.length;
-      setActiveEvent(eventsData[nextIndex]);
+      const currentIndex = flagshipEvents.findIndex(e => e.name === activeEvent.name);
+      const nextIndex = (currentIndex + 1) % flagshipEvents.length;
+      setActiveEvent(flagshipEvents[nextIndex]);
     }, 8000);
 
     return () => clearInterval(interval);
   }, [activeEvent, autoplayPaused, userInteracted]);
 
-  // Handle event selection
   const handleEventSelect = (event: typeof eventsData[0]) => {
     setActiveEvent(event);
     setUserInteracted(true);
@@ -84,6 +87,23 @@ export default function EnhancedEventsSection() {
     return () => observer.disconnect();
   }, []);
 
+  const getEventTypeBadge = (type: string) => {
+    const badges: Record<string, { label: string; color: string }> = {
+      flagship: { label: "Flagship Event", color: "bg-[#00C29A]" },
+      technical: { label: "Technical", color: "bg-[#0D4C92]" },
+      competition: { label: "Competition", color: "bg-[#FFC857] text-[#0F172A]" },
+      career: { label: "Career Development", color: "bg-purple-500" },
+    };
+    return badges[type] || { label: "Event", color: "bg-gray-500" };
+  };
+
+  const getStatusBadge = (status: string) => {
+    if (status === "upcoming") {
+      return <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">Upcoming</span>;
+    }
+    return null;
+  };
+
   return (
     <section
       id="events"
@@ -91,7 +111,7 @@ export default function EnhancedEventsSection() {
       ref={eventSectionRef}
     >
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
+        {/* Flagship Events Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,21 +120,23 @@ export default function EnhancedEventsSection() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-block px-4 py-1.5 bg-[#0D4C92]/20 text-[#00C29A] text-sm font-semibold rounded-full mb-4">
-            Events
+            <Sparkles className="inline-block w-4 h-4 mr-1" />
+            Flagship Events
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 font-[Poppins]">
-            Our Flagship Events
+            Our Signature Events
           </h2>
           <p className="text-lg text-white/60 leading-relaxed">
-            Discover our signature events that bring together industry experts, students, and professionals
+            Our flagship events bring together hundreds of students, industry experts, and professionals 
+            for immersive experiences in technical learning, career development, and networking
           </p>
         </motion.div>
 
-        {/* Events Content */}
-        <div className="grid lg:grid-cols-3 gap-8" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          {/* Events Navigation */}
+        {/* Flagship Events Content */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-24" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          {/* Flagship Events Navigation */}
           <div className="space-y-3">
-            {eventsData.map((event, index) => (
+            {flagshipEvents.map((event, index) => (
               <motion.div
                 key={event.name}
                 initial={{ opacity: 0, x: -30 }}
@@ -136,13 +158,20 @@ export default function EnhancedEventsSection() {
                         ? "bg-white/20"
                         : "bg-[#0D4C92]/20"
                     } mr-4`}>
-                      <img
-                        src={event.logo || "/placeholder.svg?height=24&width=24"}
-                        alt={`${event.name} logo`}
-                        className="w-7 h-7 object-contain"
-                      />
+                      {event.logo ? (
+                        <img
+                          src={event.logo}
+                          alt={`${event.name} logo`}
+                          className="w-7 h-7 object-contain"
+                        />
+                      ) : (
+                        <span className="text-2xl">{event.icon}</span>
+                      )}
                     </div>
-                    <span className="flex-grow font-semibold">{event.name}</span>
+                    <div className="flex-grow">
+                      <span className="font-semibold block">{event.name}</span>
+                      <span className="text-xs text-white/50">{event.city} • {event.attendees} attendees</span>
+                    </div>
                     <ChevronRight
                       className={`w-5 h-5 transition-transform duration-300 ${
                         activeEvent.name === event.name ? "rotate-90" : ""
@@ -154,7 +183,7 @@ export default function EnhancedEventsSection() {
             ))}
           </div>
 
-          {/* Event Details */}
+          {/* Flagship Event Details */}
           <div className="lg:col-span-2">
             <AnimatePresence mode="wait">
               <motion.div
@@ -169,21 +198,26 @@ export default function EnhancedEventsSection() {
                 <div className="bg-[#0D4C92] p-6 lg:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                     <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
-                      <img
-                        src={activeEvent.logo || "/placeholder.svg?height=64&width=64"}
-                        alt={`${activeEvent.name} logo`}
-                        className="w-10 h-10 object-contain"
-                      />
+                      {activeEvent.logo ? (
+                        <img
+                          src={activeEvent.logo}
+                          alt={`${activeEvent.name} logo`}
+                          className="w-10 h-10 object-contain"
+                        />
+                      ) : (
+                        <span className="text-3xl">{activeEvent.icon}</span>
+                      )}
                     </div>
                     <div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">{activeEvent.name}</h3>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2">{activeEvent.fullName}</h3>
                       <div className="flex flex-wrap gap-2">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#00C29A] text-white">
-                          Flagship Event
+                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getEventTypeBadge(activeEvent.type).color}`}>
+                          {getEventTypeBadge(activeEvent.type).label}
                         </span>
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white">
                           <Clock className="mr-1 h-3 w-3" /> {activeEvent.duration}
                         </span>
+                        {getStatusBadge(activeEvent.status)}
                       </div>
                     </div>
                   </div>
@@ -210,7 +244,7 @@ export default function EnhancedEventsSection() {
                       </div>
                       <div>
                         <p className="text-white/50 text-xs">Attendees</p>
-                        <p className="text-white font-semibold text-sm">{activeEvent.attendees}+</p>
+                        <p className="text-white font-semibold text-sm">{activeEvent.attendees}</p>
                       </div>
                     </div>
 
@@ -229,7 +263,7 @@ export default function EnhancedEventsSection() {
                   {activeEvent.pastImages.length > 0 && (
                     <div>
                       <h4 className="text-lg font-semibold text-white mb-4 font-[Poppins]">
-                        Past Event Highlights
+                        Event Highlights
                       </h4>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {activeEvent.pastImages.map((image, index) => (
@@ -240,8 +274,8 @@ export default function EnhancedEventsSection() {
                             onClick={() => openModal(image)}
                           >
                             <img
-                              src={image || "/placeholder.svg?height=180&width=320"}
-                              alt={`${activeEvent.name} past event ${index + 1}`}
+                              src={image}
+                              alt={`${activeEvent.name} event ${index + 1}`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-[#0D4C92]/0 group-hover:bg-[#0D4C92]/30 transition-colors duration-300 flex items-center justify-center">
@@ -258,6 +292,83 @@ export default function EnhancedEventsSection() {
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
+
+        {/* Activities Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12"
+        >
+          <span className="inline-block px-4 py-1.5 bg-[#00C29A]/20 text-[#00C29A] text-sm font-semibold rounded-full mb-4">
+            Activities & Programs
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 font-[Poppins]">
+            More Ways to Get Involved
+          </h2>
+          <p className="text-lg text-white/60 leading-relaxed">
+            Beyond our flagship events, we offer technical workshops, field visits, competitions, 
+            and skill-building programs throughout the year
+          </p>
+        </motion.div>
+
+        {/* Activities Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {activityEvents.map((event, index) => (
+            <motion.div
+              key={event.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group"
+            >
+              <div className="bg-[#050B1A] rounded-2xl border border-white/10 hover:border-[#0D4C92]/50 transition-all duration-300 overflow-hidden h-full flex flex-col">
+                {/* Activity Header */}
+                <div className={`bg-gradient-to-r ${event.color} p-5`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                      <span className="text-2xl">{event.icon}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white">{event.name}</h3>
+                      <p className="text-white/70 text-sm">{event.fullName}</p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${getEventTypeBadge(event.type).color}`}>
+                      {getEventTypeBadge(event.type).label}
+                    </span>
+                    {getStatusBadge(event.status)}
+                  </div>
+                </div>
+
+                {/* Activity Content */}
+                <div className="p-5 flex-1 flex flex-col">
+                  <p className="text-white/60 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">
+                    {event.description}
+                  </p>
+
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center text-white/50">
+                      <Calendar className="w-4 h-4 mr-2 text-[#0D4C92]" />
+                      <span>{event.date}</span>
+                    </div>
+                    <div className="flex items-center text-white/50">
+                      <MapPin className="w-4 h-4 mr-2 text-[#FFC857]" />
+                      <span>{event.location}</span>
+                    </div>
+                    <div className="flex items-center text-white/50">
+                      <Users className="w-4 h-4 mr-2 text-[#00C29A]" />
+                      <span>{event.attendees} participants</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
@@ -287,7 +398,7 @@ export default function EnhancedEventsSection() {
 
               <div className="aspect-video bg-[#050B1A] flex items-center justify-center">
                 <img
-                  src={selectedImage || "/placeholder.svg?height=720&width=1280"}
+                  src={selectedImage}
                   alt="Event highlight"
                   className="max-w-full max-h-full object-contain"
                 />

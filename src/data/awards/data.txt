@@ -10,35 +10,34 @@ AWARD 1:
 Name: Presidential Award for Outstanding Student Chapter
 Type: outstanding-chapter
 Years Won: 2014, 2015, 2017, 2019, 2020, 2022, 2025
-Description: Recognized for exceptional performance in technical dissemination and professional development. Ranked among the top three performing student chapters worldwide.
+Description: The Presidential Outstanding Student Chapter Award is a global-level recognition presented to the top 10 percent of student chapters worldwide in each award category and size range. Chapters considered for this award have demonstrated exemplary efforts in technical initiatives, professional development, leadership, and community involvement, exceeding regional expectations. The award is presented at the SPE Annual Technical Conference and Exhibition (ATCE), highlighting chapters that set the benchmark for impact, innovation, and excellence in the global SPE student community.
 Awarded By: SPE International
-Certificate Image: (optional)
+Certificate Image: Outstanding.jpg
 
 ---
 
 AWARD 2:
-Name: Gold Standard Award
-Type: gold-standard
-Years Won: 2010, 2011, 2012, 2013, 2016
-Description: Achieved the highest level of excellence in chapter operations and activities.
+Name: Student Chapter Excellence Award
+Type: Excellence Award
+Years Won: 2010, 2011, 2012, 2013, 2016, 2021
+Description: The Student Chapter Excellence Award recognizes chapters that achieve a high level of activity and impact across key areas such as professional development, technical initiatives, industry engagement, and community involvement. It honors chapters that go beyond basic expectations, demonstrating consistent effort and success in serving their members and advancing SPE’s mission globally.
 Awarded By: SPE International
-Certificate Image: 
+Certificate Image: Excellence.png
 
 ---
 
 AWARD 3:
-Name: 
-Type: (presidential / outstanding-chapter / gold-standard / regional / special)
-Years Won: 
-Description: 
-Awarded By: 
-Certificate Image: 
+Name: Regional Outstanding Student Chapter award
+Type: regional 
+Years Won: 2025
+Description: The Regional Outstanding Student Chapter Award recognizes student chapters that demonstrate exceptional service and leadership within their super region. This award honors chapters that excel in technical dissemination, professional development, community engagement, and member recognition, reflecting their commitment to advancing SPE’s mission at a regional level. Chapters achieving this distinction are considered the top performers in their region and qualify to compete in the global round for further recognition.
+Awarded By: SPE International
+Certificate Image: Regional.jpg
 
 ---
 
 AWARD TYPES:
-- presidential (SPE Presidential Award)
 - outstanding-chapter (Outstanding Student Chapter)
-- gold-standard (Gold Standard Status)
-- regional (Regional awards)
+- regional (Regional Awards)
+- excellence (Excellence Awards)
 - special (Special recognitions)

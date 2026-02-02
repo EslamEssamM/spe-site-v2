@@ -5,13 +5,13 @@ import { Menu, X, ChevronRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 const navItems = [
-  { id: "home", label: "Home", href: "/#home" },
-  { id: "about", label: "About", href: "/#about" },
-  { id: "news", label: "News", href: "/#news" },
-  { id: "awards", label: "Awards", href: "/#awards" },
-  { id: "highboard", label: "Team", href: "/#highboard" },
-  { id: "events", label: "Events", href: "/#events" },
-  { id: "magazines", label: "Publications", href: "/#magazines" },
+  { id: "home", label: "Home", href: "/" },
+  { id: "about", label: "About", href: "/about" },
+  { id: "news", label: "News", href: "/news" },
+  { id: "awards", label: "Awards", href: "/awards" },
+  { id: "team", label: "Team", href: "/team" },
+  { id: "events", label: "Events", href: "/events" },
+  { id: "magazines", label: "Publications", href: "/magazines" },
   { id: "partners", label: "Partners", href: "/partners" },
 ];
 
@@ -40,17 +40,11 @@ export function Navbar() {
     };
   }, [isMenuOpen]);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = () => {
     setIsMenuOpen(false);
     
-    // Handle anchor links
-    if (href.includes("#")) {
-      const id = href.split("#")[1];
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    // Scroll to top when navigating
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -65,7 +59,7 @@ export function Navbar() {
         {/* Logo */}
         <Link
           to="/"
-          onClick={() => handleNavClick("/#home")}
+          onClick={() => handleNavClick()}
           className="flex items-center gap-3 group"
         >
           <div className="relative">
@@ -89,7 +83,7 @@ export function Navbar() {
             <Link
               key={item.id}
               to={item.href}
-              onClick={() => handleNavClick(item.href)}
+              onClick={() => handleNavClick()}
               className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white rounded-lg hover:bg-white/10 transition-all duration-200"
             >
               {item.label}
@@ -175,7 +169,7 @@ export function Navbar() {
                     >
                       <Link
                         to={item.href}
-                        onClick={() => handleNavClick(item.href)}
+                        onClick={() => handleNavClick()}
                         className="flex items-center gap-3 px-6 py-4 text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
                       >
                         <ChevronRight className="h-4 w-4 text-[#00C29A]" />

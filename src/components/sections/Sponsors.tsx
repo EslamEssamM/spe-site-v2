@@ -2,12 +2,28 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, ArrowRight, Handshake, Mail } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, ArrowRight, Handshake, Mail, Star, Award, Briefcase, GraduationCap } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
+// Main Sponsor
+const mainSponsor = {
+  src: "/logos/UEE-logo.png",
+  alt: "United Energy Egypt",
+  name: "UEE",
+  fullName: "United Energy Egypt",
+  href: "https://ueel.co/",
+  description: "United Energy Egypt (UEE) is an oil and gas exploration and production company operating in Egypt, established in 2021 as part of United Energy Group. It focuses on developing upstream assets, mainly in the Western Desert, using efficient and sustainable practices. UEE aims to support Egypt's energy sector through operational excellence, innovation, and responsible growth.",
+  benefits: [
+    { icon: Star, label: "Sponsorship in all our projects" },
+    { icon: GraduationCap, label: "Technical workshops" },
+    { icon: Briefcase, label: "Internship opportunities" },
+  ],
+};
+
+// Other sponsors (excluding UEE)
 const sponsorLogos = [
   {
-    src: "/sponsors/SLB.webp",
+    src: "/logos/slb-logo.png",
     alt: "SLB",
     href: "https://www.slb.com/",
     description: "Global technology leader in the energy industry, providing digital solutions and innovative technologies.",
@@ -19,13 +35,13 @@ const sponsorLogos = [
     description: "Leading platform for data science and analytics education, empowering learners worldwide.",
   },
   {
-    src: "/sponsors/BGS.webp",
+    src: "/logos/BGS-logo.png",
     alt: "BGS Energy Services",
     href: "https://bgses.com/",
     description: "Leading global provider of products, innovative technologies and services for the Oil and Gas Industry.",
   },
   {
-    src: "/sponsors/UEE.webp",
+    src: "/logos/UEE-logo.png",
     alt: "United Energy Egypt",
     href: "https://ueel.co/",
     description: "Dedicated to sustainable, long-term growth in the energy sector as part of United Energy Group.",
@@ -73,6 +89,96 @@ export default function SponsorsSection() {
           <p className="text-lg text-gray-400 leading-relaxed">
             Collaborating with industry leaders to drive innovation and excellence in petroleum engineering education
           </p>
+        </motion.div>
+
+        {/* Main Sponsor Section - UEE */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <div className="text-center mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#FFC857]/20 text-[#FFC857] text-sm font-semibold rounded-full">
+              <Award className="w-4 h-4" />
+              Main Sponsor
+            </span>
+          </div>
+          
+          <div className="relative bg-gradient-to-br from-[#0F1629] via-[#0F1629] to-[#0D4C92]/20 rounded-3xl p-8 lg:p-12 border border-[#FFC857]/30 overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFC857]/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#0D4C92]/10 rounded-full blur-3xl" />
+            
+            <div className="relative flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+              {/* Logo */}
+              <div className="w-56 h-56 bg-[#0a1628] rounded-3xl p-8 flex items-center justify-center flex-shrink-0 border border-[#FFC857]/20 shadow-xl shadow-[#FFC857]/5">
+                <img
+                  src={mainSponsor.src}
+                  alt={mainSponsor.alt}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+
+              {/* Info */}
+              <div className="flex-1 text-center lg:text-left">
+                <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-white">
+                    {mainSponsor.fullName}
+                  </h3>
+                </div>
+                <p className="text-gray-300 leading-relaxed mb-8 text-lg">
+                  {mainSponsor.description}
+                </p>
+                
+                {/* Benefits Grid */}
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  {mainSponsor.benefits.map((benefit, index) => (
+                    <motion.div
+                      key={benefit.label}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-center gap-3 bg-[#0a1628]/50 rounded-xl p-3 border border-white/5"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-[#FFC857]/10 flex items-center justify-center flex-shrink-0">
+                        <benefit.icon className="w-5 h-5 text-[#FFC857]" />
+                      </div>
+                      <span className="text-white/80 text-sm font-medium">{benefit.label}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <a
+                  href={mainSponsor.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFC857] hover:bg-[#FFC857]/90 text-[#0F172A] rounded-xl font-bold transition-all duration-200 shadow-lg shadow-[#FFC857]/20"
+                >
+                  Visit Website
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Other Partners Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="inline-block px-4 py-1.5 bg-[#0D4C92]/20 text-[#0D4C92] text-sm font-semibold rounded-full mb-4">
+            Strategic Partners
+          </span>
+          <h3 className="text-2xl lg:text-3xl font-bold text-white">
+            Our Valued Partners
+          </h3>
         </motion.div>
 
         {/* Sponsors Carousel */}

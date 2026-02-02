@@ -1,26 +1,46 @@
 import { motion } from "framer-motion";
-import { Target, Lightbulb, Users, Shield, ArrowRight } from "lucide-react";
+import { Target, Lightbulb, Users, Shield, ArrowRight, Trophy, Handshake, Globe, GraduationCap } from "lucide-react";
 
 const values = [
   {
     icon: Target,
     title: "Excellence",
-    description: "Striving for the highest standards in everything we do",
+    description: "Striving for the highest standards in technical performance and global-level achievement",
   },
   {
     icon: Lightbulb,
     title: "Innovation",
-    description: "Embracing new ideas and technologies in the energy sector",
+    description: "Embracing creativity, data-driven thinking, and emerging technologies",
   },
   {
     icon: Users,
     title: "Community",
-    description: "Building strong connections between students and industry",
+    description: "Building strong connections among students, professionals, and society",
   },
   {
     icon: Shield,
     title: "Integrity",
-    description: "Maintaining ethical standards and transparency",
+    description: "Upholding ethical standards, transparency, and accountability",
+  },
+  {
+    icon: Trophy,
+    title: "Leadership",
+    description: "Cultivating responsible leaders who inspire and contribute positively",
+  },
+  {
+    icon: GraduationCap,
+    title: "Professional Development",
+    description: "Committed to continuous learning and career readiness",
+  },
+  {
+    icon: Handshake,
+    title: "Teamwork",
+    description: "Valuing collaboration, mutual respect, and diversity",
+  },
+  {
+    icon: Globe,
+    title: "Global Mindset",
+    description: "Encouraging international exposure and cultural exchange",
   },
 ];
 
@@ -43,9 +63,10 @@ export default function AboutSection() {
             About SPE Suez Student Chapter
           </h2>
           <p className="text-lg text-white/60 leading-relaxed">
-            SPE Suez University Student Chapter is the largest SPE student chapter in the MENA region. 
-            Established in 2004 and actively operating since 2008, we are dedicated to empowering students 
-            through technical, professional, and developmental activities.
+            SPE Suez University Student Chapter is the largest SPE student chapter in the MENA region, 
+            founded in 2004 and actively operating since 2008. Operating under the Society of Petroleum 
+            Engineers (SPE), we are dedicated to empowering students and fresh graduates through technical 
+            education, professional development, leadership training, and community engagement.
           </p>
         </motion.div>
 
@@ -64,9 +85,10 @@ export default function AboutSection() {
             </div>
             <h3 className="text-2xl font-bold text-white mb-4 font-[Poppins]">Our Mission</h3>
             <p className="text-white/60 leading-relaxed mb-6">
-              To prepare students and fresh graduates academically and professionally 
-              through hands-on experience, global exposure, and strong industry connections. 
-              We bridge the gap between academic learning and real-world industry practices.
+              To develop competent, innovative, and industry-ready engineers by providing high-quality 
+              technical training, hands-on experience, global exposure, and strong industry connections. 
+              SPE Suez aims to bridge the gap between academia and industry while fostering leadership, 
+              teamwork, ethical responsibility, and lifelong learning.
             </p>
             <a
               href="#events"
@@ -77,7 +99,7 @@ export default function AboutSection() {
             </a>
           </motion.div>
 
-          {/* Activities Card */}
+          {/* Vision Card */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -88,12 +110,11 @@ export default function AboutSection() {
             <div className="w-14 h-14 rounded-xl bg-[#00C29A] flex items-center justify-center mb-6">
               <Lightbulb className="h-7 w-7 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4 font-[Poppins]">What We Do</h3>
+            <h3 className="text-2xl font-bold text-white mb-4 font-[Poppins]">Our Vision</h3>
             <p className="text-white/60 leading-relaxed mb-6">
-              We organize technical workshops, certified courses, internships, and 
-              engineering sessions across multiple disciplines. Our chapter conducts 
-              field visits and facilitates direct industry interaction while building 
-              strong connections with major national and international companies.
+              To be a globally leading and influential student chapter, recognized for excellence in 
+              technical dissemination, professional development, research impact, and community contribution, 
+              while shaping future leaders capable of driving innovation and sustainability in the energy sector.
             </p>
             <a
               href="#magazines"

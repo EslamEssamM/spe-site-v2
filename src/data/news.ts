@@ -1,80 +1,86 @@
-import { Users2Icon } from "lucide-react";
-import petroAnalystImage from "@/assets/news/petro-analys.webp";
-import dataSpeaksImage from "@/assets/news/data-speaks.webp";
-import dataCampImage from "@/assets/news/datacamp.webp";
-import etsImage from "@/assets/news/ets.webp";
+﻿import { Users2Icon } from "lucide-react";
 
 const newsItems = [
   {
-    id: 4,
-    isHot: true,
-
-    title: "ETS TOEFL iBT®",
-    date: "Ongoing",
-    image: etsImage,
-    links: [
-      {
-        title: "apply now",
-        url: "https://forms.gle/m7Au3jMMW3QY85ax9",
-        icon: Users2Icon,
-      },
-      {
-        title: "read full article",
-        url: "/ets",
-        icon: Users2Icon,
-      },
-    ],
-    description:
-      "ETS TOEFL iBT® is a widely recognized English language proficiency test that can open doors to study abroad, work, and travel. The test evaluates your ability to use and understand English at the university level. The TOEFL iBT® test is accepted by more than 11,000 universities and other institutions in over 150 countries, including Australia, Canada, New Zealand, the UK, the United States, and all across Europe and Asia.",
-    tags: ["English Language", "Exam", "Discount"],
-    moreDetails:
-      "SPE Suez Chapter is proud to announce a partnership with ETS TOEFL iBT® to offer a 25% discount on the exam registration fee. This partnership aims to help students and professionals achieve their academic and career goals by providing them with a valuable opportunity to demonstrate their English language proficiency.",
-     
-  },
-{
-    id: 3,
-    title: "Datacamp Donates",
-    date: "19 Nov 2024",
-    image: dataCampImage,
-    links: [
-      {
-        title: "apply now",
-        url: "https://forms.gle/jMTfSGep5Fwu32cr9",
-        icon: Users2Icon,
-      },
-      {
-        title: "read full article",
-        url: "/data-camp",
-        icon: Users2Icon,
-      },
-    ],
-    description:
-      "We’re beyond thrilled to announce a groundbreaking scholarship with DataCamp, a leading online learning platform for data science and analytics. This collaboration will provide selected applicants with 1 full year of access to all courses on the platform—completely free! 🎉",
-    tags: ["Data Analysis", "Oil & Gas", "Competition"],
-    moreDetails:
-      " 💻 Why DataCamp?\n Access to 440+ courses on data science, machine learning, Python, R, SQL, and more.\n Learn from industry experts and apply your skills through real-world projects.\n Boost your employability with certificates recognized worldwide.\n 🌍 What Does This Mean for You?\n This partnership is your ticket to mastering in-demand skills, exploring new career opportunities, and becoming a leader in the digital transformation era. Whether you're a beginner or an advanced learner, DataCamp has something for everyone!\n Let’s shape tomorrow, today. Together, we’ll continue empowering the next generation of data-driven leaders! 🚀",
-  },
-  {
     id: 1,
-    title: "PetroAnalyst Competition 2023",
-    date: "3-15 Feb 2023",
-    image: petroAnalystImage,
+    isHot: true,
+    title: "DataCamp Partnership - Free Premium Access",
+    date: "15 Nov 2025",
+    category: "partnership",
+    image: "/news/datacamp-partnership.webp",
+    links: [
+      {
+        title: "See more",
+        url: "https://www.facebook.com/share/p/1A23UyP4Xg/",
+        icon: Users2Icon,
+      },
+    ],
     description:
-      "The PetroAnalyst Competition in the SPE Suez Student Chapter provides students with the unique opportunity to work on real-world oil and gas data, developing essential skills in the industry. Participants engage in tasks such as exploratory data analysis, data cleaning, visualization, and advanced modeling.",
-    tags: ["Data Analysis", "Oil & Gas", "Competition"],
+      "SPE Suez University Student Chapter is continuing its partnership with DataCamp to provide students with practical, hands-on learning opportunities in data and analytics. This renewed collaboration offers a wider range of courses, guided learning paths, and assessments designed to help students build skills at their own pace and strengthen their foundation in data-driven technologies.",
+    tags: ["Partnership", "Data Science", "Learning"],
     moreDetails:
-      "This competition is designed to challenge students and provide them with hands-on experience in the field of petroleum engineering. The tasks will include working with large datasets, creating predictive models, and presenting findings to a panel of industry experts.",
+      "DataCamp Partnership Returns! This collaboration offers a wider range of courses, guided learning paths, and assessments designed to help students build skills at their own pace and strengthen their foundation in data-driven technologies.",
   },
   {
     id: 2,
-    title: "Data SPEaks",
-    date: "3-15 Feb 2023",
-    image: dataSpeaksImage,
+    isHot: false,
+    title: "PetroBowl Competition - Top 10 Worldwide",
+    date: "23 Oct 2025",
+    category: "achievement",
+    image: "/news/petrobowl-1.jpg",
+    links: [
+      {
+        title: "See more",
+        url: "https://www.facebook.com/share/p/17zDEpro6C/",
+        icon: Users2Icon,
+      },
+    ],
     description:
-      "The Data Speaks Competition in the SPE Suez Student Chapter focused on analyzing survey data about remote working trends in Australia, with participants working exclusively in Excel. Competitors were tasked with exploring, cleaning, and visualizing the data to uncover key insights into remote work dynamics. This Excel-based analysis challenge allowed students to apply their data handling and analytical skills, emphasizing practical experience with survey data and remote work trends.",
-    tags: ["Data Analysis", "Oil & Gas", "Competition"],
+      "SPE Suez achieved a historic milestone by ranking among the Top 10 teams worldwide at PetroBowl 2025, becoming the only team from the MENA region to reach this level. After the team ranked within the Top 5 in the MENA region and represented Egypt internationally.",
+    tags: ["Achievement", "Competition", "PetroBowl"],
     moreDetails:
-      "Data SPEaks is an event that brings together students and professionals to discuss the latest trends and technologies in data analysis within the oil and gas industry. Attendees will have the opportunity to network, attend workshops, and learn from industry leaders.",
+      "This historic achievement marks SPE Suez as the only team from the MENA region to reach this level at PetroBowl 2025. The team ranked within the Top 5 in the MENA region before advancing to represent Egypt internationally.",
+  },
+  {
+    id: 3,
+    isHot: false,
+    title: "ADIPEC Participation",
+    date: "3 Nov 2025",
+    category: "achievement",
+    image: "/news/adipec-1.jpg",
+    links: [
+      {
+        title: "See more",
+        url: "https://www.facebook.com/share/p/1KYLtBdA3T/",
+        icon: Users2Icon,
+      },
+    ],
+    description:
+      "SPE Suez University Student Chapter proudly represented Suez University at the 2025 SPE ADIPEC University Program in Abu Dhabi, UAE (3-5 November). The program provided an invaluable opportunity for learning, innovation, and global exposure.",
+    tags: ["Conference", "ADIPEC", "International"],
+    moreDetails:
+      "The ADIPEC University Program provided an invaluable opportunity for learning, innovation, and global exposure. Our representatives gained insights from industry leaders and connected with students from around the world.",
+  },
+  {
+    id: 4,
+    isHot: false,
+    title: "ATCE Participation",
+    date: "20 Oct 2025",
+    category: "achievement",
+    image: "/news/atce-1.jpg",
+    links: [
+      {
+        title: "See more",
+        url: "https://www.facebook.com/share/p/14Qg2vsoeqf/",
+        icon: Users2Icon,
+      },
+    ],
+    description:
+      "SPE Suez University Student Chapter proudly participated in the 2025 SPE ATCE, gaining exposure to the latest innovations, technologies, and best practices in the energy industry. The experience provided opportunities for professional development, networking with industry leaders, and learning from global experts.",
+    tags: ["Conference", "ATCE", "Professional Development"],
+    moreDetails:
+      "Participation in ATCE strengthened our chapter's commitment to technical excellence and collaboration while reinforcing SPE's mission of connecting minds, inspiring change, and shaping the future of energy.",
   },
 ];
+
 export default newsItems;

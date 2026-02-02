@@ -37,6 +37,21 @@ export default function MagazinesList() {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
+          {/* Back Button */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <Link to="/">
+              <Button variant="ghost" className="text-white/60 hover:text-white hover:bg-white/10">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Home
+              </Button>
+            </Link>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -85,9 +100,6 @@ export default function MagazinesList() {
                   <div className="flex items-center gap-2 mb-3">
                     <span className="px-3 py-1 bg-white/20 text-white text-xs font-medium rounded-full">
                       {latestMagazine.year}
-                    </span>
-                    <span className="px-3 py-1 bg-white/10 text-white/80 text-xs font-medium rounded-full">
-                      {latestMagazine.issue}
                     </span>
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">

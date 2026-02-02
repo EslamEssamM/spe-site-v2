@@ -78,9 +78,6 @@ export default function PerfectedMagazinesSectionWithParticles() {
                       <span className="px-3 py-1 bg-[#0D4C92]/20 text-[#0D4C92] text-sm font-medium rounded-full">
                         {magazines[currentIndex].year}
                       </span>
-                      <span className="px-3 py-1 bg-[#00C29A]/20 text-[#00C29A] text-sm font-medium rounded-full">
-                        {magazines[currentIndex].issue}
-                      </span>
                     </div>
 
                     <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">

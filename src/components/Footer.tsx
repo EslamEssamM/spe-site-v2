@@ -66,7 +66,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-6">
               <img
-                src="/brand/spe-logo-light.png"
+                src="/brand/spe-logo-dark.png"
                 alt="SPE Suez University Student Chapter"
                 className="h-14 mr-3"
               />

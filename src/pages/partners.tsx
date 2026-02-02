@@ -44,6 +44,21 @@ function PartnersPage() {
       {/* Hero Header */}
       <section className="pt-32 pb-16 border-b border-white/10">
         <div className="container mx-auto px-6">
+          {/* Back Button */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8"
+          >
+            <Link to="/">
+              <Button variant="ghost" className="text-white/60 hover:text-white hover:bg-white/10">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Home
+              </Button>
+            </Link>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

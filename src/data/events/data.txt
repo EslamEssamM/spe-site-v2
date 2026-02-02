@@ -8,49 +8,130 @@ Images: Put event logos/photos in /public/events/ folder
 
 EVENT 1:
 Name: PACE 2025
-Full Name: Petroleum Arabian Conference & Exhibition
+Full Name: Petroleum Arabian Conference & Exhibition 2025
 Type: flagship
-Status: upcoming
-Description: The premier petroleum conference bringing together industry leaders, students, and academics.
-Start Date: 2025-11-05
-End Date: 2025-11-07
-Location: AUC, American University in Cairo
+Status: Past
+Description: PACE is the largest student-led technical conference in the Middle East, empowering youth in the upstream oil and gas sector. The event gathers over 400 attendees, offering technical sessions, competitions, internships, and courses to provide both theoretical knowledge and practical experience. PACE fosters collaboration among major SPE student chapters in Egypt and emphasizes career readiness, employability, and exposure to the latest industry technologies, preparing participants to become future leaders and innovators.
+Start Date: 2025-05-07
+End Date: 2025-05-09
+Location: The American University in Cairo
 City: Cairo
-Expected Attendees: 200
+Attendees: 400+
 Logo: pace-logo.webp
-Gallery Images: pace-1.webp, pace-2.webp
+Gallery Images: pace-1.jpg, pace-2.jpg, pace-3.jpg, pace-4.jpg, pace-5.jpg, pace-6.jpg, pace-7.jpg, pace-8.jpg, pace-9.jpg, pace-10.jpg, pace-11.jpg, pace-12.jpg, pace-13.jpg, pace-14.jpg, pace-15.jpg, pace-16.jpg, pace-17.jpg, pace-18.jpg, pace-19.jpg, pace-20.jpg
 
 ---
 
 EVENT 2:
 Name: SSPS
-Full Name: SPE Suez Petroleum Summit
+Full Name: SPE Suez Petroleum Summit 4
 Type: flagship
 Status: past
-Description: A 3-day event designed to expand students' knowledge beyond academic studies.
-Start Date: 2024-11-05
-End Date: 2024-11-07
-Location: Ideaspace Suez, Suez University
+Description: The 4th SPE Suez Petroleum Summit (SSPS 4) is a two-day event at the Engineers Syndicate – Suez, connecting petroleum engineering students with industry experts. It offers hands-on exposure in Drilling, Reservoir, and Production through technical competitions, tests, sessions, yard visits, courses, and SAGA Wesdom licenses, along with discounts on learning platforms. Participants gain practical experience, insights into industry trends, and essential job-market skills, bridging the gap between academics and professional practice.
+Start Date: 2025-10-28
+End Date: 2025-10-29
+Location: Suez Engineer Syndicate
 City: Suez
-Attendees: 300+
+Attendees: 200+
 Logo: ssps.webp
-Gallery Images: ssps-1.webp, ssps-2.webp
+Gallery Images: ssps-1.jpg, ssps-2.jpg, ssps-3.jpg, ssps-4.jpg, ssps-5.jpg, ssps-6.jpg, ssps-7.jpg, ssps-8.jpg
 
 ---
 
 EVENT 3:
-Name: 
-Full Name: 
-Type: (flagship / technical / career / soft-skills / competition / community)
-Status: (upcoming / past)
-Description: 
+Name: SPEak 4
+Full Name: SPEak Summit
+Type: flagship
+Status: past
+Description: SPEak is the largest student-led career event in Egypt, organized by SPE Suez University Student Chapter. It focuses on developing soft skills, technical skills, and job-market readiness through workshops, panels, and networking opportunities. The summit hosts over 200 participants, features 25+ speakers, and provides access to internships, tools, and professional development resources, preparing students for successful careers.
+Start Date: 2025-12-11
+End Date: 2025-12-12
+Location: Conference Hall of the Arab Council for Childhood & Development
+City: Cairo
+Attendees: 200+
+Logo: 
+Gallery Images: speak-1.jpg, speak-2.jpg, speak-3.jpg, speak-4.jpg, speak-5.jpg, speak-6.jpg, speak-7.jpg, speak-8.jpg, speak-9.jpg, speak-10.jpg, speak-11.jpg
+
+
+---
+
+EVENT 4:
+Name: slb Yard Visit
+Full Name: slb Yard Visit
+Type: technical
+Status: past
+Description: SPE Suez organized a field visit to SLB facilities, allowing students to connect classroom theory with real-world oilfield operations. The visit included a safety induction, equipment walkthroughs, and an overview of how advanced technologies such as artificial intelligence and machine learning enhance efficiency and decision-making in the energy sector.
+Start Date: 2025-11-20
+End Date: 2025-11-21
+Location: SLB 6th October Yard
+City: Cairo
+Attendees: 20
+Logo: 
+Gallery Images: slbyard-1.jbg
+
+---
+
+EVENT 5:
+Name: Shell Yard Visit
+Full Name: Shell Yard Visit
+Type: technical
+Status: upcoming
+Description: The Shell yard is a cutting-edge energy facility showcasing real-world petroleum and energy operations. It features advanced equipment, operational systems, and safety protocols, offering insight into drilling, production, and sustainability practices. The site highlights the use of innovative technologies, including digitalization, automation, and data-driven solutions, demonstrating how modern energy companies optimize efficiency, safety, and decision-making in the sector.
 Start Date: 
 End Date: 
-Location: 
-City: 
-Attendees: 
+Location: Shell Egypt
+City: Cairo
+Attendees: 20
 Logo: 
-Gallery Images: 
+Gallery Images: shell-1.jpg
+
+---
+
+EVENT 6:
+Name: Petrocamp 2
+Full Name: Petrocamp Program
+Type: competition
+Status: upcoming
+Description: PetroCamp is an intensive five-week technical program covering Geology & Geophysics, Reservoir Engineering, Production Technology, Drilling Engineering, and Process Engineering. The program combines online sessions, exams, and a final project, culminating in project presentations evaluated by industry professionals and the winners is rewarded by internships and valuable prizes.
+Start Date: 2025-12-14
+End Date: 2026-02-14
+Location: Online
+City: Online
+Attendees: 200+
+Logo: 
+Gallery Images: petrocamp-1.jpg
+
+---
+
+EVENT 7:
+Name: SPE Lab
+Full Name: SPE Lab visit
+Type: technical
+Status: Past
+Description: SPE Lab provides hands-on technical training in petroleum engineering, covering drilling fluids, reservoir analysis, well testing, and simulation software. Participants use industry-standard tools like Ecrin, Eclipse, and Petrel to model reservoirs and simulate production. Conducted in collaboration with SPE BUE, the program combines theory with practical lab work, preparing students for real-world industry challenges.
+Start Date: 2025-02-15
+End Date: 2025-02-19
+Location: The British University in Egypt
+City: Cairo
+Attendees: 60
+Logo: 
+Gallery Images: spelab-1.jpg, spelab-2.jpg, spelab-3.jpg
+
+---
+
+EVENT 8:
+Name: English Club
+Full Name: English Club
+Type: career
+Status: Past
+Description: SPE Suez organized weekly English workshops designed to improve students’ language skills through interactive activities. Participants practiced real-life conversations, grammar application, games, and competitions in small supportive groups, helping them build confidence, fluency, and communication skills.
+Start Date: 2025-10-06
+End Date: 2025-12-16
+Location: Idea Space, Suez University
+City: Suez
+Attendees: 30
+Logo: 
+Gallery Images: englishclub-1.jpg, englishclub-2.jpg, englishclub-3.jpg, englishclub-4.jpg, englishclub-5.jpg, englishclub-6.jpg, englishclub-7.jpg
 
 ---
 

@@ -22,6 +22,16 @@ function DataCampPartnership() {
 
   return (
     <div className="min-h-screen bg-[#050B1A] text-white" id="home">
+      {/* Back Button */}
+      <div className="fixed top-24 left-6 z-40">
+        <Link to="/">
+          <Button variant="ghost" className="text-white/60 hover:text-white hover:bg-white/10 bg-[#050B1A]/50 backdrop-blur-sm">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Button>
+        </Link>
+      </div>
+
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">

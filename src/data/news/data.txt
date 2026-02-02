@@ -9,39 +9,52 @@ Images: Put news images in /public/news/ folder
 NEWS 1:
 Title: DataCamp Partnership - Free Premium Access
 Category: partnership
-Date: 2024-12-01
+Date: 2025-11-15
 Featured: yes
-Summary: SPE Suez members now get free access to DataCamp's entire library of data science courses.
-Full Content: We're excited to announce our partnership with DataCamp providing free premium access to all SPE Suez members...
+Summary: DataCamp Partnership Returns
+Full Content: SPE Suez University Student Chapter is continuing its partnership with DataCamp to provide students with practical, hands-on learning opportunities in data and analytics. This renewed collaboration offers a wider range of courses, guided learning paths, and assessments designed to help students build skills at their own pace and strengthen their foundation in data-driven technologies.
 Image: datacamp-partnership.webp
-Link Label: Claim Access
-Link URL: /data-camp
+Link Label: See more
+Link URL: https://www.facebook.com/share/p/1A23UyP4Xg/
 
 ---
 
 NEWS 2:
-Title: ETS TOEFL Partnership
-Category: partnership
-Date: 2024-11-15
-Featured: no
-Summary: Special TOEFL preparation resources and discounts for SPE Suez members.
-Full Content: 
-Image: ets-partnership.webp
-Link Label: Learn More
-Link URL: /ets
+Title: PetroBowl Competition
+Category: achievement
+Date: 2025-10-23
+Featured: yes
+Summary: Ranked Top 10 Worldwide at PetroBowl 2025
+Full Content: SPE Suez achieved a historic milestone by ranking among the Top 10 teams worldwide at PetroBowl 2025, becoming the only team from the MENA region to reach this level. After the team ranked within the Top 5 in the MENA region and represented Egypt internationally.
+Image: petrobowl-1.jpg
+Link Label: See more
+Link URL: https://www.facebook.com/share/p/17zDEpro6C/
 
 ---
 
 NEWS 3:
-Title: 
-Category: (announcement / competition / partnership / achievement / event-recap / opportunity)
-Date: 
-Featured: (yes / no)
-Summary: 
-Full Content: 
-Image: 
-Link Label: 
-Link URL: 
+Title: ADIPEC Participation
+Category: achievement
+Date: 2025-11-3
+Featured: yes
+Summary: Participated in ADIPEC Conference
+Full Content: SPE Suez University Student Chapter proudly represented Suez University at the 2025 SPE ADIPEC University Program in Abu Dhabi, UAE (3–5 November). The program provided an invaluable opportunity for learning, innovation, and global exposure.
+Image: adipec-1.jpg, adipec-2.jpg, adipec-3.jpg
+Link Label: See more
+Link URL: https://www.facebook.com/share/p/1KYLtBdA3T/
+
+---
+
+NEWS 4:
+Title: ATCE Participation
+Category: achievement
+Date: 2025-10-20
+Featured: yes
+Summary: Participated in ATCE Conference
+Full Content: SPE Suez University Student Chapter proudly participated in the 2025 SPE ATCE, gaining exposure to the latest innovations, technologies, and best practices in the energy industry. The experience provided opportunities for professional development, networking with industry leaders, and learning from global experts. Participation in ATCE strengthened our chapter’s commitment to technical excellence and collaboration while reinforcing SPE’s mission of connecting minds, inspiring change, and shaping the future of energy.
+Image: atce-1.jpg, atce-2.jpg
+Link Label: See more
+Link URL: https://www.facebook.com/share/p/14Qg2vsoeqf/
 
 ---
 
