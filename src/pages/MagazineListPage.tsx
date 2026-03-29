@@ -237,7 +237,6 @@ export default function MagazinesList() {
                       
                       <div className="flex items-center justify-between text-xs text-gray-500 mb-4 pt-3 border-t border-gray-800">
                         <span>{magazine.pageCount} pages</span>
-                        <span>{magazine.issue}</span>
                       </div>
                       
                       <a 

@@ -15,6 +15,7 @@ import { Route as NewsRouteImport } from './routes/news'
 import { Route as MagazinesRouteImport } from './routes/magazines'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as EtsRouteImport } from './routes/ets'
+import { Route as DrillingBookRouteImport } from './routes/drilling-book'
 import { Route as DataCampRouteImport } from './routes/data-camp'
 import { Route as AwardsRouteImport } from './routes/awards'
 import { Route as AboutRouteImport } from './routes/about'
@@ -51,6 +52,11 @@ const EtsRoute = EtsRouteImport.update({
   path: '/ets',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DrillingBookRoute = DrillingBookRouteImport.update({
+  id: '/drilling-book',
+  path: '/drilling-book',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DataCampRoute = DataCampRouteImport.update({
   id: '/data-camp',
   path: '/data-camp',
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/awards': typeof AwardsRoute
   '/data-camp': typeof DataCampRoute
+  '/drilling-book': typeof DrillingBookRoute
   '/ets': typeof EtsRoute
   '/events': typeof EventsRoute
   '/magazines': typeof MagazinesRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/awards': typeof AwardsRoute
   '/data-camp': typeof DataCampRoute
+  '/drilling-book': typeof DrillingBookRoute
   '/ets': typeof EtsRoute
   '/events': typeof EventsRoute
   '/magazines': typeof MagazinesRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/awards': typeof AwardsRoute
   '/data-camp': typeof DataCampRoute
+  '/drilling-book': typeof DrillingBookRoute
   '/ets': typeof EtsRoute
   '/events': typeof EventsRoute
   '/magazines': typeof MagazinesRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/awards'
     | '/data-camp'
+    | '/drilling-book'
     | '/ets'
     | '/events'
     | '/magazines'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/awards'
     | '/data-camp'
+    | '/drilling-book'
     | '/ets'
     | '/events'
     | '/magazines'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/awards'
     | '/data-camp'
+    | '/drilling-book'
     | '/ets'
     | '/events'
     | '/magazines'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AwardsRoute: typeof AwardsRoute
   DataCampRoute: typeof DataCampRoute
+  DrillingBookRoute: typeof DrillingBookRoute
   EtsRoute: typeof EtsRoute
   EventsRoute: typeof EventsRoute
   MagazinesRoute: typeof MagazinesRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EtsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/drilling-book': {
+      id: '/drilling-book'
+      path: '/drilling-book'
+      fullPath: '/drilling-book'
+      preLoaderRoute: typeof DrillingBookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/data-camp': {
       id: '/data-camp'
       path: '/data-camp'
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AwardsRoute: AwardsRoute,
   DataCampRoute: DataCampRoute,
+  DrillingBookRoute: DrillingBookRoute,
   EtsRoute: EtsRoute,
   EventsRoute: EventsRoute,
   MagazinesRoute: MagazinesRoute,

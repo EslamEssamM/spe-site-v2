@@ -6,6 +6,7 @@ import HighBoardSectionComponent from "@/components/sections/HighBoard";
 import FlagshipEventsSection from "@/components/sections/FlagshipEvents";
 import ActivitiesSection from "@/components/sections/Activities";
 import EnhancedMagazinesSectionComponent from "@/components/sections/Magazines";
+import DrillingBookSection from "@/components/sections/DrillingBook";
 import Awards from "@/components/sections/Awards";
 import { NewsSectionComponent } from "@/components/sections/News";
 import AboutSection from "@/components/sections/About";
@@ -50,6 +51,10 @@ export default function HomePage() {
 
         <section id="magazines">
           <EnhancedMagazinesSectionComponent />
+        </section>
+
+        <section id="drilling-book">
+          <DrillingBookSection />
         </section>
 
         <section id="sponsors">

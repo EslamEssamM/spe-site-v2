@@ -280,7 +280,7 @@ export const magazines: Magazine[] = [
     description:
       "Explores the role of leadership and volunteering in the energy sector, featuring interviews with industry leaders and insights into digital optimization solutions.",
     editor: "SPE Team",
-    pageCount: 23,
+    pageCount: 44,
     color: "from-purple-600 to-blue-700",
   },
   {
