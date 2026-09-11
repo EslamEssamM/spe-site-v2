@@ -11,32 +11,37 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/Button";
 import { X, ExternalLink, ChevronRight, BookOpen, Sparkles } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const magazineData = {
-  id: 23,
-  title: "Criterion - Issue 6",
-  year: 2025,
-  cover: "/pdfs/Criterion/covers/Criterion6.jpeg",
-  pdfUrl: "/pdfs/Criterion/Criterion6.pdf",
+  id: 24,
+  title: "Echo - Issue 18",
+  year: 2026,
+  cover: "/pdfs/Echo/covers/ECHO18.webp",
+  pdfUrl: "/pdfs/Echo/ECHO18.pdf",
   description:
-    "A leadership and career growth special issue exploring career development, leadership, energy innovations like geothermal expansion, AI-driven business strategies, and professional interviews for the next generation of energy and business professionals.",
+    "Brings together Exclusive Leader Insights, offering a rare look into the perspectives of top executives, global directors, and ministry leaders shaping the energy sector, alongside Success and Inspiration, which captures real stories of perseverance, innovation, and achievement. It is further enriched by Tech & Innovation Highlights, featuring five in-depth articles on AI, autonomous drilling, and engineering breakthroughs driving the future of energy.",
   editor: "SPE Team",
-  pageCount: 40,
+  pageCount: 44,
 };
 
 export function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const hasSeenAnnouncement = localStorage.getItem("hasSeenCriterion6Announcement");
+    const hasSeenAnnouncement = localStorage.getItem("hasSeenEcho18Announcement");
     if (!hasSeenAnnouncement) {
-      setIsOpen(true);
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+      }, 2500);
+
+      return () => clearTimeout(timer);
     }
   }, []);
 
   const handleClose = () => {
     setIsOpen(false);
-    localStorage.setItem("hasSeenCriterion6Announcement", "true");
+    localStorage.setItem("hasSeenEcho18Announcement", "true");
   };
 
   return (
@@ -65,7 +70,7 @@ export function AnnouncementModal() {
                     className="w-full h-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F1629] via-[#0F1629]/20 to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#0F1629]" />
-                  
+
                   {/* New Badge */}
                   <motion.div
                     initial={{ scale: 0, rotate: -12 }}
@@ -102,9 +107,9 @@ export function AnnouncementModal() {
                       <ul className="mb-4 sm:mb-6 space-y-2 sm:space-y-3 hidden xs:block">
                         {[
                           `${magazineData.pageCount} pages of insightful content`,
-                          "Career development and leadership insights",
-                          "Energy innovations including geothermal expansion",
-                          "AI-driven business strategies",
+                          "Exclusive leader insights from top executives",
+                          "Success and inspiration from real stories",
+                          "Tech and innovation highlights across 5 deep-dive articles",
                         ].map((item, index) => (
                           <motion.li
                             key={index}
@@ -139,17 +144,17 @@ export function AnnouncementModal() {
                         >
                           Remind me later
                         </Button>
-                        <a
-                          href={magazineData.pdfUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <Link
+                          // @ts-ignore
+                          to={`/magazine/${magazineData.id}`}
                           onClick={handleClose}
+                          
                           className="inline-flex items-center justify-center gap-2 bg-[#0D4C92] hover:bg-[#005CB9] text-white font-semibold transition-colors px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm"
                         >
                           <BookOpen className="w-4 h-4" />
                           Read Now
                           <ExternalLink className="w-4 h-4" />
-                        </a>
+                        </Link>
                       </DialogFooter>
                     </motion.div>
                   </DialogDescription>

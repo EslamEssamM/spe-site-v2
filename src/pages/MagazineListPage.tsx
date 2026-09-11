@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/Button";
-import { BookOpen, ArrowLeft, ExternalLink, Sparkles, Filter } from "lucide-react";
+import { ArrowLeft, ExternalLink, Sparkles, Filter, BookOpenCheck } from "lucide-react";
 import { magazines } from "@/data/magazines";
 import { Link } from "@tanstack/react-router";
 
@@ -109,16 +109,15 @@ export default function MagazinesList() {
                     {latestMagazine.description}
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a
-                      href={latestMagazine.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      // @ts-ignore
+                      to={`/magazine/${latestMagazine.id}`}
                     >
                       <Button className="bg-white text-[#0D4C92] hover:bg-white/90 font-semibold rounded-xl px-6">
-                        <BookOpen className="w-4 h-4 mr-2" />
+                        <BookOpenCheck className="w-4 h-4 mr-2" />
                         Read Now
                       </Button>
-                    </a>
+                    </Link>
                     <a
                       href={latestMagazine.pdfUrl}
                       target="_blank"
@@ -127,7 +126,7 @@ export default function MagazinesList() {
                     >
                       <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 rounded-xl px-6">
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        Download PDF
+                        Download
                       </Button>
                     </a>
                   </div>
@@ -239,17 +238,18 @@ export default function MagazinesList() {
                         <span>{magazine.pageCount} pages</span>
                       </div>
                       
-                      <a 
-                        href={magazine.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        <Button className="w-full bg-[#0D4C92] hover:bg-[#005CB9] text-white border-0 rounded-xl py-3 text-sm font-semibold group/btn">
-                          <BookOpen className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
-                          Read Magazine
-                        </Button>
-                      </a>
+                      <div className="flex gap-2">
+                        <Link
+                          // @ts-ignore
+                          to={`/magazine/${magazine.id}`}
+                          className="w-full"
+                        >
+                          <Button className="w-full bg-gradient-to-r from-[#0D4C92] to-[#005CB9] hover:from-[#005CB9] hover:to-[#0D4C92] text-white border-0 rounded-xl py-3 text-sm font-semibold group/btn">
+                            <BookOpenCheck className="w-4 h-4 mr-2 transition-transform group-hover/btn:rotate-12" />
+                            Read Now
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </motion.div>

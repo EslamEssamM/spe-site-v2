@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useAnimation, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, BookOpen, ArrowRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, BookOpen, ArrowRight, BookOpenCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { topMagazines as magazines } from "@/data/magazines";
 
@@ -102,10 +102,10 @@ export default function PerfectedMagazinesSectionWithParticles() {
                       <Link
                         // @ts-ignore
                         to={`/magazine/${magazines[currentIndex].id}`}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#0D4C92] hover:bg-[#0D4C92]/80 text-white rounded-xl font-semibold transition-colors duration-200"
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0D4C92] to-[#005CB9] hover:from-[#005CB9] hover:to-[#0D4C92] text-white rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-[#0D4C92]/20"
                       >
-                        <BookOpen className="w-4 h-4" />
-                        Read Online
+                        <BookOpenCheck className="w-4 h-4" />
+                        Flipbook Reader
                       </Link>
                       <a
                         href={magazines[currentIndex].pdfUrl}
@@ -114,7 +114,7 @@ export default function PerfectedMagazinesSectionWithParticles() {
                         className="inline-flex items-center gap-2 px-6 py-3 border border-gray-700 hover:border-gray-600 text-white rounded-xl font-semibold transition-colors duration-200"
                       >
                         <ExternalLink className="w-4 h-4" />
-                        Download PDF
+                        Download
                       </a>
                     </div>
                   </div>

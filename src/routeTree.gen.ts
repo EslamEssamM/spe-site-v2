@@ -21,6 +21,7 @@ import { Route as AwardsRouteImport } from './routes/awards'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MagazineIdRouteImport } from './routes/magazine.$id'
+import { Route as FlipbookIdRouteImport } from './routes/flipbook.$id'
 
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
@@ -82,6 +83,11 @@ const MagazineIdRoute = MagazineIdRouteImport.update({
   path: '/magazine/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FlipbookIdRoute = FlipbookIdRouteImport.update({
+  id: '/flipbook/$id',
+  path: '/flipbook/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
   '/team': typeof TeamRoute
+  '/flipbook/$id': typeof FlipbookIdRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 export interface FileRoutesByTo {
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
   '/team': typeof TeamRoute
+  '/flipbook/$id': typeof FlipbookIdRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 export interface FileRoutesById {
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/news': typeof NewsRoute
   '/partners': typeof PartnersRoute
   '/team': typeof TeamRoute
+  '/flipbook/$id': typeof FlipbookIdRoute
   '/magazine/$id': typeof MagazineIdRoute
 }
 export interface FileRouteTypes {
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/partners'
     | '/team'
+    | '/flipbook/$id'
     | '/magazine/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/partners'
     | '/team'
+    | '/flipbook/$id'
     | '/magazine/$id'
   id:
     | '__root__'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/partners'
     | '/team'
+    | '/flipbook/$id'
     | '/magazine/$id'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +195,7 @@ export interface RootRouteChildren {
   NewsRoute: typeof NewsRoute
   PartnersRoute: typeof PartnersRoute
   TeamRoute: typeof TeamRoute
+  FlipbookIdRoute: typeof FlipbookIdRoute
   MagazineIdRoute: typeof MagazineIdRoute
 }
 
@@ -272,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MagazineIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/flipbook/$id': {
+      id: '/flipbook/$id'
+      path: '/flipbook/$id'
+      fullPath: '/flipbook/$id'
+      preLoaderRoute: typeof FlipbookIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -287,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsRoute: NewsRoute,
   PartnersRoute: PartnersRoute,
   TeamRoute: TeamRoute,
+  FlipbookIdRoute: FlipbookIdRoute,
   MagazineIdRoute: MagazineIdRoute,
 }
 export const routeTree = rootRouteImport

@@ -295,6 +295,18 @@ export const magazines: Magazine[] = [
     pageCount: 40,
     color: "from-indigo-500 to-cyan-600",
   },
+  {
+    id: 24,
+    title: "Echo - Issue 18",
+    year: 2026,
+    cover: "/pdfs/Echo/covers/ECHO18.webp",
+    pdfUrl: "/pdfs/Echo/ECHO18.pdf",
+    description:
+      "Brings together Exclusive Leader Insights, offering a rare look into the perspectives of top executives, global directors, and ministry leaders shaping the energy sector, alongside Success and Inspiration, which captures real stories of perseverance, innovation, and achievement. It is further enriched by Tech & Innovation Highlights, featuring five in-depth articles on AI, autonomous drilling, and engineering breakthroughs driving the future of energy.",
+    editor: "SPE Team",
+    pageCount: 44,
+    color: "from-cyan-600 to-blue-700",
+  },
 ];
 
 // top magazins (5) from end of the array

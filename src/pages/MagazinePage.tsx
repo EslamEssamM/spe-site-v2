@@ -12,6 +12,7 @@ import {
   ExternalLink,
   User,
   FileText,
+  BookOpenCheck,
 } from "lucide-react";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -202,6 +203,13 @@ export default function MagazineReader() {
           {/* Actions */}
           {!pdfError && !loading && magazine && (
             <div className="flex flex-wrap justify-center gap-4 mb-8">
+              {/* @ts-ignore - dynamic route params */}
+              <Link to={`/magazine/${id}`}>
+                <Button className="bg-gradient-to-r from-[#0D4C92] to-[#005CB9] hover:from-[#005CB9] hover:to-[#0D4C92] text-white rounded-xl px-6 py-4 shadow-lg shadow-[#0D4C92]/20">
+                  <BookOpenCheck className="w-4 h-4 mr-2" />
+                  Read Now
+                </Button>
+              </Link>
               <a href={magazine.pdfUrl} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-xl px-6 py-4">
                   <ExternalLink className="w-4 h-4 mr-2" />
@@ -209,7 +217,7 @@ export default function MagazineReader() {
                 </Button>
               </a>
               <a href={magazine.pdfUrl} target="_blank" rel="noopener noreferrer" download>
-                <Button className="bg-[#0D4C92] hover:bg-[#005CB9] text-white rounded-xl px-6 py-4">
+                <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-xl px-6 py-4">
                   <Download className="w-4 h-4 mr-2" />
                   Download PDF
                 </Button>
