@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Download, ArrowRight, Sparkles, FileText, User } from "lucide-react";
+import { BookOpen, ArrowRight, Sparkles, FileText, User } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { latestBook } from "@/data/books";
 
@@ -103,14 +103,6 @@ export default function DrillingBookSection() {
                     <BookOpen className="w-4 h-4" />
                     Read Online
                   </Link>
-                  <a
-                    href={latestBook.pdfUrl}
-                    download
-                    className="inline-flex items-center gap-2 px-6 py-3 border border-gray-700 hover:border-amber-500/50 text-white rounded-xl font-semibold transition-colors duration-200"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download PDF
-                  </a>
                 </div>
               </div>
             </div>

@@ -199,7 +199,13 @@ export default function FlipbookViewer() {
   }, []);
 
   useEffect(() => {
-    const handleResize = () => setViewportWidth(window.innerWidth);
+    const handleResize = () => {
+      const nextWidth = window.innerWidth;
+      // Ignore tiny mobile viewport width changes that happen during gestures/UI chrome animation.
+      setViewportWidth((prevWidth) =>
+        Math.abs(prevWidth - nextWidth) > 8 ? nextWidth : prevWidth
+      );
+    };
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -249,6 +255,7 @@ export default function FlipbookViewer() {
   };
 
   const dimensions = getFlipbookDimensions();
+  const isMobileViewport = viewportWidth < 768;
 
   if (!magazine && !loading && !pdfError) {
     return (
@@ -491,7 +498,7 @@ export default function FlipbookViewer() {
                       ref={flipBookRef}
                       width={dimensions.width}
                       height={dimensions.height}
-                      size="stretch"
+                      size={isMobileViewport ? "fixed" : "stretch"}
                       minWidth={260}
                       maxWidth={800}
                       minHeight={360}
@@ -507,7 +514,7 @@ export default function FlipbookViewer() {
                       flippingTime={600}
                       usePortrait={true}
                       startZIndex={0}
-                      autoSize={true}
+                      autoSize={!isMobileViewport}
                       clickEventForward={true}
                       useMouseEvents={true}
                       swipeDistance={30}

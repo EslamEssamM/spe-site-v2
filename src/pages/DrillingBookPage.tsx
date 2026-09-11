@@ -6,10 +6,8 @@ import { Button } from "@/components/ui/Button";
 import {
   ChevronLeft,
   ChevronRight,
-  Download,
   ArrowLeft,
   AlertCircle,
-  ExternalLink,
   User,
   FileText,
   BookOpen,
@@ -167,12 +165,6 @@ export default function DrillingBookPage() {
                       Read Now
                     </Button>
                   </a>
-                  <a href={book.pdfUrl} download>
-                    <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-xl px-8 py-6 text-lg">
-                      <Download className="w-5 h-5 mr-2" />
-                      Download PDF
-                    </Button>
-                  </a>
                 </motion.div>
               </div>
 
@@ -268,7 +260,7 @@ export default function DrillingBookPage() {
             className="text-center mb-8"
           >
             <h2 className="text-3xl font-bold text-white mb-4">Read Online</h2>
-            <p className="text-white/60">Browse through the book right here, or download for offline reading</p>
+            <p className="text-white/60">Browse through the book right here in view-only mode</p>
           </motion.div>
 
           {/* Navigation Controls */}
@@ -343,31 +335,6 @@ export default function DrillingBookPage() {
             </div>
           </div>
 
-          {/* Actions */}
-          {!pdfError && !loading && (
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <a href={book.pdfUrl} target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="outline"
-                  className="border-white/20 text-white hover:bg-white/10 rounded-xl px-6 py-4"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Open in Browser
-                </Button>
-              </a>
-              <a
-                href={book.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                download
-              >
-                <Button className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl px-6 py-4">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download PDF
-                </Button>
-              </a>
-            </div>
-          )}
         </div>
       </section>
 
